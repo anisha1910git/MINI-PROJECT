@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="contact.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> 
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuButton = document.querySelector('.open-menu');
+            const closeButton = document.querySelector('.close-menu');
+            const menu = document.querySelector('.menu');
+
+            menuButton.addEventListener('click', function () {
+                menu.style.display = 'flex';
+            });
+
+            closeButton.addEventListener('click', function () {
+                menu.style.display = 'none';
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="navbar" style="padding-top:0px; padding-bottom: 10px; margin-left: 0px; margin-right:0px; display: flex; margin-bottom:0; justify-content: space-between;">
+        <div class="title" style="margin-top: 0px; margin-bottom: 10px;margin-left: 0px; background-color: #333;">
+            <img src="logo.png" style="height: 60px; " alt="logo">
+        </div>
+
+        <div class="menu" style="display: flex;justify-content: end; padding-bottom: 10px; padding-right: 0; margin-right: 0;"> 
+            <div class="nav" style="color: rgb(118, 114, 114);cursor: pointer; padding:20px; padding-bottom: 0px;"><a href="homepg.html">Home</a></div>
+            <div class="nav" style="color: rgb(118, 114, 114);cursor: pointer; padding:20px; padding-bottom: 0px;"><a href="solo.html">Packages</a></div>
+            <div class="nav" style="color: rgb(118, 114, 114);cursor: pointer; padding:20px; padding-bottom: 0px; "><a href="aboutUs.html">AboutUs</a></div>
+            <div class="nav" style="color: rgb(118, 114, 114);cursor: pointer; padding:20px ; padding-bottom: 0px; "><a href="gallery.html">Gallery</a></div>
+            <div class="nav" style="color: rgb(118, 114, 114);cursor: pointer; padding:20px; padding-bottom: 0px;"><a href="contact.html">ContactUs</a></div>
+          
+        </div>
+        <label for="check" class="open-menu"><i class="fa fa-bars" style="color: white;"></i></label> 
+    </div>
+    <hr>
+
+    <!--main body-->
+    <section class="contact">
+        <div class="content">
+            <h2>Leave us a Message</h2>
+            <p>Feel free to reach out to us. Your inquiries are important to us, and we're here to assist you on your journey</p>
+        </div>
+        <div class="container">
+            <div class="contactInfo">
+                <div class="box">
+                    <div class="icon"><a href="https://www.google.com/maps/place/Vivekanand+Education+Society's+Institute+Of+Technology+(VESIT)/@19.0451164,72.8864056,17z/data=!4m6!3m5!1s0x3be7c8add9569a29:0xb7ad04bf9a389df7!8m2!3d19.0451113!4d72.8889805!16zL20vMDV6MXM0?entry=ttu"><i class="fa fa-map-marker" style="color: black;"></i></a></div>
+                    <div class="text">
+                        <h3>Address</h3>
+                        <p>VESIT<br> Collector's Colony<br> Chembur</p>
+                    </div>
+                </div>
+
+                <div class="box">
+                    <div class="icon"><i class="fa fa-envelope"></i></div>
+                    <div class="text">
+                        <h3>Email</h3>
+                        <p>travelhub@ves.ac.in</p>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="icon"><i class="fa fa-phone"></i></div>
+                    <div class="text">
+                        <h3>Phone</h3>
+                        <p>32749184618</p>
+                    </div>
+                </div>
+            </div>
+            <div class="contactForm">
+                <form action="">
+                    <h2>Connect with us</h2>
+                    <div class="inputBox">
+                        <input type="text" name="" required="required">
+                        <span>Full Name</span>
+                    </div>
+                    <div class="inputBox">
+                        <input type="text" name="" required="required">
+                        <span>Email</span>
+                    </div>
+                    <div class="inputBox">
+                        <input type="tel"  name="" required="required">
+                        <span>phone number</span>
+                    </div>
+                    <div class="inputBox">
+                        <textarea required="required"></textarea>
+                        <span>Type your message here</span>
+                    </div>
+                    <div class="inputBox">
+                        <input type="submit" name="" value="Send">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+   
+    <!-- footer section -->
+    <section class="footer">
+        <div class="box-container">
+            <div class="box">
+                <h3>Quick Links</h3>
+                <a href="homepg.html"><i class="fa fa-angle-right"></i>Home</a>
+                <a href="aboutUs.html"><i class="fa fa-angle-right"></i>About</a>
+                <a href="packages.html"><i class="fa fa-angle-right"></i>Packages</a>
+                <a href="gallery.html"><i class="fa fa-angle-right"></i>Gallery</a>
+                <a href="contactUs.html"><i class="fa fa-angle-right"></i>Contact</a>
+            </div>
+
+            <div class="box">
+                <h3>Extra Links</h3>
+                <a href="#"><i class="fa fa-angle-right"></i>ask questions</a>
+                <a href="#"><i class="fa fa-angle-right"></i>faq</a>
+                <a href="#"><i class="fa fa-angle-right"></i>privacy policy</a>
+                <a href="#"><i class="fa fa-angle-right"></i>terms of use</a>
+            </div>
+
+            <div class="box">
+                <h3>Contact info</h3>
+                <a href="#"><i class="fa fa-phone"></i>428416212</a>
+                <a href="#"><i class="fa fa-phone"></i>483481292</a>
+                <a href="#"><i class="fa fa-envelope"></i>travelhub@ves.ac.in</a>
+                <a href="#"><i class="fa fa-map"></i>mumbai,India - 400094</a>
+            </div>
+
+            <div class="box">
+                <h3>Follow Us</h3>
+                <a href="#"><i class="fa fa-facebook-f"></i>facebook</a>
+                <a href="#"><i class="fa fa-twitter"></i>twitter</a>
+                <a href="#"><i class="fa fa-instagram"></i>instagram</a>
+                <a href="#"><i class="fa fa-linkedin"></i>linkedin</a>
+            </div>
+        </div>
+
+        <div class="credit">Created by <span> Team TravelHub</span> | all rights reserved</div>
+    </section>
+
+</body>
+</html>

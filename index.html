@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Hub - Your Travel Planner</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Your existing CSS styles here */
+
+        /* Testimonials Section Styles */
+        .testimonials {
+            background: #f7f7f7;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .testimonial-container {
+            display: flex;
+            overflow: hidden;
+            margin: 20px 0;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            background: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .testimonial-card {
+            width: 100%;
+            flex-shrink: 0;
+            transition: transform 0.5s;
+            padding: 20px;
+            text-align: left;
+        }
+
+        .testimonial-card h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .testimonial-card p {
+            font-size: 16px;
+            margin: 10px 0;
+            color: #555;
+        }
+
+        .testimonial-arrow {
+            cursor: pointer;
+            font-size: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #007BFF;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .testimonial-arrow-left {
+            left: 0;
+        }
+
+        .testimonial-arrow-right {
+            right: 0;
+        }
+
+        .testimonial-arrow:hover {
+            color: #0056b3;
+        }
+
+        /* Testimonial Dialog Styles */
+        .testimonial-dialog-container {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 2;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            display: flex;
+        }
+
+        .testimonial-dialog {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 80%;
+            text-align: center;
+        }
+
+        .testimonial-dialog h2 {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .testimonial-dialog input[type="text"],
+        .testimonial-dialog textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        .testimonial-dialog .testimonial-submit-button,
+        .testimonial-dialog .testimonial-close-button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px;
+            font-size: 16px;
+        }
+
+        .testimonial-dialog .testimonial-close-button {
+            background-color: #ff0000;
+        }
+        #give-testimonial-button{
+            font-size:15px;
+            font-family:Arial;
+            width:140px;
+            height:50px;
+            border-width:1px;
+            color:#fff;
+            border-color:#599bb3;
+            font-weight:bold;
+            border-top-left-radius:8px;
+            border-top-right-radius:8px;
+            border-bottom-left-radius:8px;
+            border-bottom-right-radius:8px;
+            box-shadow: 0px 10px 14px -7px #276873;
+            text-shadow: 0px 1px 0px #3d768a;
+            background:#161F6D;
+        }
+        
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="title">
+                <h1>Travel Hub</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#" class="nav-button">Home</a></li>
+                <li><a href="solo.html" class="nav-button">Packages</a></li>
+                <li><a href="#" class="nav-button">Gallery</a></li>
+                <li><a href="aboutUs.html" class="nav-button">About Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section class="hero">
+        <div class="hero-content">
+            <img class="logo" src="logo.png" alt="logo 1">
+            <h2>Your Ultimate Travel Planner</h2>
+            <p>Discover amazing travel packages</p>
+        </div>
+    </section>
+
+    <div class="package-grid">
+        <div class="services">
+            <img src="https://source.unsplash.com/1600x1000/?Travel images" alt="service_1">
+            <h2>Extensive Tour Listings</h2>
+            <p>Explore Discover Countless Tour Options</p>
+        </div>
+        <div class="services">
+            <img src="https://source.unsplash.com/1600x1000/?user reviews" alt="service_2">
+            <h2>User Reviews and Ratings</h2>
+            <p>Make informed decisions by reading authentic reviews from fellow travelers who've been there and done that.</p>
+        </div>
+        <div class="services">
+            <img src="https://source.unsplash.com/1600x1000/?customer" alt="service_3">
+            <h2>Customer Support</h2>
+            <p>We've Got Your Back: 24/7 Support for Your Travel Needs</p>
+        </div>
+    </div>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <h2>What Our Customers Say</h2>
+        <div class="testimonial-container">
+            <div class="testimonial-card">
+                <h3>Testimonial 1</h3>
+                <p>Amazing service! I had a fantastic trip with Travel Hub. Highly recommended.</p>
+            </div>
+            <div class="testimonial-card">
+                <h3>Testimonial 2</h3>
+                <p>Great travel options and exceptional customer support. I'm a happy customer!</p>
+            </div>
+            <div class="testimonial-card">
+                <h3>Testimonial 3</h3>
+                <p>Travel Hub made my dream vacation a reality. Thank you for the incredible experience.</p>
+            </div>
+            <div class="testimonial-arrow testimonial-arrow-left" id="prev">&#9665;</div>
+            <div class="testimonial-arrow testimonial-arrow-right" id="next">&#9655;</div>
+        </div>
+        <button id="give-testimonial-button">Give Testimonial</button>
+    </section>
+
+    <!-- Testimonial Dialog -->
+    <div class="testimonial-dialog-container" id="testimonial-dialog-container">
+        <div class="testimonial-dialog">
+            <h2>Give Testimonial</h2>
+            <input type="text" id="testimonial-title" placeholder="Title">
+            <textarea id="testimonial-content" placeholder="Your Testimonial"></textarea>
+            <button class="testimonial-submit-button" id="submit-testimonial">Submit</button>
+            <button class="testimonial-close-button" id="close-testimonial-dialog">Close</button>
+        </div>
+    </div>
+
+    <footer>
+        <section class="contact">
+            <h2>Contact Us</h2>
+            <p>If you have any questions or need assistance, feel free to reach out.</p>
+            <img class="socials" src="facebook.png" alt="social_1">
+            <img class="socials" src="instagram.png" alt="social_2">
+            <img class="socials" src="linkedin.png" alt="social_3">
+            <img class="socials" src="whatsapp.png" alt="social_4">
+        </section>
+        <p class="footer_end">&copy; 2023 Travel Hub</p>
+    </footer>
+
+    <script>
+        const testimonialCards = document.querySelectorAll('.testimonial-card');
+        const prevButton = document.getElementById('prev');
+        const nextButton = document.getElementById('next');
+        const giveTestimonialButton = document.getElementById('give-testimonial-button');
+        const testimonialDialogContainer = document.getElementById('testimonial-dialog-container');
+        const closeTestimonialDialogButton = document.getElementById('close-testimonial-dialog');
+        const submitTestimonialButton = document.getElementById('submit-testimonial');
+        let currentIndex = 0;
+    
+        function showTestimonial(index) {
+            testimonialCards.forEach(card => card.style.transform = `translateX(-${index * 100}%)`);
+        }
+    
+        prevButton.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + testimonialCards.length) % testimonialCards.length;
+            showTestimonial(currentIndex);
+        });
+    
+        nextButton.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % testimonialCards.length;
+            showTestimonial(currentIndex);
+        });
+    
+        giveTestimonialButton.addEventListener('click', () => {
+            testimonialDialogContainer.style.display = 'flex';
+        });
+    
+        closeTestimonialDialogButton.addEventListener('click', () => {
+            testimonialDialogContainer.style.display = 'none';
+        });
+    
+        submitTestimonialButton.addEventListener('click', () => {
+            const testimonialTitle = document.getElementById('testimonial-title').value;
+            const testimonialContent = document.getElementById('testimonial-content').value;
+            if (testimonialTitle.trim() !== '' && testimonialContent.trim() !== '') {
+                currentIndex = testimonialCards.length;
+                showTestimonial(currentIndex);
+                testimonialDialogContainer.style.display = 'none';
+                document.getElementById('testimonial-title').value = '';
+                document.getElementById('testimonial-content').value = '';
+                const newTestimonialCard = document.createElement('div');
+                newTestimonialCard.className = 'testimonial-card';
+                newTestimonialCard.innerHTML = `
+                    <h3>${testimonialTitle}</h3>
+                    <p>${testimonialContent}</p>
+                `;
+                document.querySelector('.testimonial-container').appendChild(newTestimonialCard);
+            }
+        });
+    </script>
+    
+</body>
+</html>

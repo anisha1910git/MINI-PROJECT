@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gallery</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #001f3f;
+            color: #fff;
+            padding: 10px;
+            display: flex;
+            justify-content: space between;
+            align-items: center;
+        }
+
+        .title {
+            flex: 1;
+        }
+
+        .nav-links {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .nav-button {
+            text-decoration: none;
+            color: #fff;
+            margin: 0 15px;
+        }
+
+        /* Gallery Styles */
+        .gallery-header {
+            text-align: center;
+            font-size: 36px;
+            font-weight: bold;
+            margin-top: 20px;
+            animation: typing 2s steps(10, end), blink-caret 0.5s step-end infinite;
+        }
+
+        .gallery-container {
+            display: flex;
+       
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        /* .image-row {
+            display: flex;
+            justify-content: center;
+        } */
+
+        .image {
+            flex: 0 1 calc(33.33% - 20px); /* Three images in the first row */
+            text-align: center;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 10px; /* Uniform padding and orientation */
+        }
+
+        .image img {
+            width: 100%;
+            height: 150px; /* Set a fixed height for the images */
+        }
+
+        /* Read Blogs Styles */
+        .blogs-container {
+            text-align: center;
+            margin-top: 20px;
+            background-color: #f7f7f7;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .blogs-header {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .blog-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .blog-links li {
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .delete-blog-button,
+        .update-blog-button {
+            background-color: #ff5555;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-left: 10px;
+        }
+
+        .delete-blog-button,
+        .update-blog-button {
+            display: none;
+        }
+
+        .add-blog-button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .section-divider {
+            height: 30px; /* Space between sections */
+        }
+
+        /* Blog Dialog Box Styles */
+        .add-blog-dialog {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .add-blog-dialog h2 {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .add-blog-dialog input[type="text"],
+        .add-blog-dialog textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .add-blog-dialog button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="title">
+                <h1>Travel Hub</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-button">Home</a></li>
+                <li><a href="solo.html" class="nav-button">Packages</a></li>
+                <li><a href="/gallery.html" class="nav-button">Gallery</a></li>
+                <li><a href="aboutUs.html" class="nav-button">About Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="gallery-header">Gallery</div>
+    <div class="gallery-container">
+        <div class="image-row">
+            <!-- Mumbai Images -->
+            <div class="image">
+                <img src="Mumbai.jpg" alt="Mumbai Images">
+            </div>
+            <div class="image">
+                <img src="Mumbai1.jpg" alt="Mumbai Images">
+            </div>
+            <div class="image">
+                <img src="Mumbai3.jpg" alt="Mumbai Images">
+            </div>
+        </div>
+        <div class="section-divider"></div> <!-- Space between sections -->
+        <div class="image-row">
+            <!-- Pune Images -->
+            <div class="image">
+                <img src="pune1.jpg" alt="Pune Images">
+            </div>
+            <div class "image">
+                <img src="pune2.jpg" alt="Pune Images">
+            </div>
+            <div class="image">
+                <img src="pune3.jpg" alt="Pune Images">
+            </div>
+        </div>
+        <div class="section-divider"></div> <!-- Space between sections -->
+        <div class="image-row">
+            <!-- Nagpur Images -->
+            <div class="image">
+                <img src="nagpur.jpg" alt="Nagpur Images">
+            </div>
+            <div class="image">
+                <img src="nagpur1.jpg" alt="Nagpur Images">
+            </div>
+            <div class="image">
+                <img src="nagpur2.jpg" alt="Nagpur Images">
+            </div>
+        </div>
+    </div>
+
+    <div class="blogs-container">
+        <h2 class="blogs-header">Read Our Blogs</h2>
+        <ul class="blog-links" id="blog-list">
+            <li>
+                <a href="#">Travel Blog 1</a>
+                <button class="delete-blog-button" onclick="deleteBlog(this)">Delete</button>
+                <button class="update-blog-button" onclick="updateBlog(this)">Update</button>
+            </li>
+            <li>
+                <a href="#">Travel Blog 2</a>
+                <button class="delete-blog-button" onclick="deleteBlog(this)">Delete</button>
+                <button class="update-blog-button" onclick="updateBlog(this)">Update</button>
+            </li>
+            <li>
+                <a href="#">Travel Blog 3</a>
+                <button class="delete-blog-button" onclick="deleteBlog(this)">Delete</button>
+                <button class="update-blog-button" onclick="updateBlog(this)">Update</button>
+            </li>
+            <li>
+                <a href="#">Travel Blog 4</a>
+                <button class="delete-blog-button" onclick="deleteBlog(this)">Delete</button>
+                <button class="update-blog-button" onclick="updateBlog(this)">Update</button>
+            </li>
+        </ul>
+        <button class="add-blog-button" id="add-blog-button">Add Blog</button>
+    </div>
+
+    <div class="add-blog-dialog" id="add-blog-dialog">
+        <h2>Add a Blog</h2>
+        <input type="text" id="blog-title" placeholder="Blog Title">
+        <textarea id="blog-content" placeholder="Blog Content"></textarea>
+        <button id="publish-blog-button" class="add-blog-button">Publish Blog</button>
+    </div>
+
+    <script>
+        const addBlogButton = document.getElementById('add-blog-button');
+        const addBlogDialog = document.getElementById('add-blog-dialog');
+        const publishBlogButton = document.getElementById('publish-blog-button');
+        const blogList = document.getElementById('blog-list');
+
+        addBlogButton.addEventListener('click', function () {
+            addBlogDialog.style.display = 'block';
+        });
+
+        publishBlogButton.addEventListener('click', function () {
+            const blogTitle = document.getElementById('blog-title').value;
+            const blogContent = document.getElementById('blog-content').value;
+
+            // Create a new blog entry
+            const newBlogItem = document.createElement('li');
+            newBlogItem.innerHTML = `
+                <a href="#">${blogTitle}</a>
+                <button class="delete-blog-button" onclick="deleteBlog(this)">Delete</button>
+                <button class="update-blog-button" onclick="updateBlog(this)">Update</button>
+            `;
+            blogList.appendChild(newBlogItem);
+
+            // Clear the form and hide the dialog box
+            document.getElementById('blog-title').value = '';
+            document.getElementById('blog-content').value = '';
+            addBlogDialog.style.display = 'none';
+        });
+
+        function deleteBlog(button) {
+            const listItem = button.parentElement;
+            blogList.removeChild(listItem);
+        }
+
+        function updateBlog(button) {
+            // You can add code to handle updating a blog post here.
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,223 @@
+* {
+    font-family: 'Trip Sans VF', 'Trip Sans', Arial, sans-serif !important;
+}
+body{
+    margin: 0px;
+}
+header {
+    /* background-color: #161F6D; */
+    color: black;
+    padding: 10px 0;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    display: flex;
+    margin-right: 20px;
+    
+}
+
+.nav-links a {
+    text-decoration: none;
+    color:black;
+}
+footer {
+    /* background-color: #161F6D; */
+    color: black;
+    text-align: center;
+    padding: 10px 0;
+}
+.socials{
+    width: 5%; 
+    height: auto; 
+    border-radius: 10px;
+    
+}
+
+.mumbai{
+    background-color: #EEF8dd;
+    display: flex;
+}
+.mumbai img{
+    height: 450px;
+    border-top-right-radius: 10rem;
+    border-bottom-right-radius: 10rem;
+}
+.para1 p{
+    color: #CE7424;
+    /* padding: 20px; */
+    margin-bottom: 30px;
+    text-align: center;
+    /* padding-left: 230px; */
+}
+.para1 a{
+    color:white;
+    background-color:  #CE7424 ;
+    border-radius: 2rem;
+    display: center;
+    /* justify-content: center;
+    align-items: center; */
+    height: 3em;
+    width: 8em;
+    font-size: large;
+    font-weight: 500;
+    text-decoration: none;
+    /* text-align: left; */
+    padding: 15px;
+}
+.para1 a:hover{
+    background-color:  #eb9d5a ;
+}
+.para1 {
+    /* justify-content: center;
+    align-items: center; */
+    text-align: center;
+    color: #CE7424;
+    padding-left: 1.5rem;
+}
+.para1 h2{
+    font-weight: 900;
+    font-size: 5rem;
+    margin-bottom: 10px;
+}
+.para1 p{
+    margin-bottom: 40px;
+}
+.pune{
+    background-color: #EEF8dd;
+    display: flex;
+}
+.pune img{
+    height: 420px;
+    border-top-left-radius: 10rem;
+    border-bottom-left-radius: 4rem;
+}
+.para2 a{
+    color:white;
+    background-color:  #CE7424 ;
+    border-radius: 2rem;
+    display: center;
+    /* justify-content: center;
+    align-items: center; */
+    height: 3em;
+    width: 8em;
+    font-size: large;
+    font-weight: 500;
+    text-decoration: none;
+    /* text-align: left; */
+    padding: 15px;
+}
+.para2 a:hover{
+    background-color:  #eb9d5a ;
+}
+.para2 {
+    text-align: center;
+    color: #CE7424;
+}
+/* .para2 b,p{
+    margin-bottom: 10px;
+} */
+.para2 h2{
+    font-weight: 900;
+    font-size: 5rem;
+    margin-bottom: 10px;
+}
+.para2 p{
+    margin-bottom: 40px;
+}
+.nagpur{
+    background-color: #DDDEF8;
+    display: flex;
+}
+.nagpur img{
+    height: 450px;
+    border-top-right-radius: 10rem;
+    border-bottom-right-radius: 10rem;
+}
+.para3 a{
+    color:white;
+    background-color:  #CE7424 ;
+    border-radius: 2rem;
+    display: center;
+    /* justify-content: center;
+    align-items: center; */
+    height: 3em;
+    width: 8em;
+    font-size: large;
+    font-weight: 500;
+    text-decoration: none;
+    /* text-align: left; */
+    padding: 15px;
+}
+.para3 a:hover{
+    background-color:  #eb9d5a ;
+}
+.para3 {
+    /* justify-content: center;
+    align-items: center; */
+    text-align: center;
+    color: #CE7424;
+    padding-left: 15px;
+}
+.para3 p{
+    margin-bottom:  40px;
+}
+.para3 h2{
+    font-weight: 900;
+    font-size: 5rem;
+    margin-bottom: 10px;
+}
+.aurangabad{
+    background-color: #DDDEF8;
+    display: flex;
+}
+.aurangabad img{
+    height: 350px;
+    border-top-left-radius: 10rem;
+    border-bottom-left-radius: 8rem;
+}
+.para4 a{
+    color:white;
+    background-color:  #CE7424 ;
+    border-radius: 2rem;
+    display: center;
+    /* justify-content: center;
+    align-items: center; */
+    height: 3em;
+    width: 8em;
+    font-size: large;
+    font-weight: 500;
+    text-decoration: none;
+    /* text-align: left; */
+    padding: 15px;
+}
+.para4 a:hover{
+    background-color:  #eb9d5a ;
+}
+.para4 {
+    /* justify-content: center;
+    align-items: center; */
+    text-align: center;
+    color: #CE7424;
+    /* padding-left: 1.5rem; */
+    margin-bottom: 1rem;
+}
+.para4 h2{
+    font-weight: 900;
+    font-size: 4rem;
+    margin-bottom: 10px;
+}
+.para4 p{
+    margin-bottom: 40px;
+}
