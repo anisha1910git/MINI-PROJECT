@@ -468,8 +468,8 @@ h5
     flex: 0 0 calc(30% - 30px); /* Adjust card width and spacing for three cards per row */
     margin: 15px;
     
-    width: 500px; /* Set a maximum width for the cards */
-    height: auto;
+    width: 300px; /* Set a maximum width for the cards */
+    height: 450px;
     padding: 17px;
     border: 1px solid #ddd;
     border-radius: 8px;
@@ -482,13 +482,15 @@ h5
 .card-img-top {
     width: auto;
     height: auto;
-    border-bottom: 1px solid #ddd; /* Border color for image */
+    display: block;
+     margin: 0 auto;   border-bottom: 1px solid #ddd; /* Border color for image */
 }
 
 /* Style for card title */
 .card-title {
     font-size: 1.25rem;
     margin-top: 15px;
+    text-align: center;
 }
 
 /* Style for card text */
