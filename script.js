@@ -31,6 +31,10 @@ var reviewSlider = new Swiper(".review-slider", {
     spaceBetween: 10,
     autoHeight: true,
     grabCursor: true,
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
     breakpoints: {
       640: {
         slidesPerView: 1,
