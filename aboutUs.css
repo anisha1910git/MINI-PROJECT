@@ -29,7 +29,7 @@
         background-color:var(--white);
     }
     html::-webkit-scrollbar-thumb{
-        background-color:var(--main-color);
+        background-color:var(--light-black);
     }
     
     section{
@@ -125,9 +125,13 @@
 
 
 .footer {
-    background: url(footer.jpg) no-repeat;
-    background-size: cover;
+    /* background: url(footer.jpg) no-repeat; */
+    background-size: auto;
+    background-color: #333;
     background-position: center;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: 3rem;
     z-index: 999; /* Set a lower z-index value */
 }
 
@@ -136,16 +140,11 @@
     grid-template-columns: repeat(4, 0.5fr); /* Adjust columns for four boxes */
     gap: 3rem;
     padding: 2rem;
-    padding-top: 5rem;
+    padding-top: 3rem;
     margin-bottom: 0;
     padding-bottom: 0;
 }
 
-.footer .box-container .box h3 {
-    color: white;
-    font-size: 1.5rem;
-    padding-bottom: 1rem;
-}
 
 .footer .box-container .box a {
     color: var(--light-white);
@@ -166,8 +165,9 @@
 }
 .footer .credit{
     text-align: center;
-    padding-top: 3rem;
-    margin-top: 3rem;
+    padding-top: 1rem;
+    margin-top: 1rem;
+    padding-bottom: 1rem;
     border-top: .1rem solid var(--light-white);
     font-size: 1rem;
     color: var(--light-white);
