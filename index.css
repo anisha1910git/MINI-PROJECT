@@ -1,39 +1,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&family=Montserrat:wght@400;700&family=Poppins:wght@100;200;300;400;500;600&family=Whisper&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif ;
+    font-family: 'Poppins', sans-serif;
 }
 
-:root{
+:root {
+    --main-color: rgb(66, 66, 255);
+    --black: #222;
+    --white: #fff;
+    --light-black: #777;
+    --light-white: #fff9;
+    --dark-bg: rgba(0, 0, 0, .7);
+    --light-bg: #eee;
+    --border: .1rem solid var(--black);
+    --box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+    --text-shadow: 0 .5rem 1rem rgba(0, 0, 0, .3);
+    --light-bg-hover: #f4f4f4; /* Adjust as needed for hover effect */
+    --dark-text: #333; /* Adjust as needed for better contrast */
+}
 
-        --main-color:rgb(66, 66, 255);;
-        --black:#222;
-        --white:#fff;
-        --light-black:#777;
-        --light-white:#fff9;
-        --dark-bg:rgba(0,0,0,.7);
-        --light-bg:#eee;
-        --border: .1rem solid var(--black);
-        --box-shadow:0 .5rem 1rem rgba(0,0,0,.1);
-        --text-shadow:0 .5rem 1rem rgba(0,0,0,.3);
-    }
-    
-/* *{
-font-family: 'Poppins',sans-serif;
-margin: 0;
-padding: 0;
-box-sizing: border-box;
-outline: none;
-border: none;
-text-decoration: none;
-text-transform: capitalize;
-} */
-
-html::-webkit-scrollbar{
-    width:1rem;
+html::-webkit-scrollbar {
+    width: 1rem;
 }
 html::-webkit-scrollbar-track{
     background-color:var(--white);
@@ -390,50 +381,73 @@ h5
     background: var(--light-bg);
 }
 
-.reviews .swiper-slider-active .content {
-    display: inline-block;
+.reviews .swiper-slide-active {
+    background-color: var(--light-bg);
 }
 
 .reviews .slide {
     padding: 2rem;
+    margin: 1rem;
     border: var(--border);
     background: var(--white);
-    text-align: center;
-    box-shadow: var(--black);
+    box-shadow: var(--box-shadow);
+    border-radius: 10px;
+    transition: box-shadow 0.3s ease; /* Smooth transition on hover */
+}
+
+.reviews .slide:hover {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+    /* or use background-color change */
+    /* background-color: var(--light-bg-hover); */
 }
 
 .reviews .slide .stars {
-    padding-bottom: .5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 1rem;
 }
 
 .reviews .slide .stars i {
-    font-size: 1.7rem;
-    color: rgb(255, 225, 0) !important;
+    font-size: 1.5rem;
+    color: gold;
+    margin-right: 0.3rem;
 }
 
 .reviews .slide p {
-    font-size: 1.5rem;
-    color: var(--light-black);
-    line-height: 2;
+    font-size: 1.4rem;
+    color: var(--dark-text); /* Use a color with better contrast */
+    line-height: 1.5;
     padding: 1rem 0;
 }
 
 .reviews .slide h3 {
-    font-size: 2rem;
-    color: var(--black);
+    font-size: 1.8rem;
+    color: var(--main-color);
+    margin-bottom: 0.5rem;
 }
 
 .reviews .slide span {
-    font-size: 1.5rem;
-    color: var(--main-color);
+    font-size: 1.3rem;
+    color: var(--light-black);
     display: inline-block;
 }
 
-.reviews .slide img {
-    height: 7rem;
-    width: 7rem;
-    border-radius: 50%;
-    margin-top: 1rem;
+.reviews .card img {
+    max-width: 100%; /* Ensure the image does not exceed the width of its container */
+    max-height: 150px; /* Set a maximum height for the image */
+    border-radius: 50%; /* Add border-radius for rounded corners */
+    margin-top: 1rem; /* Adjust the top margin as needed */
+}
+
+.reviews .card {
+    /* Existing styles for the card */
+
+    /* Add the following styles for centering and positioning */
+    text-align: center; /* Center-align the text inside the card */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 
@@ -443,6 +457,11 @@ h5
     justify-content: space-between; /* Use space-between to evenly distribute cards */
     align-items: flex-start; /* Align items at the start */
     flex-wrap: wrap;
+}
+
+.reviews .card h3,
+.reviews .card span {
+    margin: 0.2rem 0; /* Add some margin for spacing */
 }
 
 .card {
@@ -536,4 +555,60 @@ justify-content: flex-end;
     font-size: 25px;
     font-family:'Times New Roman', Times, serif;
     font-weight: 400;
+}
+
+.reviews {
+    background: var(--light-bg);
+}
+
+.swiper-slide {
+    background-color: transparent !important;
+    border: none !important;
+}
+
+.card .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5rem;
+    border: var(--border);
+    background: var(--white);
+    box-shadow: var(--box-shadow);
+    border-radius: 10px;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.card .content .stars {
+    padding-bottom: .5rem;
+}
+
+.card .content .stars i {
+    font-size: 1.7rem;
+    color: yellow !important;
+}
+
+.card .content p {
+    font-size: 1.4rem;
+    color: var(--light-black);
+    line-height: 2;
+    padding: 1rem 0;
+}
+
+.card .content h3 {
+    font-size: 1.8rem;
+    color: var(--black);
+}
+
+.card .content span {
+    font-size: 1.3rem;
+    color: var(--main-color);
+    display: inline-block;
+}
+
+.card .content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 50%;
+    margin-top: 1rem;
 }

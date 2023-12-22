@@ -24,28 +24,26 @@ var swiper = new Swiper(".home-slider", {
   });
 
  // Swiper initialization for review-slider
+// Swiper initialization for review-slider
 var reviewSlider = new Swiper(".review-slider", {
-  loop: true,  // Add loop option if needed
-  slidesPerView: 1,
-  spaceBetween: 20,
-  autoHeight: true,
-  grabCursor: true,
-  pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-  },
-  breakpoints: {
+    loop: true,
+    slidesPerView: 1,
+    spaceBetween: 10,
+    autoHeight: true,
+    grabCursor: true,
+    breakpoints: {
       640: {
-          slidesPerView: 2,
-          spaceBetween: 20,
+        slidesPerView: 1,
+        spaceBetween: 20,
       },
       768: {
-          slidesPerView: 4,
-          spaceBetween: 40,
+        slidesPerView: 2,
+        spaceBetween: 40,
       },
       1024: {
-          slidesPerView: 5,
-          spaceBetween: 50,
+        slidesPerView: 3,
+        spaceBetween: 50,
       },
-  },
-});
+    },
+  });
+  
