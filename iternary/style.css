@@ -1,0 +1,16 @@
+/*hide the inputs/checkmarks and submenu*/
+ input,.day{
+    display: none;
+}
+
+  /*position the label*/
+label {
+    position: relative;
+    display: block;
+    cursor: pointer;
+  }
+  
+  /*show the submenu when input is checked*/
+  input[type="checkbox"]:checked~div.day {
+    display: block;
+  }
