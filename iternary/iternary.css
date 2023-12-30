@@ -22,38 +22,46 @@
     --dark-text: #333; /* Adjust as needed for better contrast */
 }
 
-header {
-    /* background-color: #161F6D; */
-    color: black;
-    padding: 10px 0;
-}
 
-nav {
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1001;
+    background-color: var(--white);
     display: flex;
-    justify-content: space-between;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    box-shadow: var(--box-shadow);
+    padding-left: 10px;
     align-items: center;
-    padding: 0 20px;
+    justify-content: space-between;
 }
 
-.nav-links {
-    list-style: none;
-    display: flex;
+.header .logo img
+{
+    height: 45px;
+    padding: 0;
 }
-
-.nav-links li {
-    display: flex;
-    margin-right: 20px;
-    
+.header .navbar{
+    margin-left:auto;
 }
-
-.nav-links a {
-    text-decoration: none;
+.header .navbar a{
+    font-size: 1rem;
+    margin-left: 2rem;
     color:black;
+    text-decoration: none;
+}
+.header .navbar a:hover{
+  text-decoration: underline;
 }
 
 .footer {
     background-size: auto;
-    background-color: #333333d5;
+    background-color: #333;
+
     background-position: center;
     padding-top: 0;
     padding-bottom: 0;
@@ -334,6 +342,7 @@ input[type="date"] {
     color: rgb(108, 108, 108);
 }
 .cmp{
+    margin-top: 70px;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
