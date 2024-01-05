@@ -168,14 +168,19 @@ main{
 }
 
 .photo img{
+    height: 300px;
     width: 390px;
-    height: auto;
+   object-fit: cover;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
     transition: 0.5s all ease-in-out;
 }
 .photo{
-    width: 420px;
+    
+    overflow: hidden;
+  height: 300px;
+  width: 390px;
+
 }
 .photo img:hover{
     transform: scale(1.1);
@@ -183,7 +188,7 @@ main{
 }
 .city{
     display: flex;
-    height:20rem;
+    /* height:20rem; */
     width: 55rem;
     margin: 20px;
     background-color: #fff;
@@ -209,13 +214,13 @@ main{
 .price {
     display: block;
     padding-left: 130px;
-    line-height: 3px;
+    line-height: 19px;
     margin-top: 17px;
-    /* font-size: 15px; */
     text-align: right;
 }
 .book{
     display: flex;
+    justify-content: right;
     padding-top: 13px;
     gap: 1rem;
     /* padding-left: 30px; */
