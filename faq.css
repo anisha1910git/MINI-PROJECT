@@ -78,7 +78,7 @@ section{
 .header .navbar a{
     font-size: 1rem;
     margin-left: 2rem;
-    color: var(--white);
+    color: var(--black);
     text-decoration: none;
 }
 .header .navbar a:hover{

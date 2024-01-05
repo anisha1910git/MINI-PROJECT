@@ -21,7 +21,9 @@
     --light-bg-hover: #f4f4f4; /* Adjust as needed for hover effect */
     --dark-text: #333; /* Adjust as needed for better contrast */
 }
-
+section {
+    padding: 5rem 10%;
+}
 
 
 .header {

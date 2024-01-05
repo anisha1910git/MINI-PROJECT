@@ -36,8 +36,11 @@
     padding-left: 10px;
     align-items: center;
     justify-content: space-between;
-}
-
+    
+    }
+    section {
+        padding: 5rem 10%;
+    }
 .header .logo img
 {
     height: 45px;
@@ -73,17 +76,6 @@ main{
     width: 35%; /* Set a fixed width */
     height: auto; /* Maintain the aspect ratio */
     border-radius: 10px;
-}
-.hero h2 {
- 
-    font-size: 36px;
-    margin-bottom: 20px;
-}
-
-.hero p {
-   
-    font-size: 18px;
-    margin-bottom: 40px;
 }
 
 
