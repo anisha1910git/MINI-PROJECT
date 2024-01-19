@@ -201,6 +201,8 @@ section{
 .mumbai{
     background-color: #EEF8dd;
     display: flex;
+    margin-bottom:5rem;
+    margin-top: 7rem;
 }
 .mumbai img{
     height: 450px;
@@ -212,6 +214,7 @@ section{
     /* padding: 20px; */
     margin-bottom: 30px;
     text-align: center;
+  
     /* padding-left: 230px; */
 }
 .para1 a{
@@ -233,11 +236,14 @@ section{
     background-color:  #eb9d5a ;
 }
 .para1 {
-    /* justify-content: center;
-    align-items: center; */
+    
     text-align: center;
     color: #CE7424;
     padding-left: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 .para1 h2{
     font-weight: 900;
@@ -248,8 +254,9 @@ section{
     margin-bottom: 40px;
 }
 .pune{
-    background-color: #EEF8dd;
+    background-color: #ddf8f5;
     display: flex;
+    margin-bottom:5rem;
 }
 .pune img{
     height: 420px;
@@ -296,6 +303,7 @@ section{
 .nagpur{
     background-color: #DDDEF8;
     display: flex;
+    margin-bottom:5rem;
 }
 .nagpur img{
     height: 450px;
@@ -340,6 +348,7 @@ section{
 .aurangabad{
     background-color: #DDDEF8;
     display: flex;
+    margin-bottom:5rem;
 }
 .aurangabad img{
     height: 350px;
@@ -372,10 +381,10 @@ section{
     justify-content: center;
     align-items: center;
     text-align: center; 
-  
+  margin: 24px;
     text-align: center;
     color: #CE7424;
-    margin-bottom: 1rem;
+    
 }
 .para4 h2{
     font-weight: 900;
