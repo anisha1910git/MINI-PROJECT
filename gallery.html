@@ -37,43 +37,43 @@
             
         <div class="gallery">
             <figure class="card">
-                <img src="Mumbai1.jpg" alt="">
+                <img src="/packages/package_list/Mumbai1.jpg" alt="">
                 <figcaption>Mumbai</figcaption>
             </figure>
             <figure class="card">
-                <img src="pune1.jpg" alt="">
+                <img src="/packages/package_list/pune.jpg" alt="">
                 <figcaption>Shaniwar wada, Pune</figcaption>
             </figure>
             <figure class="card">
-                <img src="nagpur1.jpg" alt="">
+                <img src="/packages/package_list/nagpur1.jpg" alt="">
                 <figcaption>Nagpur</figcaption>
             </figure>
             <figure class="card">
-                <img src="Mumbai2.jpg" alt="">
+                <img src="/packages/package_list/Mumbai2.jpg" alt="">
                 <figcaption>Gateway Of India</figcaption>
             </figure>
             <figure class="card">
-                <img src="pune2.jpg" alt="">
+                <img src="/packages/package_list/pune2.jpg" alt="">
                 <figcaption>Pune</figcaption>
             </figure>
             <figure class="card">
-                <img src="nagpur2.jpg" alt="">
+                <img src="/packages/package_list/nagpur2.jpg" alt="">
                 <figcaption>image6</figcaption>
             </figure>
             <figure class="card">
-                <img src="Mumbai3.jpg" alt="">
+                <img src="/packages/package_list/Mumbai.jpg" alt="">
                 <figcaption>image7</figcaption>
             </figure>
             <figure class="card">
-                <img src="pune3.jpg" alt="">
+                <img src="/packages/package_list/pune3.jpg" alt="">
                 <figcaption>image8</figcaption>
             </figure>
             <figure class="card">
-                <img src="nagpur3.jpg" alt="">
+                <img src="/packages/package_list/nagpur3.jpg" alt="">
                 <figcaption>image9</figcaption>
              </figure>
             <figure class="card">
-                <img src="Nashik1.jpg" alt="">
+                <img src="/Nashik1.jpg" alt="">
                 <figcaption>Vineyard</figcaption>
             </figure>
             <figure class="card">
@@ -81,58 +81,18 @@
                 <figcaption>Kas Pathar, Satara</figcaption>
             </figure>
             <figure class="card">
-                <img src="Aurangabad.jpg" alt="">
+                <img src="/packages/package_list/Aurangabad.jpg" alt="">
                 <figcaption>Ajanta Caves</figcaption>
             </figure>
-            <figure class="card">
+            <!-- <figure class="card">
                 <img src="Nashik2.jpg" alt="">
                 <figcaption>Panchavati</figcaption>
             </figure>
             <figure class="card">
                 <img src="Raigad.jpg" alt="">
                 <figcaption>Raigad Fort</figcaption>
-            </figure>
+            </figure> -->
         </div>
-
-    
-
-<script>
-    const fileInput = document.getElementById('fileInput');
-const gallery = document.getElementById('gallery');
-
-function uploadPhoto() {
-    const file = fileInput.files[0];
-    if (file) {
-        const formData = new FormData();
-        formData.append('photo', file);
-
-        fetch('/upload', {
-            method: 'POST',
-            body: formData,
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                displayPhoto(data.photoPath);
-            } else {
-                alert('Failed to upload photo');
-            }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            alert('Failed to upload photo');
-        });
-    } else {
-        alert('Please choose a file');
-    }
-}
-
-function displayPhoto(photoPath) {
-    const img = document.createElement('img');
-    img.src = photoPath;
-    gallery.appendChild(img);
-}
-</script>
 
 <div class="add-photo-card">
     <img src="gallery.png" alt="add-photo-card" style="width: 30%">
@@ -151,7 +111,7 @@ function displayPhoto(photoPath) {
     </div>
  </div>
   
- <div class="blogs-container">
+ <!-- <div class="blogs-container">
         <h2 class="blogs-header">Read Our Blogs</h2>
         <ul class="blog-links" id="blog-list">
             <li>
@@ -177,7 +137,7 @@ function displayPhoto(photoPath) {
         </ul>
         <button class="add-blog-button" id="add-blog-button">Add Blog</button>
         
-    </div>
+    </div> -->
 
     <div class="add-blog-dialog" id="add-blog-dialog">
         <h2>Add a Blog</h2>
@@ -186,44 +146,6 @@ function displayPhoto(photoPath) {
         <button id="publish-blog-button" class="add-blog-button">Publish Blog</button>
     </div>
 
-    <script>
-        const addBlogButton = document.getElementById('add-blog-button');
-        const addBlogDialog = document.getElementById('add-blog-dialog');
-        const publishBlogButton = document.getElementById('publish-blog-button');
-        const blogList = document.getElementById('blog-list');
-
-        addBlogButton.addEventListener('click', function () {
-            addBlogDialog.style.display = 'block';
-        });
-
-        publishBlogButton.addEventListener('click', function () {
-            const blogTitle = document.getElementById('blog-title').value;
-            const blogContent = document.getElementById('blog-content').value;
-
-            // Create a new blog entry
-            const newBlogItem = document.createElement('li');
-            newBlogItem.innerHTML = `
-                <a href="#">${blogTitle}</a>
-                <button class="delete-blog-button" onclick="deleteBlog(this)">Delete</button>
-                <button class="update-blog-button" onclick="updateBlog(this)">Update</button>
-            `;
-            blogList.appendChild(newBlogItem);
-
-            // Clear the form and hide the dialog box
-            document.getElementById('blog-title').value = '';
-            document.getElementById('blog-content').value = '';
-            addBlogDialog.style.display = 'none';
-        });
-
-        function deleteBlog(button) {
-            const listItem = button.parentElement;
-            blogList.removeChild(listItem);
-        }
-
-        function updateBlog(button) {
-            // You can add code to handle updating a blog post here.
-        }
-    </script>
     </div>
 
     <footer>
@@ -266,5 +188,81 @@ function displayPhoto(photoPath) {
     <div class="credit">Created by <span> Team TravelHub</span> | all rights reserved</div>
 </section>
 </footer>
+<!-- <script>
+    const addBlogButton = document.getElementById('add-blog-button');
+    const addBlogDialog = document.getElementById('add-blog-dialog');
+    const publishBlogButton = document.getElementById('publish-blog-button');
+    const blogList = document.getElementById('blog-list');
+
+    addBlogButton.addEventListener('click', function () {
+        addBlogDialog.style.display = 'block';
+    });
+
+    publishBlogButton.addEventListener('click', function () {
+        const blogTitle = document.getElementById('blog-title').value;
+        const blogContent = document.getElementById('blog-content').value;
+
+        // Create a new blog entry
+        const newBlogItem = document.createElement('li');
+        newBlogItem.innerHTML = `
+            <a href="#">${blogTitle}</a>
+            <button class="delete-blog-button" onclick="deleteBlog(this)">Delete</button>
+            <button class="update-blog-button" onclick="updateBlog(this)">Update</button>
+        `;
+        blogList.appendChild(newBlogItem);
+
+        // Clear the form and hide the dialog box
+        document.getElementById('blog-title').value = '';
+        document.getElementById('blog-content').value = '';
+        addBlogDialog.style.display = 'none';
+    });
+
+    function deleteBlog(button) {
+        const listItem = button.parentElement;
+        blogList.removeChild(listItem);
+    }
+
+    function updateBlog(button) {
+        // You can add code to handle updating a blog post here.
+    }
+</script> -->
+<script>
+    const fileInput = document.getElementById('fileInput');
+const gallery = document.getElementById('gallery');
+
+function uploadPhoto() {
+    const file = fileInput.files[0];
+    if (file) {
+        const formData = new FormData();
+        formData.append('photo', file);
+
+        fetch('/upload', {
+            method: 'POST',
+            body: formData,
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                displayPhoto(data.photoPath);
+            } else {
+                alert('Failed to upload photo');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Failed to upload photo');
+        });
+    } else {
+        alert('Please choose a file');
+    }
+}
+
+function displayPhoto(photoPath) {
+    const img = document.createElement('img');
+    img.src = photoPath;
+    gallery.appendChild(img);
+}
+</script>
+
 </body>
 </html>
