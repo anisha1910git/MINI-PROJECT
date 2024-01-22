@@ -260,6 +260,8 @@ section{
 }
 .pune img{
     height: 420px;
+    width: 650px;
+    object-fit: cover;
     border-top-left-radius: 10rem;
     border-bottom-left-radius: 4rem;
 }
@@ -278,6 +280,7 @@ section{
     /* text-align: left; */
     padding: 15px;
 }
+
 .para2 a:hover{
     background-color:  #eb9d5a ;
 }
@@ -289,6 +292,7 @@ section{
     text-align: center; 
     color: #CE7424;
 }
+
 /* .para2 b,p{
     margin-bottom: 10px;
 } */

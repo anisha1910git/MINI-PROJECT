@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
 
-    <title>Gallery</title>
+    <title>Gallery | TravelHub</title>
     </head>
 
 
@@ -26,63 +26,98 @@
                 <a href="gallery.html">Gallery</a>
                 <a href="contactUs.html"> Contact</a>
             </nav>
-            <!-- <div id="menu-btn" style="padding: 0; align-items: flex-end;"><i class="fa fa-bars" style="color: white;"></i></div> -->
         </section>
     </header>
 
 
     <div class="wrapper">
         <div class="container">
-            <h1 class="heading">My Gallery</h1>
-            
+            <h1 class="heading">Traveller's Gallery</h1>
+            <p class="sub-txt">Share your journey snashots with us</p>
         <div class="gallery">
-            <figure class="card">
+            <div class="card">
                 <img src="/packages/package_list/Mumbai1.jpg" alt="">
-                <figcaption>Mumbai</figcaption>
-            </figure>
+                <div class="overlay-text">
+                    <h2 class="card-title">Juhu Beach</h2>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reiciendis, commodi.</p>
+                </div>
+            </div>
             <figure class="card">
                 <img src="/packages/package_list/pune.jpg" alt="">
-                <figcaption>Shaniwar wada, Pune</figcaption>
+                <div class="overlay-text">
+                    <h2 class="card-title">Shaniwar wada, Pune</h2>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reiciendis, commodi.</p>
+                </div>   
             </figure>
             <figure class="card">
                 <img src="/packages/package_list/nagpur1.jpg" alt="">
-                <figcaption>Nagpur</figcaption>
+                <div class="overlay-text">
+                    <h2 class="card-title">Nagpur</h2>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reiciendis, commodi.</p>
+                </div> 
             </figure>
             <figure class="card">
                 <img src="/packages/package_list/Mumbai2.jpg" alt="">
-                <figcaption>Gateway Of India</figcaption>
+                <div class="overlay-text">
+                    <h2 class="card-title">Gateway Of India</h2>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reiciendis, commodi.</p>
+                </div>
             </figure>
             <figure class="card">
                 <img src="/packages/package_list/pune2.jpg" alt="">
-                <figcaption>Pune</figcaption>
+                <div class="overlay-text">
+                    <h2 class="card-title">Pune</h2>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reiciendis, commodi.</p>
+                </div>
             </figure>
             <figure class="card">
                 <img src="/packages/package_list/nagpur2.jpg" alt="">
-                <figcaption>image6</figcaption>
+                    <div class="overlay-text">
+                    <h2 class="card-title">Pune</h2>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reiciendis, commodi.</p>
+                </div>
             </figure>
             <figure class="card">
                 <img src="/packages/package_list/Mumbai.jpg" alt="">
-                <figcaption>image7</figcaption>
+                <div class="overlay-text">
+                    <h2 class="card-title">Mumbai CST</h2>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reiciendis, commodi.</p>
+                </div>
             </figure>
             <figure class="card">
                 <img src="/packages/package_list/pune3.jpg" alt="">
-                <figcaption>image8</figcaption>
+                <div class="overlay-text">
+                    <h2 class="card-title">Visapur Fort</h2>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reiciendis, commodi.</p>
+                </div>
             </figure>
             <figure class="card">
                 <img src="/packages/package_list/nagpur3.jpg" alt="">
-                <figcaption>image9</figcaption>
+                <div class="overlay-text">
+                    <h2 class="card-title">Tadoba-Andhari Tiger Reserve</h2>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reiciendis, commodi.</p>
+                </div>
              </figure>
             <figure class="card">
                 <img src="/Nashik1.jpg" alt="">
-                <figcaption>Vineyard</figcaption>
+                <div class="overlay-text">
+                    <h2 class="card-title">Vineyard</h2>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reiciendis, commodi.</p>
+                </div>
             </figure>
             <figure class="card">
                 <img src="Kas Pathar.jpg" alt="">
-                <figcaption>Kas Pathar, Satara</figcaption>
+                <div class="overlay-text">
+                    <h2 class="card-title">Kas Pathar, Satara</h2>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reiciendis, commodi.</p>
+                </div>
             </figure>
             <figure class="card">
                 <img src="/packages/package_list/Aurangabad.jpg" alt="">
-                <figcaption>Ajanta Caves</figcaption>
+                <div class="overlay-text">
+                    <h2 class="card-title">Ajanta Caves</h2>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reiciendis, commodi.</p>
+                </div>
             </figure>
             <!-- <figure class="card">
                 <img src="Nashik2.jpg" alt="">
@@ -95,21 +130,21 @@
         </div>
 
 <div class="add-photo-card">
-    <img src="gallery.png" alt="add-photo-card" style="width: 30%">
-    
-    <div class="text">
-     <p><h3>Share Your Journey with us😄❤️</h3>
-      </p>
-      <!-- Space between two sentences -->
-        <p><h3>Click here👇 to Upload your photos</h3>
-      </p>
-      
-      
-      <button class="add-photos-button" onclick="uploadPhoto()">Add Photo</button>
-        <input type="file" id="fileInput" accept="image/*">
-        <script src="script.js"></script> 
+   
+        <div class="add-text">
+            <h3>Share Your Journey with us😄❤️</h3>    
+           <p id="lecker">Click here👇 to Upload your photos</p>
+       <button class="add-photos-button" onclick="uploadPhoto()">Add Photo</button>
+           </div>
+    <div class="img-add">
+        <img src="image-gallery.png" alt="add-photo-card">
     </div>
- </div>
+    
+        
+     
+    </div>
+</div>
+<!-- <script src="script.js"></script>  -->
   
  <!-- <div class="blogs-container">
         <h2 class="blogs-header">Read Our Blogs</h2>
@@ -139,12 +174,12 @@
         
     </div> -->
 
-    <div class="add-blog-dialog" id="add-blog-dialog">
+    <!-- <div class="add-blog-dialog" id="add-blog-dialog">
         <h2>Add a Blog</h2>
         <input type="text" id="blog-title" placeholder="Blog Title">
         <textarea id="blog-content" placeholder="Blog Content"></textarea>
         <button id="publish-blog-button" class="add-blog-button">Publish Blog</button>
-    </div>
+    </div> -->
 
     </div>
 
