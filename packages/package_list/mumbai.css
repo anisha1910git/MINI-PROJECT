@@ -1,0 +1,228 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&family=Montserrat:wght@400;700&family=Poppins:wght@100;200;300;400;500;600&family=Whisper&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+:root {
+    --main-color: rgb(66, 66, 255);
+    --black: #222;
+    --white: #fff;
+    --light-black: #777;
+    --light-white: #fff9;
+    --dark-bg: rgba(0, 0, 0, .7);
+    --light-bg: #eee;
+    --border: .1rem solid var(--black);
+    --box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+    --text-shadow: 0 .5rem 1rem rgba(0, 0, 0, .3);
+    --light-bg-hover: #f4f4f4; /* Adjust as needed for hover effect */
+    --dark-text: #333; /* Adjust as needed for better contrast */
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1001;
+    background-color: var(--white);
+    display: flex;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    box-shadow: var(--box-shadow);
+    padding-left: 10px;
+    align-items: center;
+    justify-content: space-between;
+    
+    }
+    section {
+        padding: 5rem 10%;
+    }
+.header .logo img
+{
+    height: 45px;
+    padding: 0;
+}
+.header .navbar{
+    margin-left:auto;
+}
+.header .navbar a{
+    font-size: 1rem;
+    margin-left: 2rem;
+    color:black;
+    text-decoration: none;
+}
+.header .navbar a:hover{
+  text-decoration: underline;
+}
+main{
+    background-color: rgba(232, 226, 226, 0.336);
+    margin-top: 80px;
+}
+body{
+    background-color: rgba(232, 226, 226, 0.336);
+
+}
+
+/* Style the hero section */
+
+.hero {
+   
+    text-align: center;
+    padding: 20px 0;
+   
+   
+}
+.logo{
+    width: 35%; /* Set a fixed width */
+    height: auto; /* Maintain the aspect ratio */
+    border-radius: 10px;
+}
+
+
+
+
+/* Style the footer */
+
+.footer {
+    /* background: url(footer.jpg) no-repeat; */
+    background-size: auto;
+    background-color: #333;
+    background-position: center;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: 3rem;
+    z-index: 999; /* Set a lower z-index value */
+}
+
+.footer .box-container {
+    display: grid;
+    grid-template-columns: repeat(4, 0.5fr); /* Adjust columns for four boxes */
+    gap: 3rem;
+    padding: 2rem;
+    padding-top: 2rem;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.footer .box-container .box h3 {
+    color: white;
+    font-size: 1.5rem;
+    padding-bottom: 1rem;
+}
+
+.footer .box-container .box a {
+    color: var(--light-white);
+    font-size: 1rem;
+    padding-bottom: 1rem;
+    display: block;
+    text-decoration: none;
+}
+
+.footer .box-container .box a i {
+    color: var(--main-color);
+    padding-right: .5rem;
+    transition: .2s linear;
+}
+
+.footer .box-container .box a:hover i {
+    padding-right: 2rem;
+}
+.footer .credit{
+    text-align: center;
+    padding-top: 1rem;
+    margin-top: 1rem;
+    padding-bottom: 1rem;
+    border-top: .1rem solid var(--light-white);
+    font-size: 1rem;
+    color: var(--light-white);
+}
+.footer .credit span{
+    color: var(--main-color);
+}
+.book_btn a{
+    color:white;
+  background-color: #161F6D ;
+  border-radius: 3px;
+  display: center;
+  /* justify-content: center;
+  align-items: center; */
+  height: 3em;
+  width: 8em;
+  font-size: large;
+  font-weight: 500;
+  text-decoration: none;
+  text-align: left;
+  padding: 15px;
+}
+.book_btn{
+    margin-top: 20px;
+    /* margin-left: 30px; */
+}
+
+.photo img{
+    height: 300px;
+    width: 390px;
+   object-fit: cover;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    transition: 0.5s all ease-in-out;
+}
+.photo{
+    
+    overflow: hidden;
+  height: 300px;
+  width: 390px;
+
+}
+.photo img:hover{
+    transform: scale(1.1);
+    transition: 1s;
+}
+.city{
+    margin:18px 30px 20px 190px;
+    display: flex;
+    /* height:20rem; */
+    width: 55rem;
+    background-color: #fff;
+    /* padding: 20px; */
+    border-radius: 10px;
+    text-align: left;
+    font-size: 17px;
+    overflow: hidden;
+}
+.city:hover{
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    transition: 1s;
+}
+.city p{
+    color:rgba(10, 10, 10, 0.724);
+}
+.info1{
+    padding: 20px;
+}
+.info1 b{
+    font-size: 23px;
+}
+.price {
+    display: block;
+    padding-left: 130px;
+    line-height: 19px;
+    margin-top: 17px;
+    text-align: right;
+}
+.book{
+    display: flex;
+    justify-content: right;
+    padding-top: 13px;
+    gap: 1rem;
+    /* padding-left: 30px; */
+}
+.thin-line{
+    border-top: 0.5px solid #2523236f; /* Adjust thickness and color as needed */
+    width: 102%; /* Adjust width based on your layout */
+}
+
