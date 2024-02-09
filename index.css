@@ -256,7 +256,6 @@ hr {
 
 }
 .home .slide .content span{
-    color: white;
     display: block;
     font-size: 1.5rem;
   
@@ -264,16 +263,11 @@ hr {
     padding-bottom: 0.5rem;
     animation: fadeIn .3s linear backwards .2s;
 }
-.home .slide .content img{
-    opacity: 40%;
-    height: 135px;
-}
-.home .slide .content h2{
 
-font-family:fantasy copperplate;
-font-stretch:narrower;
-font-size: 9vw;
-color: rgba(255, 255, 255, 0.68);
+.home .slide .content h3{
+font-family:Georgia, 'Times New Roman', Times, serif;
+font-size: 5vw;
+color: var(--black);
 text-transform: uppercase;
 line-height: 1.4;
 /* text-shadow: var(--text-shadow); */
