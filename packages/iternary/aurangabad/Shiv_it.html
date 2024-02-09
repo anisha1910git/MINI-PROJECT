@@ -38,8 +38,7 @@
 
       <div class="date">
       <div class="val">
-      <form action="shiv_it.php" method="post">
-
+        <form action="javascript:void(0);" onsubmit="submitForm();" id="payment-form" method="post"> 
       <label for="userDate">Select a Date:</label>
       <input type="date" id="userDate" name="userDate">
       <label for="userRoom">Number of rooms:</label>
@@ -331,5 +330,13 @@
     </section>
     
   </footer>
+  <script>
+    function submitForm() {
+      // Handle form submission here
+      
+      // Redirect to paynow.html
+      window.location.href = "../payment.html";
+  }
+  </script>
 </body>
 </html>

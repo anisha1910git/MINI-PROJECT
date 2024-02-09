@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title >Preeti Travels |TravelHub | Iternary page</title>
+  <title >Preeti Travels | TravelHub | Iternary page</title>
   <link rel="stylesheet" href="../iternary.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.js">
@@ -38,8 +38,7 @@
         <img src="background.jpg" alt=""></div> -->
       <div class="date">
       <div class="val">
-
-      <form action="Preeti_it.php" method="post">
+        <form action="javascript:void(0);" onsubmit="submitForm();" id="payment-form" method="post">
       <label for="userDate">Select a Date:</label>
       <input type="date" id="userDate" name="userDate">
       <label for="userRoom">Number of rooms:</label>
@@ -329,5 +328,13 @@
     </section>
     
   </footer>
+    <script>
+    function submitForm() {
+      // Handle form submission here
+      
+      // Redirect to paynow.html
+      window.location.href = "../payment.html";
+  }
+  </script>
 </body>
 </html>
