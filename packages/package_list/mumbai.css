@@ -225,6 +225,7 @@ body{
     border-top: 0.5px solid #2523236f; /* Adjust thickness and color as needed */
     width: 102%; /* Adjust width based on your layout */
 }
+
 /* Center the popup */
 .popup {
     display: none;
@@ -260,3 +261,4 @@ font-weight: 600;
 .popup button:hover{
     background-color: rgb(174, 173, 173);
 }
+
