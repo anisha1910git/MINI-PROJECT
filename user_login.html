@@ -4,6 +4,7 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="user_login.css">
+  <script src="login.js" defer type="module"></script>
 </head>
 <body>
   <div class="container">
@@ -22,19 +23,11 @@
   <div class="google">
     <p>OR</p>
   <!-- google sign in  -->
-  <div id="g_id_onload"
-        data-client_id="YOUR_GOOGLE_CLIENT_ID"
-        data-login_uri="https://your.domain/your_login_endpoint"
-        data-auto_prompt="false">
-    </div>
-    <div class="g_id_signin"
-        data-type="standard"
-        data-size="large"
-        data-theme="none"
-        data-text="sign_in_with"
-        data-shape="rectangular"
-        data-logo_alignment="left">
-    </div>
+  <div class="signin">
+    <button type="button" class="login-with-google-btn" id="googlee" >
+      Sign in with Google
+    </button>
+  </div>
   </div>
   
    </div>
@@ -45,10 +38,5 @@
   </div>
   
    </div>
-  
-    
-    <script src="https://accounts.google.com/gsi/client" async></script>
-    
-    <!-- sign in with google end -->
 </body>
 </html>

@@ -225,4 +225,38 @@ body{
     border-top: 0.5px solid #2523236f; /* Adjust thickness and color as needed */
     width: 102%; /* Adjust width based on your layout */
 }
-
+/* Center the popup */
+.popup {
+    display: none;
+    color: white; /* Hide the popup by default */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(8, 4, 4, 0.779);
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+.popup h2{
+    font-size: 30px;
+    margin-bottom: 2rem;
+}
+.popup p{
+    font-size:17px;
+    margin-bottom: 1.5rem;
+}
+.popup button{
+    cursor: pointer;
+    font-size: 17px;
+font-weight: 600;
+    border: none;
+    background-color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin-right: 1em;
+}
+.popup button:hover{
+    background-color: rgb(174, 173, 173);
+}

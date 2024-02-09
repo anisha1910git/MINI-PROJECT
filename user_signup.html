@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com">
   <link rel="stylesheet" href="user_signup.css">
+  <script src="login.js" defer type="module"></script>
+
 </head>
 
 <body>
@@ -27,37 +29,16 @@
   <div class="google">
     <p>OR</p>
   <!-- google sign in  -->
-  <div id="my-signin2"></div>
+  <div class="signin">
+    <button type="button" class="login-with-google-btn" id="googlee" >
+      Sign in with Google
+    </button>
+  </div>
  </div>
-  
    </div>
    <div class="title">
     <p>Welcome to TravelHub!</p>
-    
   </div>
    </div>
-    <script>
-      function onSuccess(googleUser) {
-        console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
-      }
-      function onFailure(error) {
-        console.log(error);
-      }
-      function renderButton() {
-        gapi.signin2.render('my-signin2', {
-          'scope': 'profile email',
-          'width': 200,
-          'height': 40,
-          'longtitle': true,
-          'theme': 'light',
-          'onsuccess': onSuccess,
-          'onfailure': onFailure
-          
-        });
-      }
-    </script>
-    <script src="https://apis.google.com/js/platform.js?onload=onGoogleSignInLoad" async defer></script>
-    <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
-    <!-- sign in with google end -->
 </body>
 </html>
