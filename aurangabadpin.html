@@ -1,11 +1,347 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bollywood ki boli ft. Mumbai</title>
+  <style>
+    /* CSS Styles */
+    /* Fonts */
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+    /* Colors */
+    :root {
+      --primary-color: rgb(66, 66, 255);
+      --background-color: #f2f2f2;
+      --text-color: #333333;
+      --conversation-bg: #f0f0f0;
+      --conversation-border: #ddd;
+    }
+
+    /* Reset CSS */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: var(--background-color);
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1001;
+      background-color: white;
+      display: flex;
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+      box-shadow: var(--box-shadow);
+      padding-left: 10px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .header .logo img {
+      height: 45px;
+      padding: 0;
+    }
+
+    .header .navbar {
+      margin-left: auto;
+    }
+
+    .header .navbar a {
+      font-size: 1rem;
+      margin-left: 2rem;
+      color: black;
+      text-decoration: none;
+    }
+
+    .header .navbar a:hover {
+      text-decoration: underline;
+    }
+
+    nav {
+      background-color: var(--w);
+      text-align: center;
+      padding: 10px 0;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 10px 20px;
+      transition: background-color 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    #content-container {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    #about {
+      width: 50%;
+      text-align: center; /* Center align text */
+      padding: 40px;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+      margin: 20px;
+      max-width: 400px;
+    }
+
+    #about h2 {
+      color: var(--primary-color);
+      margin-bottom: 20px;
+    }
+
+    #about p {
+      color: var(--text-color);
+    }
+
+    #slideshow-container {
+      width: 50%;
+      margin: 20px;
+      overflow: hidden;
+    }
+
+    .slideshow-image {
+      display: none;
+      width: 100%;
+      height: auto;
+    }
+
+    /* Meme styling */
+    .meme-container {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .meme-image {
+      width: 100%; /* Adjust the width as needed */
+      max-width: 300px; /* Limit the maximum width */
+      display: block;
+      margin: 0 auto; /* Center align image */
+    }
+
+    .meme-text {
+      font-size: 24px; /* Adjust the font size as needed */
+      margin-top: 20px;
+      margin-bottom: 20px;
+      font: 1.5em sans-serif;
+    }
+
+    /* Typing animation styles */
+    .typing-animation {
+      text-align: center;
+      padding: 20px 0; /* Adjust the padding as needed */
+    }
+
+    .typing-animation h2 {
+      font-size: 46px; 
+      font-weight: bold;
+      font-family: fantasy;
+      color: #333; /* Adjust the color as needed */
+    }
+
+    @keyframes typing {
+      0% {
+        width: 0;
+      }
+      50% {
+        width: 50%;
+      }
+      100% {
+        width: 100%;
+      }
+    }
+
+    /* Footer Styles */
+    .footer {
+      background-size: auto;
+      background-color: #333;
+      background-position: center;
+      padding-top: 0;
+      padding-bottom: 0;
+      margin-top: 3rem;
+      z-index: 999; /* Set a lower z-index value */
+      color: white;
+    }
+
+    .footer .box-container {
+      display: grid;
+      grid-template-columns: repeat(4, 0.5fr); /* Adjust columns for four boxes */
+      gap: 3rem;
+      padding: 2rem;
+      padding-top: 2rem;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .footer .box-container .box h3 {
+      color: white;
+      font-size: 1.5rem;
+      padding-bottom: 1rem;
+    }
+
+    .footer .box-container .box a {
+      color: white;
+      font-size: 1rem;
+      padding-bottom: 1rem;
+      display: block;
+      text-decoration: none;
+    }
+
+    .footer .box-container .box a i {
+      color: var(--primary-color);
+      padding-right: .5rem;
+      transition: .2s linear;
+    }
+
+    .footer .box-container .box a:hover i {
+      padding-right: 2rem;
+    }
+
+    .footer .credit {
+      text-align: center;
+      padding-top: 1rem;
+      margin-top: 1rem;
+      padding-bottom: 1rem;
+      border-top: .1rem solid white;
+      font-size: 1rem;
+    }
+
+    .footer .credit span {
+      color: var(--primary-color);
+    }
+  </style>
 </head>
 <body>
-    <h1> aurangabad</h1>
+  <section class="header">
+    <a href="homepg.html" class="logo"><img src="logoabout.png"></a>
+
+    <nav class="navbar">
+      <a href="index.html">Home</a>
+      <a href="aboutUs.html">About</a>
+      <a href="packages.html">Packages</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="contactUs.html">Contact</a>
+    </nav>
+  </section>
+  <header>
+    <h1>Bollywood ki boli ft. Mumbai</h1>
+  </header>
+
+  <section class="typing-animation" style="font-size: 40px;margin-right: 20px;margin-left: 20px;">
+    <p id="typing-text"></p>
+  </section>
+
+  <div id="content-container">
+    <div id="about">
+      <h2>About</h2>
+      <p>Aurangabad of Maharashtra has now become a shooting hub. Aurangabad is becoming the choice of both directors and actors for shooting.Aurangabad district has become a shooting hub for Hindi Marathi films, serials, web series and advertisements. Not only Jawan but many Hindi and Marathi film web series like "Ray", Aashiqana, Laadla, Dispatch, Gulkand and Mukkam Post Kolshewadi have been shot in Aurangabad.</p>
+    </div>
+
+    <div id="slideshow-container">
+      <img class="slideshow-image" src="https://pbs.twimg.com/media/C_8cCwXU0AAYwKZ.jpg" alt="Slideshow Image 1">
+      <img class="slideshow-image" src="https://www.91-cdn.com/hub/wp-content/uploads/2023/10/Jawan.png">
+      <img class="slideshow-image" src="https://upperstall.com/wp-content/uploads/2021/06/Ray-header.jpg" alt="Slideshow Image 3">
+      <img class="slideshow-image" src="https://assets.gadgets360cdn.com/pricee/assets/product/202204/gulkanda_tales_story_1651234461.jpeg?downsize=680:*" alt="Slideshow Image 4">
+    </div>
+  </div>
+
+  <div class="meme-container">
+    <h2 class="meme-text">Aurangabad ka page banakar movie na honaa bol dena:</h2>
+    <img class="meme-image" src="https://d33wubrfki0l68.cloudfront.net/345156dd10fee0460c12319b9629f43b70b2987d/72ef2/img/templates/welcome-seh-lenge-thoda.jpg" alt="Meme Image">
+  </div>
+
+  <section class="footer">
+    <div class="box-container">
+      <div class="box">
+        <h3>Quick Links</h3>
+        <a href="index.html"><i class="fa fa-angle-right" style="color: var(--primary-color);"></i>Home</a>
+        <a href="aboutUs.html"><i class="fa fa-angle-right" style="color: var(--primary-color);"></i>About</a>
+        <a href="packages.html"><i class="fa fa-angle-right" style="color: var(--primary-color);"></i>Packages</a>
+        <a href="gallery.html"><i class="fa fa-angle-right" style="color: var(--primary-color);"></i>Gallery</a>
+        <a href="contactUs.html"><i class="fa fa-angle-right" style="color: var(--primary-color);"></i>Contact</a>
+      </div>
+
+      <div class="box">
+        <h3>Extra Links</h3>
+        <a href="#"><i class="fa fa-angle-right" style="color: var(--primary-color);"></i>Ask Questions</a>
+        <a href="faq.html"><i class="fa fa-angle-right" style="color: var(--primary-color);"></i>FAQ</a>
+        <a href="#"><i class="fa fa-angle-right" style="color: var(--primary-color);"></i>Privacy Policy</a>
+        <a href="t&c.html"><i class="fa fa-angle-right" style="color: var(--primary-color);"></i>Terms of Use</a>
+      </div>
+
+      <div class="box">
+        <h3>Contact Info</h3>
+        <a href="#"><i class="fa fa-phone" style="color: var(--primary-color);"></i>428416212</a>
+        <a href="#"><i class="fa fa-phone" style="color: var(--primary-color);"></i>483481292</a>
+        <a href="#"><i class="fa fa-envelope" style="color: var(--primary-color);"></i>travelhub@ves.ac.in</a>
+        <a href="#"><i class="fa fa-map" style="color: var(--primary-color);"></i>Mumbai, India - 400094</a>
+      </div>
+
+      <div class="box">
+        <h3>Follow Us</h3>
+        <a href="#"><i class="fa fa-facebook-f" style="color: var(--primary-color);"></i>Facebook</a>
+        <a href="#"><i class="fa fa-twitter" style="color: var(--primary-color);"></i>Twitter</a>
+        <a href="#"><i class="fa fa-instagram" style="color: var(--primary-color);"></i>Instagram</a>
+        <a href="#"><i class="fa fa-linkedin" style="color: var(--primary-color);"></i>LinkedIn</a>
+      </div>
+    </div>
+
+    <div class="credit">Created by <span>Team TravelHub</span> | All rights reserved</div>
+  </section>
+
+  <script>
+    // JavaScript code for slideshow
+    let slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+      let i;
+      const slides = document.getElementsByClassName("slideshow-image");
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) {
+        slideIndex = 1;
+      }
+      slides[slideIndex - 1].style.display = "block";
+      setTimeout(showSlides, 2000); // Change image every 2 seconds
+    }
+
+    // JavaScript code for typing animation
+    const text = "Yeh He Aurangabad!"; // Text to display
+    let index = 0;
+
+    function typeWriter() {
+      if (index < text.length) {
+        document.getElementById("typing-text").innerHTML += text.charAt(index);
+        index++;
+        setTimeout(typeWriter, 100); // Speed of typing animation (milliseconds)
+      }
+    }
+
+    typeWriter();
+  </script>
 </body>
 </html>

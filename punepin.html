@@ -1,11 +1,419 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bollywood ki boli ft. Pune</title>
+  <style>
+    /* Fonts */
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+    /* Colors */
+    :root {
+      --primary-color: #474747;
+  
+      --background-color: #f2f2f2;
+      --text-color: #333333;
+      --conversation-bg: #f0f0f0;
+      --conversation-border: #ddd;
+    }
+
+    /* Reset CSS */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: var(--background-color);
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+
+    .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1001;
+    background-color: white;
+    display: flex;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    box-shadow: var(--box-shadow);
+    padding-left: 10px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header .logo img
+{
+    height: 45px;
+    padding: 0;
+}
+.header .navbar{
+    margin-left:auto;
+}
+.header .navbar a{
+    font-size: 1rem;
+    margin-left: 2rem;
+    color:black;
+    text-decoration: none;
+}
+.header .navbar a:hover{
+  text-decoration: underline;
+}
+    nav {
+      background-color: var(--w);
+      text-align: center;
+      padding: 10px 0;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 10px 20px;
+      transition: background-color 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .location {
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      padding: 40px;
+      margin-bottom: 80px; /* Increased space between text box and image */
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 800px;
+    }
+
+    .location:nth-child(even) {
+      flex-direction: row-reverse;
+    }
+
+    .location.show {
+      opacity: 1;
+    }
+
+    .location img {
+      max-width: 400px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .location .textbox {
+      background-color: var(--conversation-bg);
+      border-radius: 10px;
+      padding: 20px;
+      max-width: calc(100% - 350px); /* Adjusted width of the text box */
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      border: 1px solid var(--conversation-border);
+    }
+
+    .location .textbox h3 {
+      color: var(--primary-color);
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+
+    .location .textbox p {
+      color: var(--text-color);
+    }
+
+    #content-container {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    #about {
+      width: 50%;
+      text-align: left;
+      padding: 40px;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+      margin: 20px;
+      max-width: 400px;
+    }
+
+    #about h2 {
+      color: var(--primary-color);
+      margin-bottom: 20px;
+    }
+
+    #about p {
+      color: var(--text-color);
+    }
+
+    #slideshow-container {
+      width: 50%;
+      margin: 20px;
+      overflow: hidden;
+    }
+
+    .slideshow-image {
+      display: none;
+      width: 100%;
+      height: auto;
+    }
+
+    /* Typing animation styles */
+    .typing-animation {
+      text-align: center;
+      padding: 20px 0; /* Adjust the padding as needed */
+    }
+
+    .typing-animation h2 {
+      font-size: 46px; 
+      font-weight: bold;
+      font-family: fantasy;
+      color: #333; /* Adjust the color as needed */
+    }
+
+    @keyframes typing {
+      0% {
+        width: 0;
+      }
+      50% {
+        width: 50%;
+      }
+      100% {
+        width: 100%;
+      }
+    }
+
+    .footer {
+    /* background: url(footer.jpg) no-repeat; */
+    background-size: auto;
+    background-color: #333;
+    background-position: center;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: 3rem;
+    z-index: 999; /* Set a lower z-index value */
+}
+
+.footer .box-container {
+    display: grid;
+    grid-template-columns: repeat(4, 0.5fr); /* Adjust columns for four boxes */
+    gap: 3rem;
+    padding: 2rem;
+    padding-top: 2rem;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.footer .box-container .box h3 {
+    color: white;
+    font-size: 1.5rem;
+    padding-bottom: 1rem;
+}
+
+.footer .box-container .box a {
+    color: var(--light-white);
+    font-size: 1rem;
+    padding-bottom: 1rem;
+    display: block;
+    text-decoration: none;
+}
+
+.footer .box-container .box a i {
+    color: var(--main-color);
+    padding-right: .5rem;
+    transition: .2s linear;
+}
+
+.footer .box-container .box a:hover i {
+    padding-right: 2rem;
+}
+.footer .credit{
+    text-align: center;
+    padding-top: 1rem;
+    margin-top: 1rem;
+    padding-bottom: 1rem;
+    border-top: .1rem solid var(--light-white);
+    font-size: 1rem;
+    color: var(--light-white);
+}
+.footer .credit span{
+    color: var(--main-color);
+}
+  </style>
 </head>
 <body>
-    <h1> Pune</h1>
+  <section class="header">
+    <a href="homepg.html" class="logo"><img src="logo.png"></a>
+
+    <nav class="navbar">
+        <a href="index.html">Home</a>
+        <a href="aboutUs.html">About</a>
+        <a href="packages.html">Packages</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contactUs.html"> Contact</a>
+    </nav>
+    <!-- <div id="menu-btn" style="padding: 0; align-items: flex-end;"><i class="fa fa-bars" style="color: white;"></i></div> -->
+</section>
+  <header>
+    <h1>Bollywood ki boli ft. Pune</h1>
+  </header>
+
+  <section class="typing-animation" style="font-size: 40px;margin-right: 20px;margin-left: 20px;">
+    <p id="typing-text"></p>
+  </section>
+
+  <div class="timeline">
+    <div class="location">
+      <img src="https://im.whatshot.in/img/2018/Aug/7637413454-d79b2fc7e5-b-cropped-1533932983.jpg" alt="Film shooting at Marine Drive">
+      <div class="textbox">
+        <h3>Agricultural College Of Pune </h3>
+        <p>The comically acclaimed Sanjay Dutt starrer film, Munna Bhai MBBS was largely shot at the Agricultural College of Pune. From the grand exterior to the classrooms there’s a good chunk of Pune embedded in the film, <b>bas kya bhidu?</b></p>
+     </div>
+    </div>
+    <div class="location">
+      <img src="https://imgstaticcontent.lbb.in/lbbnew/wp-content/uploads/2017/06/30132808/30062017_11EastStreetCaf%C3%A9_01.jpg" alt="Film shooting at Gateway of India">
+      <div class="textbox">
+        <h3>11 East Street </h3>
+        <p>The movie that was worked as a kick-starter for a real-life romance between Ranbir and Katrina, also shot some key moments in Pune. Especially the sequence from the song <b>‘Prem Ki Naiyya’</b> was shot at our very own 11 East Street Cafe. It’s hard to miss considering how obsessed people were back then with this movie and the songs. </p>
+      </div>
+    </div>
+    <div class="location">
+      <img src="https://im.whatshot.in/img/2019/Jan/andhadun-1-cropped-1547549283.jpg" alt="Film shooting at Film City">
+      <div class="textbox">
+        <h3>F.C Road</h3>
+        <p>At least 90% of the film is shot in Pune right from <b>MG Road, Shisha Jazz Cafe, Magarpatta, F.C Road, Koregaon Park and Peth areas.</b> How can one forget Cafe Goodluck and of course the Khadki underpass where Tabu gets kidnapped.</p>
+      </div>
+    </div>
+    <div class="location">
+      <img src="https://aninditadhikary.files.wordpress.com/2011/01/symbilavale.jpg" alt="Film shooting at Chhatrapati Shivaji Terminus">
+      <div class="textbox">
+        <h3>Symbiosis Lavale Campus </h3>
+        <p>If you haven’t been living under a rock, you must be familiar that the 2011 hit, <b>‘Bodyguard’</b> was shot at Symbiosis Lavale Campus. What most people do not know of is that couple of scenes from <b>‘Dangal’</b> were shot here too. </p>
+      </div>
+    </div>
+  </div>
+
+  <div id="content-container">
+    <div id="about">
+      <h2>About</h2>
+      <p>This page celebrates the deep connection between Bollywood and Pune, showcasing iconic shooting locations and landmarks.</p>
+    </div>
+
+    <div id="slideshow-container">
+      <img class="slideshow-image" src="https://im.whatshot.in/img/2019/Jan/film-companion-tumbbad-script-lead-3-cropped-1547548932.jpg" alt="Slideshow Image 1">
+      <img class="slideshow-image" src="https://static.toiimg.com/thumb/imgsize-23456,msid-61722032,width-600,resizemode-4/61722032.jpg" alt="Slideshow Image 2">
+      <img class="slideshow-image" src="https://media.gettyimages.com/id/914164900/photo/pune-india-bollywood-actor-madhuri-dixit-shooting-for-debut-marathi-film-bucket-list-at.jpg?s=612x612&w=gi&k=20&c=2Z2Pe4GDmpAE4D3nWsaOxPwTJ6Duf_VCWUDU4LU7xsw=" alt="Slideshow Image 3">
+      <img class="slideshow-image" src="https://im.whatshot.in/img/2020/Jul/major-saab-1594299075.jpg" alt="Slideshow Image 4">
+    </div>
+  </div>
+
+
+  <section class="footer">
+    <div class="box-container">
+        <div class="box">
+            <h3>Quick Links</h3>
+            <a href="index.html"><i class="fa fa-angle-right"></i>Home</a>
+            <a href="aboutUs.html"><i class="fa fa-angle-right"></i>About</a>
+            <a href="packages.html"><i class="fa fa-angle-right"></i>Packages</a>
+            <a href="gallery.html"><i class="fa fa-angle-right"></i>Gallery</a>
+            <a href="contactUs.html"><i class="fa fa-angle-right"></i>Contact</a>
+        </div>
+
+        <div class="box">
+            <h3>Extra Links</h3>
+            <a href="#"><i class="fa fa-angle-right"></i>ask questions</a>
+            <a href="faq.html"><i class="fa fa-angle-right"></i>faq</a>
+            <a href="#"><i class="fa fa-angle-right"></i>privacy policy</a>
+            <a href="t&c.html"><i class="fa fa-angle-right"></i>terms of use</a>
+        </div>
+
+        <div class="box">
+            <h3>Contact info</h3>
+            <a href="#"><i class="fa fa-phone"></i>428416212</a>
+            <a href="#"><i class="fa fa-phone"></i>483481292</a>
+            <a href="#"><i class="fa fa-envelope"></i>travelhub@ves.ac.in</a>
+            <a href="#"><i class="fa fa-map"></i>mumbai,India - 400094</a>
+        </div>
+
+        <div class="box">
+            <h3>Follow Us</h3>
+            <a href="#"><i class="fa fa-facebook-f"></i>facebook</a>
+            <a href="#"><i class="fa fa-twitter"></i>twitter</a>
+            <a href="#"><i class="fa fa-instagram"></i>instagram</a>
+            <a href="#"><i class="fa fa-linkedin"></i>linkedin</a>
+        </div>
+    </div>
+
+    <div class="credit">Created by <span> Team TravelHub</span> | all rights reserved</div>
+</section>
+
+  <script>
+    window.addEventListener('scroll', function() {
+      let locations = document.querySelectorAll('.location');
+      locations.forEach(location => {
+        if (isElementInViewport(location)) {
+          location.classList.add('show');
+        }
+      });
+    });
+
+    function isElementInViewport(el) {
+      var rect = el.getBoundingClientRect();
+      return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+      );
+    }
+
+    // Typing animation
+    const text = "Yeh He Pune Meri Jaan"; // Text to display
+    let index = 0;
+
+    function typeWriter() {
+      if (index < text.length) {
+        document.getElementById("typing-text").innerHTML += text.charAt(index);
+        index++;
+        setTimeout(typeWriter, 100); // Speed of typing animation (milliseconds)
+      }
+    }
+
+    typeWriter();
+
+    // Slideshow
+    let slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+      let i;
+      const slides = document.getElementsByClassName("slideshow-image");
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) {
+        slideIndex = 1;
+      }
+      slides[slideIndex - 1].style.display = "block";
+      setTimeout(showSlides, 2000); // Change image every 2 seconds
+    }
+  </script>
 </body>
 </html>
