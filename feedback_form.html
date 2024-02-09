@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Travel Feedback Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: url('5685020.jpg') ;
+      background-size:cover;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .feedback-form {
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      max-width: 400px;
+      width: 100%;
+      text-align: left;
+    }
+
+    .feedback-form h2 {
+      color: #333;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 10px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      margin-top: 5px;
+    }
+
+    .form-group textarea {
+      resize: vertical;
+    }
+
+    .stars {
+      display: flex;
+      gap: 5px;
+    }
+
+    .star {
+      cursor: pointer;
+      font-size: 24px;
+    }
+
+    .star:hover,
+    .star.checked {
+      color: gold;
+    }
+
+    .form-group button {
+      background-color: #3498db;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .form-group button:hover {
+      background-color: #2980b9;
+    }
+  </style>
+</head>
+<body>
+
+<div class="feedback-form">
+  <h2>Travel Feedback Form</h2>
+  <form action="feedback.php" method="post">
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name">
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email Address:</label>
+      <input type="email" id="email" name="email">
+    </div>
+
+    <div class="form-group">
+      <label for="feedbackType">Feedback Type:</label>
+      <select id="feedbackType" name="feedbackType" required>
+        <option value="general">General Feedback</option>
+        <option value="bug">Bug Report</option>
+        <option value="feature">Feature Request</option>
+        <option value="testimonial">Testimonial</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="rating">Rating (Optional):</label>
+      <div class="stars" id="rating">
+        <span class="star" onclick="rate(1)">&#9733;</span>
+        <span class="star" onclick="rate(2)">&#9733;</span>
+        <span class="star" onclick="rate(3)">&#9733;</span>
+        <span class="star" onclick="rate(4)">&#9733;</span>
+        <span class="star" onclick="rate(5)">&#9733;</span>
+      </div>
+      <input type="hidden" name="rating" id="rating-value">
+    </div>
+
+    <div class="form-group">
+      <label for="comments">Comments/Message:</label>
+      <textarea id="comments" name="comments" rows="4" required></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="userExperience">User Experience:</label>
+      <textarea id="userExperience" name="userExperience" rows="4" required></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="suggestions">Suggestions for Improvement:</label>
+      <textarea id="suggestions" name="suggestions" rows="4" required></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="favoriteFeatures">Favorite Features:</label>
+      <textarea id="favoriteFeatures" name="favoriteFeatures" rows="4"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="leastFavoriteFeatures">Least Favorite Features:</label>
+      <textarea id="leastFavoriteFeatures" name="leastFavoriteFeatures" rows="4"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="recommend">Would You Recommend? (Yes/No):</label>
+      <select id="recommend" name="recommend" required>
+        <option value="yes">Yes</option>
+        <option value="no">No</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="additionalComments">Additional Comments/Questions (Optional):</label>
+      <textarea id="additionalComments" name="additionalComments" rows="4"></textarea>
+    </div>
+
+    <div class="form-group">
+      <button type="submit">Submit Feedback</button>
+    </div>
+  </form>
+</div>
+
+<script>
+  function rate(stars) {
+    document.getElementById("rating-value").value = stars;
+    for (let i = 1; i <= 5; i++) {
+      const star = document.getElementById("rating").children[i - 1];
+      star.classList.remove("checked");
+      if (i <= stars) {
+        star.classList.add("checked");
+      }
+    }
+  }
+</script>
+
+</body>
+</html>

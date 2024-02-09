@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="user_login.css">
+  <script src="login.js" defer type="module"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="full_box">
+    <div class="form-container">
+   <form action="user_login.php" method="post">
+    <h2 >Sign In</h2>
+      <input type="text" placeholder="Username or Email " name="uname" id="username" required>
+    
+      <input type="password" placeholder="Password" name="psw" id="password" required>
+      
+      <button type="submit" id="sign-up">Sign In</button>
+    </form>
+  </div>
+
+  <div class="google">
+    <p>OR</p>
+  <!-- google sign in  -->
+  <div class="signin">
+    <button type="button" class="login-with-google-btn" id="googlee" >
+      Sign in with Google
+    </button>
+  </div>
+  </div>
+  
+   </div>
+   <div class="title">
+    <b>Welcome to TravelHub!</b>
+    <p>Don't have an account yet Sign up here</p>
+     <a href="user_signup.html">Sign Up</a>
+  </div>
+  
+   </div>
+</body>
+</html>
