@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.js">
@@ -128,12 +129,14 @@
       }
     }
 
+
    
   </style>
 </head>
 <body>
   <section class="header" >
     <a href="homepg.html" class="logo"><img src="logoabout.png"></a>
+
 
     <nav class="navbar">
         <a href="index.html">Home</a>
@@ -286,7 +289,9 @@
         slideIndex = 1;
       }
       slides[slideIndex - 1].style.display = "block";
-      setTimeout(showSlides, 2000);
+
+      setTimeout(showSlides, 2000); // Change image every 2 seconds
+
     }
   </script>
 </body>
