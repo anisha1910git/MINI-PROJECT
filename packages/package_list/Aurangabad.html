@@ -15,7 +15,10 @@
     <header>
         <section class="header">
         <a href="homepg.html" class="logo"><img src="/logoabout.png"></a>
-
+        <div class="search-container">
+            <input type="text" id="searchInput" onkeyup="filterPackages()" placeholder="Search for packages...">
+            <i class="fas fa-search"></i> <!-- Search icon -->
+        </div>
         <nav class="navbar">
             <a href="/index.html">Home</a>
             <a href="/aboutUs.html">About</a>
@@ -27,7 +30,21 @@
     </section>
    </header>
    <main>
-    <div class="city">
+    <div class="filters">
+        <p class="filter_title">Filter:</p>
+        <button class="filter_btn active" onclick="filterSelection('all')">All</button>
+            <button class="filter_btn" onclick="filterSelection('adventure')">Adventure</button>
+            <button class="filter_btn" onclick="filterSelection('culture')">Culture</button>
+            <!-- Add more filter buttons as needed -->
+            <select id="sortBy" onchange="sortPackages()">
+                <option value="priceLowToHigh">Price: Low to High</option>
+                <option value="priceHighToLow">Price: High to Low</option>
+                <option value="durationShortToLong">Duration: Short to Long</option>
+                <option value="durationLongToShort">Duration: Long to Short</option>
+            </select>
+    </div>
+    <div class="packages">
+    <div class="city" data-category="culture">
         <div class="photo"><img src="Aurangabad.jpg" alt="info1">
             </div>
     
@@ -46,7 +63,7 @@
         </div>
         </div>
 
-    <div class="city">
+    <div class="city" data-category="culture">
         <div class="photo"><img src="Aurangabad3.jpg" alt="info1">
             </div>
     
@@ -66,7 +83,7 @@
         </div>
         </div>
 
-    <div class="city">
+    <div class="city" data-category="culture">
         <div class="photo"><img src="Aurangabad2.jpg" alt="info1">
             </div>
     
@@ -85,13 +102,70 @@
          </div>
         </div>
         </div>
+        <div class="city" data-category="adventure">
+            <div class="photo"><img src="guatala.jpg" alt="info1">
+                </div>
+        
+            <div class="info1">
+             <b>Gautala's charm, birdwatching at Salim Ali Lake!</b>
+             <p>5 days 4 nights</p>
+             <p>Paddle boating|Canoeing|Mountain biking|Photography expeditions</p>
+             <div class="thin-line"></div>
+             <div class="book">
+                 <div class="price">
+                 <b>&#8377 42,000</b>
+                 <p>per person</p>
+                 </div>
+               <div class="book_btn"><a href="../iternary/aurangabad/Mahesh_it.html">View Details</a></div>
+             </div>
+            </div>
+            </div>
+    
+        <div class="city" data-category="adventure">
+            <div class="photo"><img src="salim.jpg" alt="info1">
+                </div>
+        
+            <div class="info1">
+             <b>Salim Ali Lake, Ellora Caves' wonder</b>
+             <p>4 days 3 nights</p>
+             <p>Nature photography|Picnicking|Camping|Historical tours</p>
+             <div class="thin-line"></div>
+             <div class="book">
+                 <div class="price">
+                 <b>&#8377 27,500</b>
+                 <p>per person</p>
+                 </div>
+               <div class="book_btn"><a href="../iternary/aurangabad/Shiv_it.html">View Details</a></div>
+             </div>
+            </div>
+            </div>
+    
+        <div class="city" data-category="adventure">
+            <div class="photo"><img src="ellora.jpg" alt="info1">
+                </div>
+        
+            <div class="info1">
+             <b>Explore Ellora, Discover Gautala!</b>
+             <p>4 days 3 nights</p>
+             <p>Rappelling|Mountain biking|Trekking|Cave exploration</p>
+             <div class="thin-line"></div>
+             <div class="book">
+                 <div class="price">
+                 <b>&#8377 25,000</b>
+                 <p>per person</p>
+                 
+                 </div>
+               <div class="book_btn"><a href="../iternary/aurangabad/Zenga_it.html">View Details</a></div>
+             </div>
+            </div>
+            </div>
         <div class="popup" id="loginPopup" style="display:none;">
             <h2>Looking to explore more?</h2>
             <p>Join the fun! Tap that login button and let's level up your experience together!</p>
             <button onclick="closePopup()">Close</button>
             <button onclick="redirectToLogin()">Login</button>
           </div>
-
+        </div>
    </main>
 
    
@@ -136,5 +210,85 @@
     </section>
     </footer>
     <script src="popup.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const filterBtns = document.querySelectorAll('.filter_btn');
+            const cities = document.querySelectorAll('.city');
+    
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const category = btn.textContent.toLowerCase();
+                    filterSelection(category);
+                    setActiveButton(btn);
+                });
+            });
+    
+            function filterSelection(category) {
+                cities.forEach(city => {
+                    if (category === 'all' || city.dataset.category === category) {
+                        city.style.display = 'flex';
+                    } else {
+                        city.style.display = 'none';
+                    }
+                });
+            }
+    
+            function setActiveButton(clickedBtn) {
+                filterBtns.forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                clickedBtn.classList.add('active');
+            }
+    
+            function sortPackages() {
+                const sortBy = document.getElementById('sortBy').value;
+                const packagesContainer = document.querySelector('.packages');
+                const packages = Array.from(packagesContainer.querySelectorAll('.city'));
+        
+                packages.sort((a, b) => {
+                    const aData = getDataAttribute(a, sortBy);
+                    const bData = getDataAttribute(b, sortBy);
+        
+                    if (sortBy.includes('price')) {
+                        return parseFloat(aData) - parseFloat(bData);
+                    } else if (sortBy.includes('duration')) {
+                        return parseInt(aData) - parseInt(bData);
+                    } else {
+                        return aData.localeCompare(bData);
+                    }
+                });
+        
+                packages.forEach(package => {
+                    packagesContainer.appendChild(package);
+                });
+            }
+        
+            function getDataAttribute(package, sortBy) {
+                if (sortBy === 'default') {
+                    return package.getAttribute('data-category');
+                } else if (sortBy === 'category') {
+                    return package.getAttribute('data-category');
+                } else {
+                    return package.querySelector(`.${sortBy}`).textContent.trim();
+                }
+            }});
+    </script>
+<script>
+    function filterPackages() {
+        const searchInput = document.getElementById('searchInput');
+        const filterValue = searchInput.value.toUpperCase();
+        const packagesContainer = document.querySelector('.packages');
+        const packages = Array.from(packagesContainer.querySelectorAll('.city'));
+
+        packages.forEach(package => {
+            const packageName = package.querySelector('b').textContent.toUpperCase();
+            if (packageName.includes(filterValue)) {
+                package.style.display = 'flex';
+            } else {
+                package.style.display = 'none';
+            }
+        });
+    }
+</script>
 </body>
 </html>

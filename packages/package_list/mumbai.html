@@ -15,7 +15,10 @@
     <header>
         <section class="header" >
         <a href="homepg.html" class="logo"><img src="/logoabout.png"></a>
-
+        <div class="search-container">
+            <input type="text" id="searchInput" onkeyup="filterPackages()" placeholder="Search for packages...">
+            <i class="fas fa-search"></i>
+        </div>
         <nav class="navbar">
             <a href="/index.html">Home</a>
             <a href="/aboutUs.html">About</a>
@@ -29,13 +32,19 @@
    <main>
     <div class="filters">
         <p class="filter_title">Filter:</p>
-        <label><input type="checkbox" value="adventure"> Adventure</label>
-        <label><input type="checkbox" value="culture"> Culture</label>
-        <!-- Add more filter options as needed -->
-        <label><input type="checkbox" id="showAll" checked> Show All</label>
+        <button class="filter_btn active" onclick="filterSelection('all')">All</button>
+            <button class="filter_btn" onclick="filterSelection('adventure')">Adventure</button>
+            <button class="filter_btn" onclick="filterSelection('culture')">Culture</button>
+            <!-- Add more filter buttons as needed -->
+            <select id="sortBy" onchange="sortPackages()">
+                <option value="priceLowToHigh">Price: Low to High</option>
+                <option value="priceHighToLow">Price: High to Low</option>
+                <option value="durationShortToLong">Duration: Short to Long</option>
+                <option value="durationLongToShort">Duration: Long to Short</option>
+            </select>
     </div>
-
-    <div class="city" data-category="adventure">
+    <div class="packages">
+    <div class="city" data-category="culture">
         <div class="photo"><img src="Mumbai.jpg" alt="info1">
             </div>
     
@@ -60,7 +69,7 @@
     
         <div class="info1">
          <b>Premium Mumbai Tour Package with Preeti Travels</b>
-         <p>4 days 3 nights</p>
+         <p>6 days 7 nights</p>
          <p>Mumbai Darshan | Beaches | Temples | Museum </p>
          <div class="thin-line"></div>
          <div class="book">
@@ -73,11 +82,11 @@
         </div>
         </div>
    
-    <div class="city">
+    <div class="city" data-category="culture">
         <div class="photo"><img src="Mumbai2.jpg" alt="info1">
             </div>
     
-        <div class="info1">
+        <div class="info1" data-category="culture">
          <b>Take a Deep dive into our Sapno ka Shahar Mumbai</b>
          <p>5 days 4 nights</p>
          <p>Mumbai Darshan | Juhu | Malshej Ghat | Museum </p>
@@ -92,16 +101,72 @@
          </div>
         </div>
         </div>
-
+        <div class="city" data-category="adventure">
+            <div class="photo"><img src="lonavala_1.avif" alt="info1">
+                </div>
+        
+            <div class="info1">
+             <b>Discover Mahabaleshwar & Lonavla: Adventure Awaits!</b>
+             <p>4 days 3 nights</p>
+             <p>Paragliding|Trekking|Rock Climbing|Water Rappelling</p>
+             <div class="thin-line"></div>
+             <div class="book">
+                 <div class="price">
+                 <b>&#8377 56,900</b>
+                 <p>per person</p>
+                 </div>
+               <div class="book_btn"><a href="../iternary/mumbai/geeta_it.html">View Details</a></div>
+             </div>
+            </div>
+            </div>
+       
+        <div class="city" data-category="adventure">
+            <div class="photo"><img src="juhu.webp" alt="info1">
+                </div>
+        
+            <div class="info1">
+             <b>Lonavla & Juhu beach: Natural Beauty Awaits!</b>
+             <p>6 days 7 nights</p>
+             <p>Parasailing|Jet Skiing|Caving|Zip-lining</p>
+             <div class="thin-line"></div>
+             <div class="book">
+                 <div class="price">
+                 <b>&#8377 57,500</b>
+                 <p>per person</p>
+                 </div>
+               <div class="book_btn"><a href="../iternary/mumbai/Preeti_it.html">View Details</a></div>
+             </div>
+            </div>
+            </div>
+       
+        <div class="city" data-category="adventure">
+            <div class="photo"><img src="mahabaleshwar.jpg" alt="info1">
+                </div>
+        
+            <div class="info1">
+             <b>Mahabaleshwar & Juhu beach: Nature's Treasures Await!</b>
+             <p>5 days 4 nights</p>
+             <p>Hot Air Ballooning|Bungee Jumping|Rappelling|Kayaking</p>
+             <div class="thin-line"></div>
+             <div class="book">
+                 <div class="price">
+                 <b>&#8377 42,000</b>
+                 <p>per person</p>
+                 
+                 </div>
+               <div class="book_btn"><a href="../iternary/mumbai/darshan_it.html">View Details</a></div>
+             </div>
+            </div>
+            </div>
+        </div>
         <div class="popup" id="loginPopup" style="display:none;">
             <h2>Looking to explore more?</h2>
             <p>Join the fun! Tap that login button and let's level up your experience together!</p>
             <button onclick="closePopup()">Close</button>
             <button onclick="redirectToLogin()">Login</button>
           </div>
-
-   </main>
-
+   </div>
+</main>
    
     <footer>
         <section class="footer">
@@ -148,33 +213,86 @@
         </section>
         
     </footer>
-
     <script src="popup.js"></script>
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const checkboxes = document.querySelectorAll('.filters input[type="checkbox"]');
-        const cities = document.querySelectorAll('.city');
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const filterBtns = document.querySelectorAll('.filter_btn');
+            const cities = document.querySelectorAll('.city');
     
-        checkboxes.forEach(checkbox => {
-            checkbox.addEventListener('change', filterCities);
-        });
-    
-        function filterCities() {
-            const selectedCategories = Array.from(checkboxes)
-                .filter(checkbox => checkbox.checked && checkbox.value !== 'showAll')
-                .map(checkbox => checkbox.value);
-    
-            cities.forEach(city => {
-                const cityCategory = city.dataset.category;
-    
-                if (selectedCategories.includes(cityCategory) || selectedCategories.length === 0) {
-                    city.style.display = 'flex';
-                } else {
-                    city.style.display = 'none';
-                }
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const category = btn.textContent.toLowerCase();
+                    filterSelection(category);
+                    setActiveButton(btn);
+                });
             });
-        }
-    });
+    
+            function filterSelection(category) {
+                cities.forEach(city => {
+                    if (category === 'all' || city.dataset.category === category) {
+                        city.style.display = 'flex';
+                    } else {
+                        city.style.display = 'none';
+                    }
+                });
+            }
+    
+            function setActiveButton(clickedBtn) {
+                filterBtns.forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                clickedBtn.classList.add('active');
+            }
+    
+            function sortPackages() {
+                const sortBy = document.getElementById('sortBy').value;
+                const packagesContainer = document.querySelector('.packages');
+                const packages = Array.from(packagesContainer.querySelectorAll('.city'));
+        
+                packages.sort((a, b) => {
+                    const aData = getDataAttribute(a, sortBy);
+                    const bData = getDataAttribute(b, sortBy);
+        
+                    if (sortBy.includes('price')) {
+                        return parseFloat(aData) - parseFloat(bData);
+                    } else if (sortBy.includes('duration')) {
+                        return parseInt(aData) - parseInt(bData);
+                    } else {
+                        return aData.localeCompare(bData);
+                    }
+                });
+        
+                packages.forEach(package => {
+                    packagesContainer.appendChild(package);
+                });
+            }
+        
+            function getDataAttribute(package, sortBy) {
+                if (sortBy === 'default') {
+                    return package.getAttribute('data-category');
+                } else if (sortBy === 'category') {
+                    return package.getAttribute('data-category');
+                } else {
+                    return package.querySelector(`.${sortBy}`).textContent.trim();
+                }
+            }});
+    </script>
+<script>
+    function filterPackages() {
+        const searchInput = document.getElementById('searchInput');
+        const filterValue = searchInput.value.toUpperCase();
+        const packagesContainer = document.querySelector('.packages');
+        const packages = Array.from(packagesContainer.querySelectorAll('.city'));
+
+        packages.forEach(package => {
+            const packageName = package.querySelector('b').textContent.toUpperCase();
+            if (packageName.includes(filterValue)) {
+                package.style.display = 'flex';
+            } else {
+                package.style.display = 'none';
+            }
+        });
+    }
 </script>
    
     

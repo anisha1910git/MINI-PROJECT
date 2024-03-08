@@ -261,40 +261,31 @@ font-weight: 600;
 .popup button:hover{
     background-color: rgb(174, 173, 173);
 }
-
+/* Optional: Add styling for the "Show All" checkbox */
 .filters {
+    display: flex;
+    align-items: center;
     margin-bottom: 20px;
-    border: 1px solid black;
-    border-radius: 2em;
-    background-color: white;
-    padding: 2rem;
-    width: fit-content;
 }
-.filter_title{
-    font-weight: 700;
-    font-size:1.2em;
-    color: rgba(0, 0, 0, 0.6);
+
+.filter_title {
+    margin-right: 10px;
 }
-.filters label {
-    display: block;
-    margin-bottom: 10px;
+
+.filter_btn {
+    padding: 5px 10px;
+    margin-right: 10px;
+    background-color: #ccc;
+    border: none;
+    border-radius: 5px;
     cursor: pointer;
 }
 
-.filters input[type="checkbox"] {
-    margin-right: 5px;
+.filter_btn.active {
+    background-color: #007bff;
+    color: #fff;
 }
 
-.filters label:hover {
-    color: blue; /* Change color on hover */
-}
-
-/* Styling for checked checkboxes */
-.filters input[type="checkbox"]:checked + label {
-    font-weight: bold;
-}
-
-/* Optional: Add styling for the "Show All" checkbox */
-#showAll {
-    font-style: italic;
+#sortBy {
+    margin-left: 20px;
 }

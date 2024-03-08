@@ -16,7 +16,10 @@
     <header>
         <section class="header" >
             <a href="homepg.html" class="logo"><img src="/logoabout.png"></a>
-    
+            <div class="search-container">
+                <input type="text" id="searchInput" onkeyup="filterPackages()" placeholder="Search for packages...">
+                <i class="fas fa-search"></i> <!-- Search icon -->
+            </div>
             <nav class="navbar">
                 <a href="index.html">Home</a>
                 <a href="aboutUs.html">About</a>
@@ -28,7 +31,21 @@
         </section>
    </header>
    <main>
-    <div class="city">
+    <div class="filters">
+        <p class="filter_title">Filter:</p>
+        <button class="filter_btn active" onclick="filterSelection('all')">All</button>
+            <button class="filter_btn" onclick="filterSelection('adventure')">Adventure</button>
+            <button class="filter_btn" onclick="filterSelection('culture')">Culture</button>
+            <!-- Add more filter buttons as needed -->
+            <select id="sortBy" onchange="sortPackages()">
+                <option value="priceLowToHigh">Price: Low to High</option>
+                <option value="priceHighToLow">Price: High to Low</option>
+                <option value="durationShortToLong">Duration: Short to Long</option>
+                <option value="durationLongToShort">Duration: Long to Short</option>
+            </select>
+    </div>
+    <div class="packages">
+    <div class="city" data-category="culture">
         <div class="photo"><img src="nagpur2.jpg" alt="info1">
             </div>
     
@@ -47,16 +64,14 @@
         </div>
         </div>
    
-    <div class="city">
+    <div class="city" data-category="culture">
         <div class="photo"><img src="nagpur3.jpg" alt="info1">
             </div>
     
         <div class="info1">
          <b>Explore Nagpur along with Pachmarhi with Safar Tours and Travels</b>
          <p>4 days 3 nights</p>
-         <p>
-            Ramtek Temple | Sevagram | Pachmarhi  | Jungle Safari
-         </p>
+         <p>Ramtek Temple | Sevagram | Pachmarhi  | Jungle Safari</p>
          <div class="thin-line"></div>
          <div class="book">
              <div class="price">
@@ -69,7 +84,7 @@
         </div>
    
   
-    <div class="city">
+    <div class="city" data-category="culture">
         <div class="photo"><img src="nagpur1.jpg" alt="info1">
             </div>
     
@@ -88,12 +103,70 @@
          </div>
         </div>
         </div>
-
+    <div class="city" data-category="adventure">
+        <div class="photo"><img src="ramtek.webp" alt="info1">
+            </div>
+    
+        <div class="info1">
+         <b>Discover adventure at Ramtek hills and Khekranala waters.</b>
+         <p>5 days 4 nights</p>
+         <p>Camping|Bird watching|Jet skiing|Fishing</p>
+         <div class="thin-line"></div>
+         <div class="book">
+             <div class="price">
+             <b>&#8377 23,900</b>
+             <p>per person</p>
+             </div>
+           <div class="book_btn"><a href="../iternary/nagpur/arya_it.html">View Details</a></div>
+         </div>
+        </div>
+        </div>
+   
+    <div class="city" data-category="adventure">
+        <div class="photo"><img src="khekranala.jpg" alt="info1">
+            </div>
+    
+        <div class="info1">
+         <b>Explore excitement at Khekranala's waters and Umred's wilds</b>
+         <p>4 days 3 nights</p>
+         <p>Photography expeditions|Night safaris|Swimming|Water zorbing</p>
+         <div class="thin-line"></div>
+         <div class="book">
+             <div class="price">
+             <b>&#8377 27,500</b>
+             <p>per person</p>
+             </div>
+           <div class="book_btn"><a href="../iternary/nagpur/safar_it.html">View Details</a></div>
+         </div>
+        </div>
+        </div>
+   
+  
+    <div class="city" data-category="adventure">
+        <div class="photo"><img src="umred.jpg" alt="info1">
+            </div>
+    
+        <div class="info1">
+         <b>Embrace adventure amidst Umred's sanctuary and Ramtek's hills</b>
+         <p>6 days 5 nights</p>
+         <p>Bird watching|Nature walks|Photography expeditions|Mountain biking</p>
+         <div class="thin-line"></div>
+         <div class="book">
+             <div class="price">
+             <b>&#8377 45,300</b>
+             <p>per person</p>
+             
+             </div>
+           <div class="book_btn"><a href="../iternary/nagpur/pravasi_it.html">View Details</a></div>
+         </div>
+        </div>
+        </div>
         <div class="popup" id="loginPopup" style="display:none;">
             <h2>Looking to explore more?</h2>
             <p>Join the fun! Tap that login button and let's level up your experience together!</p>
             <button onclick="closePopup()">Close</button>
             <button onclick="redirectToLogin()">Login</button>
+          </div>
           </div>
    </main>
 
@@ -145,6 +218,85 @@
        
     </footer>
     <script src="popup.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const filterBtns = document.querySelectorAll('.filter_btn');
+            const cities = document.querySelectorAll('.city');
+    
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const category = btn.textContent.toLowerCase();
+                    filterSelection(category);
+                    setActiveButton(btn);
+                });
+            });
+    
+            function filterSelection(category) {
+                cities.forEach(city => {
+                    if (category === 'all' || city.dataset.category === category) {
+                        city.style.display = 'flex';
+                    } else {
+                        city.style.display = 'none';
+                    }
+                });
+            }
+    
+            function setActiveButton(clickedBtn) {
+                filterBtns.forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                clickedBtn.classList.add('active');
+            }
+    
+            function sortPackages() {
+                const sortBy = document.getElementById('sortBy').value;
+                const packagesContainer = document.querySelector('.packages');
+                const packages = Array.from(packagesContainer.querySelectorAll('.city'));
+        
+                packages.sort((a, b) => {
+                    const aData = getDataAttribute(a, sortBy);
+                    const bData = getDataAttribute(b, sortBy);
+        
+                    if (sortBy.includes('price')) {
+                        return parseFloat(aData) - parseFloat(bData);
+                    } else if (sortBy.includes('duration')) {
+                        return parseInt(aData) - parseInt(bData);
+                    } else {
+                        return aData.localeCompare(bData);
+                    }
+                });
+        
+                packages.forEach(package => {
+                    packagesContainer.appendChild(package);
+                });
+            }
+        
+            function getDataAttribute(package, sortBy) {
+                if (sortBy === 'default') {
+                    return package.getAttribute('data-category');
+                } else if (sortBy === 'category') {
+                    return package.getAttribute('data-category');
+                } else {
+                    return package.querySelector(`.${sortBy}`).textContent.trim();
+                }
+            }});
+    </script>
+<script>
+    function filterPackages() {
+        const searchInput = document.getElementById('searchInput');
+        const filterValue = searchInput.value.toUpperCase();
+        const packagesContainer = document.querySelector('.packages');
+        const packages = Array.from(packagesContainer.querySelectorAll('.city'));
 
+        packages.forEach(package => {
+            const packageName = package.querySelector('b').textContent.toUpperCase();
+            if (packageName.includes(filterValue)) {
+                package.style.display = 'flex';
+            } else {
+                package.style.display = 'none';
+            }
+        });
+    }
+</script>
 </body>
 </html>
