@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Travel Blogs</title>
+  <link rel="stylesheet" href="blog.css">
+</head>
+<body>
+    <header>
+        <section class="header">
+            <a href="homepg.html" class="logo"><img src="logoabout.png"></a>
+    
+            <nav class="navbar">
+                <a href="index.html">Home</a>
+                <a href="aboutUs.html">About</a>
+                <a href="packages/city_package/packages.html">Packages</a>
+                <a href="try.html">Try it</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="contactUs.html">Contact</a>
+            </nav>
+        </section>
+    </header>
+    <h1 style="text-align: center;">Tales from the Trails</h1>
+    <h3 style="text-align: center;font-weight: normal;">Discover Travel Tales from Your Fellow Travel Buddies</h3>
+  <div class="container">
+    <div class="blog-row" id="blogsContainer">
+      <!-- Blog cards will be dynamically inserted here -->
+    </div>
+  </div>
+
+  <button class="add-blog-btn " onclick="toggleAddBlogForm() ">Add Blog</button>
+
+  <div class="add-blog-form-overlay" id="addBlogFormOverlay" onclick="toggleAddBlogForm()"></div>
+  
+  <div class="add-blog-form" id="addBlogForm">
+    <h2>Add Blog</h2>
+    <form id="blogForm">
+      <input type="text" name="authorName" placeholder="Author Name" required><br>
+      <input type="text" name="blogTitle" placeholder="Blog Title" required><br>
+      <input type="email" name="email" placeholder="Email" required><br>
+      <input type="file" name="photo" required><br>
+      <textarea name="blogBody" placeholder="Blog Body" required></textarea><br>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <script>
+    function toggleAddBlogForm() {
+      const addBlogForm = document.getElementById("addBlogForm");
+      const addBlogFormOverlay = document.getElementById("addBlogFormOverlay");
+      addBlogForm.style.display = addBlogForm.style.display === "none" ? "block" : "none";
+      addBlogFormOverlay.style.display = addBlogFormOverlay.style.display === "none" ? "block" : "none";
+    }
+
+    document.addEventListener("DOMContentLoaded", async function() {
+      const blogsContainer = document.getElementById("blogsContainer");
+
+      // Function to fetch blogs data from the mock API
+      const fetchBlogs = async () => {
+        try {
+          // Simulate fetching data from a mock API
+          const blogsData = [
+            { id: 1, title: "Beautiful Sunset in Mumbai", body: "Experience the breathtaking view of the sunset from the beaches of Mumbai.", image: "https://via.placeholder.com/400" },
+            { id: 2, title: "Trekking in the Western Ghats", body: "Embark on an adventurous trekking journey through the lush greenery of the Western Ghats.", image: "https://via.placeholder.com/400" },
+            { id: 3, title: "Exploring Historical Forts", body: "Discover the rich history of Maharashtra by visiting its ancient forts.", image: "https://via.placeholder.com/400" },
+            { id: 4, title: "Cultural Festivals of Maharashtra", body: "Immerse yourself in the vibrant cultural festivals celebrated across Maharashtra.", image: "https://via.placeholder.com/400" },
+            { id: 5, title: "Savoring Maharashtrian Cuisine", body: "Indulge in the authentic flavors of Maharashtrian cuisine with its diverse range of dishes.", image: "https://via.placeholder.com/400" },
+            { id: 6, title: "Wildlife Safari in Tadoba National Park", body: "Witness the majestic wildlife of Maharashtra with an exhilarating safari in Tadoba National Park.", image: "https://via.placeholder.com/400" }
+          ];
+
+          blogsData.forEach((blog) => {
+            // Create HTML for the blog card
+            const blogCardHtml = `
+              <div class="blog-card">
+                <img src="${blog.image}" alt="${blog.title}">
+                <div class="content">
+                  <h2>${blog.title}</h2>
+                  <p>${blog.body}</p>
+                  <a href="#" onclick="readBlog(${blog.id});">Read more</a>
+                </div>
+              </div>
+            `;
+            blogsContainer.innerHTML += blogCardHtml;
+          });
+        } catch (error) {
+          console.error("Error fetching blogs:", error);
+        }
+      };
+
+      // Fetch blogs data and render blog cards
+      fetchBlogs();
+
+      // Function to read full blog post
+      window.readBlog = (blogId) => {
+        alert(`Read blog with ID: ${blogId}`); // Replace this with actual logic to open the full blog post page
+      };
+
+      // Form submission logic
+      const blogForm = document.getElementById("blogForm");
+      blogForm.addEventListener("submit", function(event) {
+        event.preventDefault();
+        const formData = new FormData(blogForm);
+        const authorName = formData.get("authorName");
+        const blogTitle = formData.get("blogTitle");
+        const email = formData.get("email");
+        const photo = formData.get("photo");
+        const blogBody = formData.get("blogBody");
+
+        // Add your logic to submit the form data
+        console.log("Form data:", authorName, blogTitle, email, photo, blogBody);
+        // Reset form after submission
+        blogForm.reset();
+        // Hide the form after submission
+        toggleAddBlogForm();
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&family=Montserrat:wght@400;700&family=Poppins:wght@100;200;300;400;500;600&family=Whisper&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    --main-color: rgb(66, 66, 255);
+    --black: #222;
+    --white: #fff;
+    --light-black: #777;
+    --light-white: #fff9;
+    --dark-bg: rgba(0, 0, 0, .7);
+    --light-bg: #eee;
+    --border: .1rem solid var(--black);
+    --box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+    --text-shadow: 0 .5rem 1rem rgba(0, 0, 0, .3);
+    --light-bg-hover: #f4f4f4; /* Adjust as needed for hover effect */
+    --dark-text: #333; /* Adjust as needed for better contrast */
+}
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1001;
+    background-color: var(--white);
+    display: flex;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    box-shadow: var(--box-shadow);
+    padding-left: 10px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.header .logo img
+{
+    height: 45px;
+    padding: 0;
+}
+.header .navbar{
+    margin-left:auto;
+}
+.header .navbar a{
+    font-size: 1rem;
+    margin-left: 2rem;
+    color:black;
+    text-decoration: none;
+}
+.header .navbar a:hover{
+  text-decoration: underline;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end; /* Align items at the start */
+    max-width: 100%; /* Adjust container width as needed */
+}
+
+.left-container {
+    flex: 2;
+
+}
+
+.left-container img {
+    max-width: 100%;/* Ensure image does not exceed container width */
+    height: auto; /* Maintain aspect ratio */
+    display: flex; /* Prevent image from being inline */
+    border-radius: 10px; /* Add border-radius for rounded corners */
+   
+}
+
+.right-container {
+    flex: 4; /* Take up remaining space */
+}
+
+.heading {
+    margin-top: 75px; /* Remove default margin */
+    margin-bottom: 20px; /* Add space below heading */
+}
+
+/* Your conversion field styles here */
