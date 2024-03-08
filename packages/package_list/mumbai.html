@@ -27,7 +27,15 @@
     </section>
    </header>
    <main>
-    <div class="city">
+    <div class="filters">
+        <p class="filter_title">Filter:</p>
+        <label><input type="checkbox" value="adventure"> Adventure</label>
+        <label><input type="checkbox" value="culture"> Culture</label>
+        <!-- Add more filter options as needed -->
+        <label><input type="checkbox" id="showAll" checked> Show All</label>
+    </div>
+
+    <div class="city" data-category="adventure">
         <div class="photo"><img src="Mumbai.jpg" alt="info1">
             </div>
     
@@ -46,7 +54,7 @@
         </div>
         </div>
    
-    <div class="city">
+    <div class="city" data-category="culture">
         <div class="photo"><img src="Mumbai1.jpg" alt="info1">
             </div>
     
@@ -142,6 +150,33 @@
     </footer>
 
     <script src="popup.js"></script>
-
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const checkboxes = document.querySelectorAll('.filters input[type="checkbox"]');
+        const cities = document.querySelectorAll('.city');
+    
+        checkboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', filterCities);
+        });
+    
+        function filterCities() {
+            const selectedCategories = Array.from(checkboxes)
+                .filter(checkbox => checkbox.checked && checkbox.value !== 'showAll')
+                .map(checkbox => checkbox.value);
+    
+            cities.forEach(city => {
+                const cityCategory = city.dataset.category;
+    
+                if (selectedCategories.includes(cityCategory) || selectedCategories.length === 0) {
+                    city.style.display = 'flex';
+                } else {
+                    city.style.display = 'none';
+                }
+            });
+        }
+    });
+</script>
+   
+    
 </body>
 </html>
