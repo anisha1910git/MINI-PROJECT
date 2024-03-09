@@ -108,12 +108,29 @@
 
         // Add your logic to submit the form data
         console.log("Form data:", authorName, blogTitle, email, photo, blogBody);
+
+        // Create HTML for the new blog card
+        const blogCardHtml = `
+          <div class="blog-card">
+            <img src="${photo}" alt="${blogTitle}">
+            <div class="content">
+              <h2>${blogTitle}</h2>
+              <p>${blogBody}</p>
+              <a href="#" onclick="readBlog();">Read more</a>
+            </div>
+          </div>
+        `;
+
+        // Add the new blog card HTML to the container div
+        blogsContainer.insertAdjacentHTML('beforeend', blogCardHtml);
+
         // Reset form after submission
         blogForm.reset();
         // Hide the form after submission
         toggleAddBlogForm();
       });
     });
-  </script>
+</script>
+
 </body>
 </html>
