@@ -545,3 +545,68 @@ cursor: pointer;
 font-size: 16px;
 }
 
+/* Modal styles */
+.modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+
+}
+
+/* Modal Content */
+.modal-content {
+
+  background-color: white;
+  margin: 6% auto; /* 15% from the top and centered */
+  padding: 1.8rem;
+  /* border: 1px solid #888; */
+  border-radius: 1.2rem;
+  overflow: auto;
+  width: 40%; /* Could be more or less, depending on screen size */
+}
+.modal-content input{
+  background-color: rgb(230, 230, 230);
+  padding: .5rem;
+  width: 100%;
+  height: 2rem;
+  border-radius: 0.5rem;
+  border: none;
+  margin-top: 1em;
+}
+.modal-content h4{
+  color: rgb(5, 5, 5);
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  margin-top: 0;
+}
+#uploadButton{
+  background-color: #007BFF;
+color: #f7f7f7;
+border: none;
+width: 12vw;
+align-items: center;
+padding: 10px 20px;
+border-radius: 5px;
+cursor: pointer;
+font-size: 16px;
+margin-top:20px;
+}
+#previewImage{
+  max-height: 200px;
+display: flex;
+justify-content: center;
+}
+.close{
+ display: flex;
+ justify-content: end;
+ font-size: 1.4em;
+ margin: 0;
+ padding: 0;
+}

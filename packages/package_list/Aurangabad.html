@@ -15,10 +15,7 @@
     <header>
         <section class="header">
         <a href="homepg.html" class="logo"><img src="/logoabout.png"></a>
-        <div class="search-container">
-            <input type="text" id="searchInput" onkeyup="filterPackages()" placeholder="Search for packages...">
-            <i class="fas fa-search"></i> <!-- Search icon -->
-        </div>
+        
         <nav class="navbar">
             <a href="/index.html">Home</a>
             <a href="/aboutUs.html">About</a>
@@ -30,6 +27,10 @@
     </section>
    </header>
    <main>
+    <div class="search-container">
+        <input type="text" id="searchInput" onkeyup="filterPackages()" placeholder="Search for packages...">
+        <i class="fas fa-search"></i> <!-- Search icon -->
+    </div>
     <div class="filters">
         <p class="filter_title">Filter:</p>
         <button class="filter_btn active" onclick="filterSelection('all')">All</button>

@@ -129,175 +129,137 @@
             </figure> -->
         </div>
 
-<div class="add-photo-card">
+        <div class="add-photo-card">
    
-        <div class="add-text">
-            <h3>Share Your Journey with us😄❤️</h3>    
-           <p id="lecker">Click here👇 to Upload your photos</p>
-       <button class="add-photos-button" onclick="uploadPhoto()">Add Photo</button>
-           </div>
-    <div class="img-add">
-        <img src="image-gallery.png" alt="add-photo-card">
-    </div>
+            <div class="add-text">
+                <h3>Share Your Journey with us😄❤️</h3>    
+               <p id="lecker">Click here👇 to Upload your photos</p>
+               <button type="button"  class="add-photos-button" onclick="chooseFile()">Add Photo</button>
+           
+               </div>
+               <div id="previewModal" class="modal" style="display: none;">
+                <div class="modal-content">
+                    <span class="close" onclick="closePreviewModal()">&times;</span>
+                    <h4>Photo Preview</h4>
+                    <img id="previewImage" alt="Preview" >
+                    <input type="text" id="titleInput" placeholder="Title">
+                    <input type="text" id="captionInput" placeholder="Add a caption...(5-10 words)">
+                    <button type="button" id="uploadButton" onclick="uploadPhoto()">Upload Photo</button>
+                </div>
+            </div>
     
         
-     
-    </div>
-</div>
-<!-- <script src="script.js"></script>  -->
-  
- <!-- <div class="blogs-container">
-        <h2 class="blogs-header">Read Our Blogs</h2>
-        <ul class="blog-links" id="blog-list">
-            <li>
-                <a href="#">Travel Blog 1</a>
-                <button class="delete-blog-button" onclick="deleteBlog(this)">Delete</button>
-                <button class="update-blog-button" onclick="updateBlog(this)">Update</button>
-            </li>
-            <li>
-                <a href="#">Travel Blog 2</a>
-                <button class="delete-blog-button" onclick="deleteBlog(this)">Delete</button>
-                <button class="update-blog-button" onclick="updateBlog(this)">Update</button>
-            </li>
-            <li>
-                <a href="#">Travel Blog 3</a>
-                <button class="delete-blog-button" onclick="deleteBlog(this)">Delete</button>
-                <button class="update-blog-button" onclick="updateBlog(this)">Update</button>
-            </li>
-            <li>
-                <a href="#">Travel Blog 4</a>
-                <button class="delete-blog-button" onclick="deleteBlog(this)">Delete</button>
-                <button class="update-blog-button" onclick="updateBlog(this)">Update</button>
-            </li>
-        </ul>
-        <button class="add-blog-button" id="add-blog-button">Add Blog</button>
+            <form id="uploadForm" style="display: none;">
+                <input type="file" id="photoInput" accept="image/*" style="display: none;">
+                <input type="file" id="hiddenPhotoInput" accept="image/*" style="display: none;">
+            </form>
         
-    </div> -->
-
-    <!-- <div class="add-blog-dialog" id="add-blog-dialog">
-        <h2>Add a Blog</h2>
-        <input type="text" id="blog-title" placeholder="Blog Title">
-        <textarea id="blog-content" placeholder="Blog Content"></textarea>
-        <button id="publish-blog-button" class="add-blog-button">Publish Blog</button>
-    </div> -->
-
-    </div>
-
-    <footer>
-<section class="footer">
-    <div class="box-container">
-        <div class="box">
-            <h3>Quick Links</h3>
-            <a href="index.html"><i class="fa fa-angle-right"></i>Home</a>
-            <a href="aboutUs.html"><i class="fa fa-angle-right"></i>About</a>
-            <a href="/packages/city_package/packages.html"><i class="fa fa-angle-right"></i>Packages</a>
-            <a href="gallery.html"><i class="fa fa-angle-right"></i>Gallery</a>
-            <a href="contactUs.html"><i class="fa fa-angle-right"></i>Contact</a>
+            <div class="uploaded-photo" id="uploadedPhoto" style="display: none;">
+                <h4>Uploaded Photo</h4>
+                <img id="photoPreview" alt="Preview" style="max-width: 300px;">
+            </div>
+        
+            <div class="img-add">
+                <img src="image-gallery.png" alt="add-photo-card">
+            </div>
         </div>
-
-        <div class="box">
-            <h3>Extra Links</h3>
-            <a href="#"><i class="fa fa-angle-right"></i>ask questions</a>
-            <a href="faq.html"><i class="fa fa-angle-right"></i>faq</a>
-            <a href="privacy.html"><i class="fa fa-angle-right"></i>privacy policy</a>
-            <a href="t&c.html"><i class="fa fa-angle-right"></i>terms of use</a>
-        </div>
-
-        <div class="box">
-            <h3>Contact info</h3>
-            <a href="#"><i class="fa fa-phone"></i>428416212</a>
-            <a href="#"><i class="fa fa-phone"></i>483481292</a>
-            <a href="#"><i class="fa fa-envelope"></i>travelhub@ves.ac.in</a>
-            <a href="#"><i class="fa fa-map"></i>mumbai,India - 400094</a>
-        </div>
-
-        <div class="box">
-            <h3>Follow Us</h3>
-            <a href="#"><i class="fa fa-facebook-f"></i>facebook</a>
-            <a href="#"><i class="fa fa-twitter"></i>twitter</a>
-            <a href="#"><i class="fa fa-instagram"></i>instagram</a>
-            <a href="#"><i class="fa fa-linkedin"></i>linkedin</a>
-        </div>
-    </div>
-
-    <div class="credit">Created by <span> Team TravelHub</span> | all rights reserved</div>
-</section>
-</footer>
-<!-- <script>
-    const addBlogButton = document.getElementById('add-blog-button');
-    const addBlogDialog = document.getElementById('add-blog-dialog');
-    const publishBlogButton = document.getElementById('publish-blog-button');
-    const blogList = document.getElementById('blog-list');
-
-    addBlogButton.addEventListener('click', function () {
-        addBlogDialog.style.display = 'block';
-    });
-
-    publishBlogButton.addEventListener('click', function () {
-        const blogTitle = document.getElementById('blog-title').value;
-        const blogContent = document.getElementById('blog-content').value;
-
-        // Create a new blog entry
-        const newBlogItem = document.createElement('li');
-        newBlogItem.innerHTML = `
-            <a href="#">${blogTitle}</a>
-            <button class="delete-blog-button" onclick="deleteBlog(this)">Delete</button>
-            <button class="update-blog-button" onclick="updateBlog(this)">Update</button>
-        `;
-        blogList.appendChild(newBlogItem);
-
-        // Clear the form and hide the dialog box
-        document.getElementById('blog-title').value = '';
-        document.getElementById('blog-content').value = '';
-        addBlogDialog.style.display = 'none';
-    });
-
-    function deleteBlog(button) {
-        const listItem = button.parentElement;
-        blogList.removeChild(listItem);
+        
+        <!-- JavaScript -->
+        <script>
+            // JavaScript
+         let uploadedPhotoURL = null;
+    
+         function chooseFile() {
+        // Trigger the hidden file input when the "Add Photo" button is clicked
+          document.getElementById('hiddenPhotoInput').click();
+    
+        // Handle file selection in the hidden input
+          document.getElementById('hiddenPhotoInput').addEventListener('change', function () {
+            const photoInput = document.getElementById('hiddenPhotoInput');
+            const photoFile = photoInput.files[0];
+    
+            // Display the selected photo in the preview
+            displayPhotoPreview(photoFile);
+    
+            // Show the "Upload Photo" button
+            document.getElementById('uploadButton').style.display = 'block';
+        });
     }
-
-    function updateBlog(button) {
-        // You can add code to handle updating a blog post here.
+    
+        function displayPhotoPreview(file) {
+        // Check if the selected file is an image
+         if (file && file.type.startsWith('image/')) {
+            const reader = new FileReader();
+    
+            reader.onload = function (e) {
+                // Display the preview image
+                const previewImage = document.getElementById('previewImage');
+                previewImage.src = e.target.result;
+    
+                // Show the uploaded photo section
+                document.getElementById('uploadedPhoto').style.display = 'none';
+    
+                // Clear caption input
+                document.getElementById('captionInput').value = '';
+            };
+    
+            // Read the selected file as a data URL
+            reader.readAsDataURL(file);
+            document.getElementById('previewModal').style.display = 'block';
+        } 
+         else {
+            // Handle non-image file selection (optional)
+            console.error('Selected file is not an image.');
+        }
     }
-</script> -->
-<script>
-    const fileInput = document.getElementById('fileInput');
-const gallery = document.getElementById('gallery');
-
-function uploadPhoto() {
-    const file = fileInput.files[0];
-    if (file) {
-        const formData = new FormData();
-        formData.append('photo', file);
-
-        fetch('/upload', {
+        document.getElementById('uploadButton').addEventListener('click', uploadPhoto);
+    
+        function uploadPhoto() {
+        // Get the selected photo file
+         const photoInput = document.getElementById('hiddenPhotoInput');
+         const photoFile = photoInput.files[0];
+    
+         const captionInputValue = document.getElementById('captionInput').value;
+    
+        // Create a FormData object to send the file and caption to the server
+         const formData = new FormData();
+         formData.append('photo', photoFile);
+         formData.append('caption', captionInputValue);
+    
+        // Use AJAX or Fetch API to send the file to the server
+         fetch('/upload', {
             method: 'POST',
-            body: formData,
+            body: formData
         })
         .then(response => response.json())
         .then(data => {
-            if (data.success) {
-                displayPhoto(data.photoPath);
-            } else {
-                alert('Failed to upload photo');
-            }
+            // Handle the server's response, e.g., display a success message
+            console.log(data);
+    
+            // Save the uploaded photo URL
+            uploadedPhotoURL = data.photoURL;
+    
+            // Show the uploaded photo section
+            document.getElementById('uploadedPhoto').style.display = 'block';
+    
+            // Hide the "Upload Photo" button
+            document.getElementById('uploadButton').style.display = 'none';
+            closePreviewModal();
         })
         .catch(error => {
-            console.error('Error:', error);
-            alert('Failed to upload photo');
+            // Handle errors, e.g., display an error message to the user
+            console.error(error);
         });
-    } else {
-        alert('Please choose a file');
     }
-}
-
-function displayPhoto(photoPath) {
-    const img = document.createElement('img');
-    img.src = photoPath;
-    gallery.appendChild(img);
-}
-</script>
-
+    
+       function closePreviewModal() {
+        // Close the preview modal
+         document.getElementById('previewModal').style.display = 'none';
+    }
+    
+    </script>
+    
+</div>
+</div>
 </body>
 </html>
