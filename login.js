@@ -46,10 +46,10 @@ function updateUI(user) {
   if (user) {
     // User is logged in
     loginButton.style.display = 'none'; // Hide the login button
-    logoutButton.style.display = 'block'; // Show the logout button
+    logoutButton.style.display = 'flex'; // Show the logout button
   } else {
     // User is logged out
-    loginButton.style.display = 'block'; // Show the login button
+    loginButton.style.display = 'flex'; // Show the login button
     logoutButton.style.display = 'none'; // Hide the logout button
   }
 }

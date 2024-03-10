@@ -265,6 +265,11 @@ border-radius: 2rem;
     }
 
 }
+#maha{
+    color: rgba(255, 255, 255, 0.669);
+    font-size: 8rem;
+    text-transform: capitalize ;
+}
 
 
 .footer {
@@ -417,7 +422,7 @@ animation: fadeIn .3s linear backwards .4s;
 
 /* Bolly text */
 .bolly
-{
+{ 
     width: 100%;
     padding: 78px 0px;
 }
@@ -428,6 +433,7 @@ animation: fadeIn .3s linear backwards .4s;
 }
 .bolly-text
 {
+    text-align: justify;
     width: 550px;
 }
 .main
@@ -634,6 +640,7 @@ justify-content: flex-end;
 }
 .about-text
 {
+    text-align: justify;
     width: 550px;
 }
 .main
