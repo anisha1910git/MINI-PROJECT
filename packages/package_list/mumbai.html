@@ -253,9 +253,9 @@
                     const aData = getDataAttribute(a, sortBy);
                     const bData = getDataAttribute(b, sortBy);
         
-                    if (sortBy.includes('price')) {
+                    if (sortBy.includes('price b')) {
                         return parseFloat(aData) - parseFloat(bData);
-                    } else if (sortBy.includes('duration')) {
+                    } else if (sortBy.includes('city p')) {
                         return parseInt(aData) - parseInt(bData);
                     } else {
                         return aData.localeCompare(bData);

@@ -320,9 +320,9 @@ input[type="date"] {
 }
 .date{
     padding: 20px; 
-    width: 300px;
+    width: 320px;
     border: 1px solid rgba(0, 0, 0, 0.388);
-  margin: 30px;
+  margin: 45px;
     font-size: 14px;
     background-color: white;
 }
@@ -333,7 +333,6 @@ input[type="date"] {
     margin-top: 15px;
 }
 .amt2 {
-    
     color: green;
     font-size: 20px;
    
