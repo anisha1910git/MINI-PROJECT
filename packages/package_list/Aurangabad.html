@@ -171,23 +171,23 @@
 
    
     <footer>
-             <section class="footer">
-        <div class="box-container">
-            <div class="box">
-                <h3 style="margin-top: 0px;">Quick Links</h3>
-                <a href="index.html"><i class="fa fa-angle-right"></i>Home</a>
-                <a href="aboutUs.html"><i class="fa fa-angle-right"></i>About</a>
-                <a href="../city_package/packages.html"><i class="fa fa-angle-right"></i>Packages</a>
-                <a href="gallery.html"><i class="fa fa-angle-right"></i>Gallery</a>
-                <a href="contactUs.html"><i class="fa fa-angle-right"></i>Contact</a>
-            </div>
+        <section class="footer">
+            <div class="box-container">
+                <div class="box">
+                    <h3>Quick Links</h3>
+                    <a href="/index.html"><i class="fa fa-angle-right"></i>Home</a>
+                    <a href="/aboutUs.html"><i class="fa fa-angle-right"></i>About</a>
+                    <a href="/packages/city_package/packages.html"><i class="fa fa-angle-right"></i>Packages</a>
+                    <a href="/gallery.html"><i class="fa fa-angle-right"></i>Gallery</a>
+                    <a href="/contactUs.html"><i class="fa fa-angle-right"></i>Contact</a>
+                </div>
 
             <div class="box">
                 <h3>Extra Links</h3>
                 <a href="#"><i class="fa fa-angle-right"></i>ask questions</a>
-                <a href="../../faq.html"><i class="fa fa-angle-right"></i>faq</a>
-                <a href="../../privacy.html"><i class="fa fa-angle-right"></i>privacy policy</a>
-                <a href="t&c.html"><i class="fa fa-angle-right"></i>terms of use</a>
+                <a href="/faq.html"><i class="fa fa-angle-right"></i>faq</a>
+                <a href="/privacy.html"><i class="fa fa-angle-right"></i>privacy policy</a>
+                <a href="/t&c.html"><i class="fa fa-angle-right"></i>terms of use</a>
             </div>
 
             <div class="box">
@@ -240,39 +240,49 @@
                 });
                 clickedBtn.classList.add('active');
             }
-    
-            function sortPackages() {
-                const sortBy = document.getElementById('sortBy').value;
+            function sortPackages(sortBy) {
                 const packagesContainer = document.querySelector('.packages');
                 const packages = Array.from(packagesContainer.querySelectorAll('.city'));
-        
+            
+                packages.forEach(package => {
+                    const aValue = getDataAttribute(package, sortBy);
+                    package.dataset.sortValue = aValue;
+                });
+            
                 packages.sort((a, b) => {
-                    const aData = getDataAttribute(a, sortBy);
-                    const bData = getDataAttribute(b, sortBy);
-        
-                    if (sortBy.includes('price')) {
-                        return parseFloat(aData) - parseFloat(bData);
-                    } else if (sortBy.includes('duration')) {
-                        return parseInt(aData) - parseInt(bData);
-                    } else {
-                        return aData.localeCompare(bData);
+                    const aValue = parseFloat(a.dataset.sortValue);
+                    const bValue = parseFloat(b.dataset.sortValue);
+            
+                    if (sortBy === 'default' || sortBy === 'category') {
+                        return aValue.localeCompare(bValue);
+                    } else if (sortBy === 'price') {
+                        return aValue - bValue;
+                    } else if (sortBy === 'duration') {
+                        return parseInt(aValue.split(' ')[0]) - parseInt(bValue.split(' ')[0]);
                     }
                 });
-        
-                packages.forEach(package => {
-                    packagesContainer.appendChild(package);
-                });
+            
+                // Reverse the order of the sorted packages
+                packages.reverse();
+            
+                packages.forEach(city => packagesContainer.appendChild(city));
             }
-        
-            function getDataAttribute(package, sortBy) {
-                if (sortBy === 'default') {
-                    return package.getAttribute('data-category');
-                } else if (sortBy === 'category') {
-                    return package.getAttribute('data-category');
-                } else {
-                    return package.querySelector(`.${sortBy}`).textContent.trim();
+            
+            function getDataAttribute(packageElement, sortBy) {
+                if (sortBy === 'default' || sortBy === 'category') {
+                    return packageElement.querySelector('.info1 b').textContent.trim();
+                } else if (sortBy === 'price') {
+                    const priceText = packageElement.querySelector('.price b').textContent.replace(',', '').replace('₹', '');
+                    return parseFloat(priceText);
+                } else if (sortBy === 'duration') {
+                    const durationText = packageElement.querySelector('.info1 p:first-child').textContent.trim();
+                    const durationArray = durationText.split(' ');
+                    const days = parseInt(durationArray[0]);
+                    const nights = parseInt(durationArray[2]);
+                    return days + nights;
                 }
-            }});
+            }
+        });            
     </script>
 <script>
     function filterPackages() {
