@@ -51,7 +51,7 @@
     
         <div class="info1">
          <b>Pune tour package with Parvati tours and travel</b>
-         <p>4 days 3 nights</p>
+         <p class="duration">4 days 3 nights</p>
          <p>Historical Forts | Sarasbaug | Natural Beauty | Ghat </p>
          <div class="thin-line"></div>
          <div class="book">
@@ -71,7 +71,7 @@
     
         <div class="info1">
          <b>Pune tour package with Tina travel</b>
-         <p>4 days 3 nights</p>
+         <p class="duration">4 days 3 nights</p>
          <p>Explore all the wonderful places with Safar!!
             | Forts | Museum | Traditional Maharashtrian Food | Temples
          </p>
@@ -92,7 +92,7 @@
     
         <div class="info1">
          <b>Pune tour package with Hilton tours and travels</b>
-         <p>5 days 4 nights</p>
+         <p class="duration">5 days 4 nights</p>
          <p>Pune Darshan | Ghat | Temples | Shopping Markets </p>
          <div class="thin-line"></div>
          <div class="book">
@@ -113,7 +113,7 @@
     
         <div class="info1">
          <b>Dive into Kolad's waves, soar in Kamshet's skies!</b>
-         <p>4 days 3 nights</p>
+         <p class="duration">4 days 3 nights</p>
          <p>Rock climbing|Caving|Zip-lining|River Crossing</p>
          <div class="thin-line"></div>
          <div class="book">
@@ -133,7 +133,7 @@
     
         <div class="info1">
          <b>Experience paragliding in Kamshet and scenic charm in Khandala</b>
-         <p>4 days 3 nights</p>
+         <p class="duration">4 days 3 nights</p>
          <p>White Water Rafting|Kayaking|Valley Crossing|River Crossing</p>
          <div class="thin-line"></div>
          <div class="book">
@@ -152,7 +152,7 @@
     
         <div class="info1">
          <b>Khandala's charm, Kolad's thrill - where nature meets adventure</b>
-         <p>5 days 4 nights</p>
+         <p class="duration">5 days 4 nights</p>
          <p>Valley Crossing|Caving|Trekking|Rock Climbing</p>
          <div class="thin-line"></div>
          <div class="book">
@@ -222,7 +222,7 @@
         document.addEventListener("DOMContentLoaded", function() {
             const filterBtns = document.querySelectorAll('.filter_btn');
             const cities = document.querySelectorAll('.city');
-    
+        
             filterBtns.forEach(btn => {
                 btn.addEventListener('click', () => {
                     const category = btn.textContent.toLowerCase();
@@ -230,7 +230,7 @@
                     setActiveButton(btn);
                 });
             });
-    
+        
             function filterSelection(category) {
                 cities.forEach(city => {
                     if (category === 'all' || city.dataset.category === category) {
@@ -240,63 +240,59 @@
                     }
                 });
             }
-    
+        
             function setActiveButton(clickedBtn) {
                 filterBtns.forEach(btn => {
                     btn.classList.remove('active');
                 });
                 clickedBtn.classList.add('active');
             }
-    
-            function sortPackages() {
-                const sortBy = document.getElementById('sortBy').value;
+        
+            // Add event listener for the select element
+            const sortBySelect = document.getElementById('sortBy');
+            sortBySelect.addEventListener('change', () => {
+                sortPackages(sortBySelect.value);
+            });
+        
+            function sortPackages(sortBy) {
                 const packagesContainer = document.querySelector('.packages');
                 const packages = Array.from(packagesContainer.querySelectorAll('.city'));
         
-                packages.sort((a, b) => {
-                    const aData = getDataAttribute(a, sortBy);
-                    const bData = getDataAttribute(b, sortBy);
+                packages.forEach(package => {
+                    const aValue = getDataAttribute(package, sortBy);
+                    package.dataset.sortValue = aValue;
+                });
         
-                    if (sortBy.includes('price')) {
-                        return parseFloat(aData) - parseFloat(bData);
-                    } else if (sortBy.includes('duration')) {
-                        return parseInt(aData) - parseInt(bData);
-                    } else {
-                        return aData.localeCompare(bData);
+                packages.sort((a, b) => {
+                    const aValue = parseFloat(a.dataset.sortValue);
+                    const bValue = parseFloat(b.dataset.sortValue);
+        
+                    if (sortBy === 'priceLowToHigh') {
+                        return aValue - bValue;
+                    } else if (sortBy === 'priceHighToLow') {
+                        return bValue - aValue;
+                    } else if (sortBy === 'durationShortToLong') {
+                        return aValue - bValue;
+                    } else if (sortBy === 'durationLongToShort') {
+                        return aValue - bValue; // Inverted the logic here
                     }
                 });
         
-                packages.forEach(package => {
-                    packagesContainer.appendChild(package);
-                });
+                packages.forEach(city => packagesContainer.appendChild(city));
             }
         
-            function getDataAttribute(package, sortBy) {
-                if (sortBy === 'default') {
-                    return package.getAttribute('data-category');
-                } else if (sortBy === 'category') {
-                    return package.getAttribute('data-category');
-                } else {
-                    return package.querySelector(`.${sortBy}`).textContent.trim();
+            function getDataAttribute(packageElement, sortBy) {
+                if (sortBy === 'priceLowToHigh' || sortBy === 'priceHighToLow') {
+                    const priceText = packageElement.querySelector('.price b').textContent.replace(',', '').replace('₹', '');
+                    return parseFloat(priceText);
+                } else if (sortBy === 'durationShortToLong' || sortBy === 'durationLongToShort') {
+                    const durationText = packageElement.querySelector('.duration').textContent.trim();
+                    const firstNumber = parseInt(durationText.match(/\d+/)[0]); // Extract the first number from the duration
+                    return sortBy === 'durationShortToLong' ? firstNumber : -firstNumber; // Inverted the logic here
                 }
-            }});
-    </script>
-<script>
-    function filterPackages() {
-        const searchInput = document.getElementById('searchInput');
-        const filterValue = searchInput.value.toUpperCase();
-        const packagesContainer = document.querySelector('.packages');
-        const packages = Array.from(packagesContainer.querySelectorAll('.city'));
-
-        packages.forEach(package => {
-            const packageName = package.querySelector('b').textContent.toUpperCase();
-            if (packageName.includes(filterValue)) {
-                package.style.display = 'flex';
-            } else {
-                package.style.display = 'none';
             }
         });
-    }
-</script>
+        
+    </script>
 </body>
 </html>

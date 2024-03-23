@@ -51,7 +51,7 @@
     
         <div class="info1">
          <b>Aurangabad tour package with Mahesh tours and travels</b>
-         <p>5 days 4 nights</p>
+         <p class="duration">5 days 4 nights</p>
          <p>Historical Monuments | Caves | Natural Beauty | Ajanta </p>
          <div class="thin-line"></div>
          <div class="book">
@@ -70,7 +70,7 @@
     
         <div class="info1">
          <b>Explore Aurangabad along with Ajanta and Ellora</b>
-         <p>4 days 3 nights</p>
+         <p class="duration">4 days 3 nights</p>
          <p>Soneri Mahal| Jayakwadi Dam | Ajanta | Ellora
          </p>
          <div class="thin-line"></div>
@@ -90,7 +90,7 @@
     
         <div class="info1">
          <b>Cultural tour of Aurangabad</b>
-         <p>4 days 3 nights</p>
+         <p class="duration">4 days 3 nights</p>
          <p>City tour | Ajanta-Ellora | Bibika Makbara | Jyotirlinga </p>
          <div class="thin-line"></div>
          <div class="book">
@@ -109,7 +109,7 @@
         
             <div class="info1">
              <b>Gautala's charm, birdwatching at Salim Ali Lake!</b>
-             <p>5 days 4 nights</p>
+             <p class="duration">5 days 4 nights</p>
              <p>Paddle boating|Canoeing|Mountain biking|Photography expeditions</p>
              <div class="thin-line"></div>
              <div class="book">
@@ -128,7 +128,7 @@
         
             <div class="info1">
              <b>Salim Ali Lake, Ellora Caves' wonder</b>
-             <p>4 days 3 nights</p>
+             <p class="duration">4 days 3 nights</p>
              <p>Nature photography|Picnicking|Camping|Historical tours</p>
              <div class="thin-line"></div>
              <div class="book">
@@ -147,7 +147,7 @@
         
             <div class="info1">
              <b>Explore Ellora, Discover Gautala!</b>
-             <p>4 days 3 nights</p>
+             <p class="duration">4 days 3 nights</p>
              <p>Rappelling|Mountain biking|Trekking|Cave exploration</p>
              <div class="thin-line"></div>
              <div class="book">
@@ -211,95 +211,81 @@
     </section>
     </footer>
     <script src="popup.js"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const filterBtns = document.querySelectorAll('.filter_btn');
-            const cities = document.querySelectorAll('.city');
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const filterBtns = document.querySelectorAll('.filter_btn');
+        const cities = document.querySelectorAll('.city');
     
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const category = btn.textContent.toLowerCase();
+                filterSelection(category);
+                setActiveButton(btn);
+            });
+        });
+    
+        function filterSelection(category) {
+            cities.forEach(city => {
+                if (category === 'all' || city.dataset.category === category) {
+                    city.style.display = 'flex';
+                } else {
+                    city.style.display = 'none';
+                }
+            });
+        }
+    
+        function setActiveButton(clickedBtn) {
             filterBtns.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    const category = btn.textContent.toLowerCase();
-                    filterSelection(category);
-                    setActiveButton(btn);
-                });
+                btn.classList.remove('active');
+            });
+            clickedBtn.classList.add('active');
+        }
+    
+        // Add event listener for the select element
+        const sortBySelect = document.getElementById('sortBy');
+        sortBySelect.addEventListener('change', () => {
+            sortPackages(sortBySelect.value);
+        });
+    
+        function sortPackages(sortBy) {
+            const packagesContainer = document.querySelector('.packages');
+            const packages = Array.from(packagesContainer.querySelectorAll('.city'));
+    
+            packages.forEach(package => {
+                const aValue = getDataAttribute(package, sortBy);
+                package.dataset.sortValue = aValue;
             });
     
-            function filterSelection(category) {
-                cities.forEach(city => {
-                    if (category === 'all' || city.dataset.category === category) {
-                        city.style.display = 'flex';
-                    } else {
-                        city.style.display = 'none';
-                    }
-                });
-            }
+            packages.sort((a, b) => {
+                const aValue = parseFloat(a.dataset.sortValue);
+                const bValue = parseFloat(b.dataset.sortValue);
     
-            function setActiveButton(clickedBtn) {
-                filterBtns.forEach(btn => {
-                    btn.classList.remove('active');
-                });
-                clickedBtn.classList.add('active');
-            }
-            function sortPackages(sortBy) {
-                const packagesContainer = document.querySelector('.packages');
-                const packages = Array.from(packagesContainer.querySelectorAll('.city'));
-            
-                packages.forEach(package => {
-                    const aValue = getDataAttribute(package, sortBy);
-                    package.dataset.sortValue = aValue;
-                });
-            
-                packages.sort((a, b) => {
-                    const aValue = parseFloat(a.dataset.sortValue);
-                    const bValue = parseFloat(b.dataset.sortValue);
-            
-                    if (sortBy === 'default' || sortBy === 'category') {
-                        return aValue.localeCompare(bValue);
-                    } else if (sortBy === 'price') {
-                        return aValue - bValue;
-                    } else if (sortBy === 'duration') {
-                        return parseInt(aValue.split(' ')[0]) - parseInt(bValue.split(' ')[0]);
-                    }
-                });
-            
-                // Reverse the order of the sorted packages
-                packages.reverse();
-            
-                packages.forEach(city => packagesContainer.appendChild(city));
-            }
-            
-            function getDataAttribute(packageElement, sortBy) {
-                if (sortBy === 'default' || sortBy === 'category') {
-                    return packageElement.querySelector('.info1 b').textContent.trim();
-                } else if (sortBy === 'price') {
-                    const priceText = packageElement.querySelector('.price b').textContent.replace(',', '').replace('₹', '');
-                    return parseFloat(priceText);
-                } else if (sortBy === 'duration') {
-                    const durationText = packageElement.querySelector('.info1 p:first-child').textContent.trim();
-                    const durationArray = durationText.split(' ');
-                    const days = parseInt(durationArray[0]);
-                    const nights = parseInt(durationArray[2]);
-                    return days + nights;
+                if (sortBy === 'priceLowToHigh') {
+                    return aValue - bValue;
+                } else if (sortBy === 'priceHighToLow') {
+                    return bValue - aValue;
+                } else if (sortBy === 'durationShortToLong') {
+                    return aValue - bValue;
+                } else if (sortBy === 'durationLongToShort') {
+                    return aValue - bValue; // Inverted the logic here
                 }
+            });
+    
+            packages.forEach(city => packagesContainer.appendChild(city));
+        }
+    
+        function getDataAttribute(packageElement, sortBy) {
+            if (sortBy === 'priceLowToHigh' || sortBy === 'priceHighToLow') {
+                const priceText = packageElement.querySelector('.price b').textContent.replace(',', '').replace('₹', '');
+                return parseFloat(priceText);
+            } else if (sortBy === 'durationShortToLong' || sortBy === 'durationLongToShort') {
+                const durationText = packageElement.querySelector('.duration').textContent.trim();
+                const firstNumber = parseInt(durationText.match(/\d+/)[0]); // Extract the first number from the duration
+                return sortBy === 'durationShortToLong' ? firstNumber : -firstNumber; // Inverted the logic here
             }
-        });            
-    </script>
-<script>
-    function filterPackages() {
-        const searchInput = document.getElementById('searchInput');
-        const filterValue = searchInput.value.toUpperCase();
-        const packagesContainer = document.querySelector('.packages');
-        const packages = Array.from(packagesContainer.querySelectorAll('.city'));
-
-        packages.forEach(package => {
-            const packageName = package.querySelector('b').textContent.toUpperCase();
-            if (packageName.includes(filterValue)) {
-                package.style.display = 'flex';
-            } else {
-                package.style.display = 'none';
-            }
-        });
-    }
+        }
+    });
+    
 </script>
 </body>
 </html>
