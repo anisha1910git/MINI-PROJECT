@@ -4,7 +4,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins', sans-serif;
     scroll-behavior:smooth ;
 }
 :root {
@@ -243,7 +243,6 @@ input[type="checkbox"]:checked~div.day {
     width: 75vw;
     margin-left: 1rem;
     transition: 2s;
-  
     
 }
 
@@ -272,6 +271,9 @@ input[type="date"] {
     font-size: 16px;
   }
   .slider{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     padding: 20px;
     background-color: rgba(238, 229, 130, 0.114);
     /* border-top: 1px solid rgba(0, 0, 0, 0.715); */
@@ -279,7 +281,6 @@ input[type="date"] {
 
   }
 .slider h2{
-
     padding-top: 10px;
     padding-bottom: 10px;
 
@@ -456,9 +457,15 @@ color: white;
         flex-direction: column;
         padding: 0 35px;
         min-height: 90vh;
+    
         align-items: center;
         justify-content: center;
-        background: rgb(247, 244, 255);
-        flex-direction: column;
+        background:rgb(241, 241, 255);
+        margin: 2rem 0rem;
+      }
 
+      .hotel_images h2{
+        padding-top: 10px;
+        padding-bottom: 10px;
+    
       }
