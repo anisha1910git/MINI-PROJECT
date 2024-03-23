@@ -453,10 +453,12 @@ color: white;
       }
       .hotel_images{
         display: flex;
+        flex-direction: column;
         padding: 0 35px;
         min-height: 90vh;
         align-items: center;
         justify-content: center;
         background: rgb(247, 244, 255);
         flex-direction: column;
+
       }
