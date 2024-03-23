@@ -9,7 +9,20 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.js">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+<style>
+  .profile-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
 
+.profile-photo img {
+    width: 100%;
+    height: auto;
+}
+</style>
 </head>
 <body>
     <header>
@@ -24,7 +37,10 @@
             <a href="/contactUs.html"> Contact</a>
         </nav>
         </section>
-        <main class="main-content">
+        <header>
+          <h1>Welcome to Your Profile</h1>
+      </header>
+      <main class="main-content">
         <div class="container">
             <aside class="sidebar">
               <h2>Navigation</h2>
@@ -35,18 +51,32 @@
                 <!-- Add more navigation links as needed -->
               </ul>
             </aside>
-              <section class="profile">
-                <h2>User Profile</h2>
-                <div class="profile-info">
-                  <!-- Placeholder content for user profile information -->
-                  <p>Name: John Doe</p>
-                  <p>Email: john@example.com</p>
-                  <p>Location: New York</p>
-                  <!-- Add more profile information here -->
-                </div>
+            <section class="profile-info">
+              <h2>User Information</h2>
+              <div class="form-group">
+                <input type="file" id="photo-upload" accept="image/*" style="display: none;">
+                <button id="upload-photo-btn">Upload Photo</button>
+            </div>
+              <div class="user-details">
+                  <!-- <div class="form-group">
+                      <label for="name">Name:</label>
+                      <div id="name" class="editable" contenteditable="false">John Doe</div>
+                  </div>
+  
+                  <div class="form-group">
+                      <label for="email">Email Address:</label>
+                      <div id="email" class="editable" contenteditable="false">john@example.com</div>
+                  </div> -->
+                  
+                  <!-- Add more user-specific information here if needed -->
+  
+                  <div class="form-group">
+                      <button id="edit-profile-btn">Edit Profile</button>
+                      <button id="save-profile-btn" style="display: none;">Save Profile</button>
+                  </div>
+              </div>
               </section>
-          </div>
-          </main>
+      </main>
 
         <section class="footer">
             <div class="box-container">
@@ -87,5 +117,91 @@
             <div class="credit">Created by <span> Team TravelHub</span> | all rights reserved</div>
         </section>
 </header>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const editProfileBtn = document.getElementById('edit-profile-btn');
+    const saveProfileBtn = document.getElementById('save-profile-btn');
+    const editableFields = document.querySelectorAll('.editable');
+
+    // Function to enable editing mode
+    function enableEditMode() {
+        editableFields.forEach(function(field) {
+            field.contentEditable = true;
+            field.classList.add('editable-active');
+        });
+        editProfileBtn.style.display = 'none';
+        saveProfileBtn.style.display = 'block';
+    }
+
+    // Function to disable editing mode
+    function disableEditMode() {
+        editableFields.forEach(function(field) {
+            field.contentEditable = false;
+            field.classList.remove('editable-active');
+        });
+        editProfileBtn.style.display = 'block';
+        saveProfileBtn.style.display = 'none';
+    }
+
+    // Event listener for edit profile button
+    editProfileBtn.addEventListener('click', function() {
+        enableEditMode();
+    });
+
+    // Event listener for save profile button
+    saveProfileBtn.addEventListener('click', function() {
+        // Send updated information to server using AJAX (not implemented here)
+        // On success, disable editing mode
+        disableEditMode();
+    });
+
+    // Fetch user information from server and populate fields
+    fetchUserInfo();
+
+    function fetchUserInfo() {
+        // Simulate fetching user information from the server (replace with actual AJAX call)
+        const userInfo = {
+            name: "John Doe",
+            email: "john@example.com"
+            // Add more user information as needed
+        };
+
+        // Populate fields with fetched information
+        document.getElementById('name').textContent = userInfo.name;
+        document.getElementById('email').textContent = userInfo.email;
+        // Populate more fields if needed
+    }
+});
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const uploadPhotoBtn = document.getElementById('upload-photo-btn');
+    const photoUploadInput = document.getElementById('photo-upload');
+    const profilePhoto = document.getElementById('image/*');
+    const fileNameDisplay = document.getElementById('form-group');
+
+    uploadPhotoBtn.addEventListener('click', function() {
+        // Trigger the file input field when the "Upload Photo" button is clicked
+        photoUploadInput.click();
+    });
+
+    photoUploadInput.addEventListener('change', function() {
+        // When a file is selected, read its contents and display it as the profile photo
+        const file = photoUploadInput.files[0];
+        const reader = new FileReader();
+
+        reader.onload = function(event) {
+            const imageUrl = event.target.result;
+            profilePhoto.innerHTML = `<img src="${imageUrl}" alt="Profile Photo">`;
+        };
+
+        if (file) {
+            reader.readAsDataURL(file);
+            // Display the file name
+            fileNameDisplay.textContent = file.name;
+        }
+    });
+});
+</script>
 </body>
 </html>    
