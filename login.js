@@ -21,22 +21,25 @@
   const provider = new GoogleAuthProvider();
 
   const googleLogin=document.getElementById("googlee");
-  googleLogin.addEventListener("click",function(){
-  signInWithPopup(auth,provider)
-  .then((result)=> {
-    const credential =GoogleAuthProvider.credentialFromResult(result);
-    const user = result.user;
-    console.log(user);
-    window.location.href="index.html";
-    console.log('user logged in ')
+  googleLogin.addEventListener("click", function () {
+    auth.signInWithPopup(provider)
+        .then((result) => {
+          const credential =GoogleAuthProvider.credentialFromResult(result);
+            const user = result.user;
+            console.log(user);
+            // Display user's username and image thumbnail
+            document.getElementById('username').innerText = `Username: ${user.displayName}`;
+            document.getElementById('userImage').innerHTML = `<img src="${user.photoURL}" alt="User Image" width="100" height="100">`;
 
-  }).catch((error) =>{
-    const errorCode =error.code;
-    const errorMessage =error.message;
-  });
-
-  })
-
+            console.log('User logged in:', user);
+            window.location.href = "index.html";
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            console.error('Google sign-in error:', errorMessage);
+        });
+});
 // Get references to the login and logout buttons
 const loginButton = document.querySelector("#login");
 const logoutButton = document.querySelector("#logout");

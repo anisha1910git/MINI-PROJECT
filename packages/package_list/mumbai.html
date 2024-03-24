@@ -42,6 +42,8 @@
                 <option value="priceHighToLow">Price: High to Low</option>
                 <option value="durationShortToLong">Duration: Short to Long</option>
                 <option value="durationLongToShort">Duration: Long to Short</option>
+                <option value="ratingHighToLow">Rating: High to Low</option>
+
             </select>
     </div>
     <div class="packages">
@@ -61,6 +63,9 @@
              </div>
            <div class="book_btn"><a href="../iternary/mumbai/geeta_it.html">View Details</a></div>
          </div>
+         <div class="rating">
+            <span>&#x2605;</span><span>&#x2605;</span><span>&#x2605;</span><span >&#x00BD;</span><span class="pkg_rating"> 3.5</span>
+        </div>
         </div>
         </div>
    
@@ -80,6 +85,9 @@
              </div>
            <div class="book_btn"><a href="../iternary/mumbai/Preeti_it.html">View Details</a></div>
          </div>
+         <div class="rating">
+            <span>&#x2605;</span><span>&#x2605;</span><span>&#x2605;</span><span>&#x2605;</span><span >&#x00BD;</span><span class="pkg_rating"> 4.5</span>
+        </div>
         </div>
         </div>
    
@@ -100,6 +108,9 @@
              </div>
            <div class="book_btn"><a href="../iternary/mumbai/darshan_it.html">View Details</a></div>
          </div>
+         <div class="rating">
+            <span>&#x2605;</span><span>&#x2605;</span><span>&#x2605;</span><span>&#x2605;</span><span class="pkg_rating"> 4</span>
+        </div>
         </div>
         </div>
         <div class="city" data-category="adventure">
@@ -118,6 +129,9 @@
                  </div>
                <div class="book_btn"><a href="../iternary/mumbai/geeta_it.html">View Details</a></div>
              </div>
+             <div class="rating">
+                <span>&#x2605;</span><span>&#x2605;</span><span>&#x2605;</span><span>&#x2605;</span><span >&#x00BD;</span><span class="pkg_rating"> 4.5</span>
+            </div>
             </div>
             </div>
        
@@ -137,6 +151,9 @@
                  </div>
                <div class="book_btn"><a href="../iternary/mumbai/Preeti_it.html">View Details</a></div>
              </div>
+             <div class="rating">
+                <span>&#x2605;</span><span>&#x2605;</span><span>&#x2605;</span><span >&#x00BD;</span><span class="pkg_rating"> 3.5</span>
+            </div>
             </div>
             </div>
        
@@ -157,6 +174,9 @@
                  </div>
                <div class="book_btn"><a href="../iternary/mumbai/darshan_it.html">View Details</a></div>
              </div>
+             <div class="rating">
+                <span>&#x2605;</span><span>&#x2605;</span><span>&#x2605;</span><span>&#x2605;</span><span class="pkg_rating"> 4</span>
+            </div>
             </div>
             </div>
         </div>
@@ -333,6 +353,8 @@
                         return aValue - bValue;
                     } else if (sortBy === 'durationLongToShort') {
                         return aValue - bValue; // Inverted the logic here
+                    } else if (sortBy === 'ratingHighToLow') {
+                        return bValue - aValue; // Sort by rating in descending order
                     }
                 });
         
@@ -347,6 +369,9 @@
                     const durationText = packageElement.querySelector('.duration').textContent.trim();
                     const firstNumber = parseInt(durationText.match(/\d+/)[0]); // Extract the first number from the duration
                     return sortBy === 'durationShortToLong' ? firstNumber : -firstNumber; // Inverted the logic here
+                }else if (sortBy === 'ratingHighToLow') {
+                    const ratingText = packageElement.querySelector('.pkg_rating').textContent.trim();
+                    return parseFloat(ratingText);
                 }
             }
         });

@@ -162,26 +162,24 @@ body{
     margin-top: 20px;
     /* margin-left: 30px; */
 }
-
-.photo img{
+.photo {
     height: 300px;
     width: 390px;
-   object-fit: cover;
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-    transition: 0.5s all ease-in-out;
-}
-.photo{
-    
     overflow: hidden;
-  height: 300px;
-  width: 390px;
+}
 
+.photo img {
+    width: 100%; /* Ensure the image fills the container horizontally */
+    height: 300px; /* Let the browser calculate the height to maintain aspect ratio */
+    transition: transform 0.5s ease-in-out;
+    object-fit: cover;
 }
-.photo img:hover{
+
+.photo:hover img {
     transform: scale(1.1);
-    transition: 1s;
 }
+
+
 .city{
     margin:18px 30px 20px 190px;
     display: flex;
@@ -310,9 +308,12 @@ margin-left: 1.2rem;
 }
 .rating {
     margin-top: 5px;
-    font-size: 14px;
-    color: #888;
+    font-size: 16px;
+    color: orange;
 }
+
 .rating span {
     margin-right: 2px; /* Adjust spacing between stars */
 }
+
+
