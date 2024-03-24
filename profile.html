@@ -26,20 +26,42 @@
       <main class="main-content">
         <div class="container">
             <aside class="sidebar">
-              <h2>Navigation</h2>
+              <h2>Dashboard</h2>
               <ul>
-                <li><a href="profile.html">Profile</a></li>
-                <li><a href="#">Bookings</a></li>
-                <li><a href="#">Favorites</a></li>
-                <!-- Add more navigation links as needed -->
+                <li><a href="#" id="profile">Profile</a></li>
+                <li><a href="#" id="bookings">Bookings</a></li>
               </ul>
             </aside>
-            <section class="profile-info">
-                <h2>User Information</h2>
+            <div class="booking-details">
+                <h2>Booking Details</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Package Name</th>
+                    <th>Room Deatils</th>
+                    <th>Occupancy</th>
+                    <th>Price</th>
+                    <th colspan="4">Start Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Aurangabad tour package with Mahesh tours and travels</td>
+                    <td>AC room</td>
+                    <td>1 person</td>
+                    <td>$100</td>
+                    <td>20/01/2023</td>
+                    <td rowspan="2"><button>Cancel booking</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+            <div class="profile-info">
+                <h2>Edit Profile</h2>
                 <div class="form-group">
                     <input type="file" id="photo-upload" accept="image/*" style="display: none;">
-                    <button id="upload-photo-btn">Upload Photo</button>
                     <div class="profile-photo" id="profile-photo"></div>
+                    <button id="upload-photo-btn">Upload Photo</button>
                     <!-- <div class="form-group" id="file-name-display"></div> -->
                 </div>
                 <div class="form-group">
@@ -58,7 +80,7 @@
                     <button id="edit-profile-btn">Edit Profile</button>
                     <button id="save-profile-btn" style="display: none;">Save Profile</button>
                 </div>
-            </section>
+            </div>
         </div>
     </main>
 
@@ -158,34 +180,78 @@
 });
 </script>
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const uploadPhotoBtn = document.getElementById('upload-photo-btn');
-    const photoUploadInput = document.getElementById('photo-upload');
-    const profilePhoto = document.getElementById('profile-photo');
-    const fileNameDisplay = document.getElementById('file-name-display');
+    document.addEventListener('DOMContentLoaded', function() {
+        const uploadPhotoBtn = document.getElementById('upload-photo-btn');
+        const photoUploadInput = document.getElementById('photo-upload');
+        const profilePhoto = document.getElementById('profile-photo');
+        const fileNameDisplay = document.getElementById('file-name-display');
 
-    uploadPhotoBtn.addEventListener('click', function() {
-        // Trigger the file input field when the "Upload Photo" button is clicked
-        photoUploadInput.click();
+        uploadPhotoBtn.addEventListener('click', function() {
+            // Trigger the file input field when the "Upload Photo" button is clicked
+            photoUploadInput.click();
+        });
+
+        photoUploadInput.addEventListener('change', function() {
+            // When a file is selected, read its contents and display it as the profile photo
+            const file = photoUploadInput.files[0];
+            const reader = new FileReader();
+
+            reader.onload = function(event) {
+                const imageUrl = event.target.result;
+                profilePhoto.innerHTML = `<img src="${imageUrl}" alt="Profile Photo">`; // Corrected line
+            };
+
+            if (file) {
+                reader.readAsDataURL(file);
+                // Display the file name
+                fileNameDisplay.textContent = file.name;
+            }
+        });
     });
-
-    photoUploadInput.addEventListener('change', function() {
-        // When a file is selected, read its contents and display it as the profile photo
-        const file = photoUploadInput.files[0];
-        const reader = new FileReader();
-
-        reader.onload = function(event) {
-            const imageUrl = event.target.result;
-            profilePhoto.innerHTML = `<img src="${imageUrl}" alt="Profile Photo">`;
-        };
-
-        if (file) {
-            reader.readAsDataURL(file);
-            // Display the file name
-            fileNameDisplay.textContent = file.name;
-        }
-    });
-});
+</script>
+<script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get references to elements
+            const bookingLink = document.querySelector('#bookings');
+            const profileLink = document.querySelector('#profile');
+            const bookingDetailsSection = document.querySelector('.booking-details');
+            const profileInfoSection = document.querySelector('.profile-info');
+        
+            // Add event listener for Bookings link
+            bookingLink.addEventListener('click', function(event) {
+                event.preventDefault(); // Prevent default link behavior
+                displayBookings(); // Call function to display booking details
+            });
+        
+            // Add event listener for Profile link
+            profileLink.addEventListener('click', function(event) {
+                event.preventDefault(); // Prevent default link behavior
+                displayProfile(); // Call function to display profile information
+            });
+        
+            function displayProfile() {
+                // Hide booking details section
+                bookingDetailsSection.style.display = 'none';
+                // Display profile info section
+                profileInfoSection.style.display = 'flex';
+            }
+        
+            function displayBookings() {
+                // Hide profile info section
+                profileInfoSection.style.display = 'none';
+                // Display booking details section
+                bookingDetailsSection.style.display = 'block';
+            }
+        
+            function displayBookingDetails() {
+                var bookingId = document.getElementById('bookingIdInput').value;
+                // Simulate fetching and displaying booking details (replace with actual code)
+                var bookingDetails = `Booking details for ID ${bookingId}.`;
+                document.getElementById('bookingDetails').innerHTML = bookingDetails;
+            }
+            profileLink.click();
+        });
+ 
 </script>
 </body>
-</html>    
+</html>
