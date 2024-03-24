@@ -196,8 +196,8 @@ color: var(--main-color);
 .wrapper{
     margin-top: 70px;
 height: 100vh;
-overflow-x: hidden;
-/* overflow-y: auto; */
+/* overflow-x: hidden; */
+/* overflow-y: hidden; */
 }
 
 .container{
