@@ -64,3 +64,13 @@ function typeWriter() {
 }
 
 typeWriter();
+
+document.addEventListener('DOMContentLoaded', function() {
+  const userProfileLink = document.getElementById('userProfileLink');
+  const dropdownContent = document.getElementById('dropdownContent');
+
+  userProfileLink.addEventListener('click', function(e) {
+      e.preventDefault();
+      dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
+  });
+});

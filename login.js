@@ -17,6 +17,7 @@
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
   const auth =getAuth(app);
+  const user=auth.currentUser;
   auth.languageCode ='en'
   const provider = new GoogleAuthProvider();
 
@@ -40,40 +41,6 @@
             console.error('Google sign-in error:', errorMessage);
         });
 });
-// Get references to the login and logout buttons
-const loginButton = document.querySelector("#login");
-const logoutButton = document.querySelector("#logout");
 
-// Function to update UI based on user authentication status
-function updateUI(user) {
-  if (user) {
-    // User is logged in
-    loginButton.style.display = 'none'; // Hide the login button
-    logoutButton.style.display = 'flex'; // Show the logout button
-  } else {
-    // User is logged out
-    loginButton.style.display = 'flex'; // Show the login button
-    logoutButton.style.display = 'none'; // Hide the logout button
-  }
-}
 
-// Event listener for the logout button
-logoutButton.addEventListener('click', (e) =>{
-  e.preventDefault();
-  auth.signOut().then(() =>{
-    // User signed out successfully
-    console.log('User signed out');
-    
-    // Redirect to your desired page after logout
-    window.location.href = "index.html"; // Replace with the URL of your logout success page
-  }).catch((error) => {
-    // An error occurred while signing out
-    console.error('Error signing out:', error);
-  });
-});
 
-// Listen for changes in authentication state
-auth.onAuthStateChanged((user) => {
-  // Update UI based on user authentication status
-  updateUI(user);
-});
