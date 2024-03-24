@@ -25,7 +25,7 @@
 
 
 section{
-    padding: 5rem 10%;
+    padding: 5rem 10%;  
 }
 
 
@@ -168,26 +168,43 @@ section{
     overflow: hidden;
     margin-bottom: 20px;
     object-fit: cover;
-    border: 2px solid #fff; /* Add a border to give a frame effect */
+    border: 1px solid #fff; /* Add a border to give a frame effect */
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
-
+button{
+background-color: #007BFF;
+color: #f7f7f7;
+border: none;
+width: 12vw;
+align-items: center;
+padding: 10px 20px;
+border-radius: 30px;
+cursor: pointer;
+font-size: 16px;
+margin-left:5px;
+}
 .profile-photo img {
     width: 100%;
     height: auto;
-    padding: 20px;
 }
 
 .form-group {
     margin-bottom: 20px;
+    /* text-align: center; */
+    display: flex;
+    align-items: center;
 }
 
 .form-group label {
-    display: block;
+    /* display: flex; */
     font-weight: bold;
+    flex: 0 0 auto; 
+    text-align: right; /* Align label text to the right */
+    margin-right: 10px; 
 }
 
 .form-group input {
+    flex: 1;
     width: 100%;
     padding: 8px;
     border: 1px solid #ccc;
