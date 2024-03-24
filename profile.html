@@ -9,20 +9,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.js">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
-<style>
-  .profile-photo {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    overflow: hidden;
-    margin-bottom: 20px;
-}
-
-.profile-photo img {
-    width: 100%;
-    height: auto;
-}
-</style>
 </head>
 <body>
     <header>
@@ -37,46 +23,44 @@
             <a href="/contactUs.html"> Contact</a>
         </nav>
         </section>
-        <header>
-          <h1>Welcome to Your Profile</h1>
-      </header>
       <main class="main-content">
         <div class="container">
             <aside class="sidebar">
               <h2>Navigation</h2>
               <ul>
-                <li><a href="#">Profile</a></li>
+                <li><a href="profile.html">Profile</a></li>
                 <li><a href="#">Bookings</a></li>
                 <li><a href="#">Favorites</a></li>
                 <!-- Add more navigation links as needed -->
               </ul>
             </aside>
             <section class="profile-info">
-              <h2>User Information</h2>
-              <div class="form-group">
-                <input type="file" id="photo-upload" accept="image/*" style="display: none;">
-                <button id="upload-photo-btn">Upload Photo</button>
-            </div>
-              <div class="user-details">
-                  <!-- <div class="form-group">
-                      <label for="name">Name:</label>
-                      <div id="name" class="editable" contenteditable="false">John Doe</div>
-                  </div>
-  
-                  <div class="form-group">
-                      <label for="email">Email Address:</label>
-                      <div id="email" class="editable" contenteditable="false">john@example.com</div>
-                  </div> -->
-                  
-                  <!-- Add more user-specific information here if needed -->
-  
-                  <div class="form-group">
-                      <button id="edit-profile-btn">Edit Profile</button>
-                      <button id="save-profile-btn" style="display: none;">Save Profile</button>
-                  </div>
-              </div>
-              </section>
-      </main>
+                <h2>User Information</h2>
+                <div class="form-group">
+                    <input type="file" id="photo-upload" accept="image/*" style="display: none;">
+                    <button id="upload-photo-btn">Upload Photo</button>
+                    <div class="profile-photo" id="profile-photo"></div>
+                    <!-- <div class="form-group" id="file-name-display"></div> -->
+                </div>
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" placeholder="Enter your name">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number:</label>
+                    <input type="tel" id="phone" placeholder="Enter your phone number">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address:</label>
+                    <input type="email" id="email" placeholder="Enter your email address">
+                </div>
+                <div class="form-group">
+                    <button id="edit-profile-btn">Edit Profile</button>
+                    <button id="save-profile-btn" style="display: none;">Save Profile</button>
+                </div>
+            </section>
+        </div>
+    </main>
 
         <section class="footer">
             <div class="box-container">
@@ -177,8 +161,8 @@
   document.addEventListener('DOMContentLoaded', function() {
     const uploadPhotoBtn = document.getElementById('upload-photo-btn');
     const photoUploadInput = document.getElementById('photo-upload');
-    const profilePhoto = document.getElementById('image/*');
-    const fileNameDisplay = document.getElementById('form-group');
+    const profilePhoto = document.getElementById('profile-photo');
+    const fileNameDisplay = document.getElementById('file-name-display');
 
     uploadPhotoBtn.addEventListener('click', function() {
         // Trigger the file input field when the "Upload Photo" button is clicked
