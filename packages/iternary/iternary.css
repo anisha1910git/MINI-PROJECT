@@ -4,7 +4,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins', sans-serif;
     scroll-behavior:smooth ;
 }
 :root {
@@ -243,7 +243,6 @@ input[type="checkbox"]:checked~div.day {
     width: 75vw;
     margin-left: 1rem;
     transition: 2s;
-  
     
 }
 
@@ -272,6 +271,9 @@ input[type="date"] {
     font-size: 16px;
   }
   .slider{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     padding: 20px;
     background-color: rgba(238, 229, 130, 0.114);
     /* border-top: 1px solid rgba(0, 0, 0, 0.715); */
@@ -279,7 +281,6 @@ input[type="date"] {
 
   }
 .slider h2{
-
     padding-top: 10px;
     padding-bottom: 10px;
 
@@ -320,9 +321,9 @@ input[type="date"] {
 }
 .date{
     padding: 20px; 
-    width: 300px;
+    width: 320px;
     border: 1px solid rgba(0, 0, 0, 0.388);
-  margin: 30px;
+  margin: 45px;
     font-size: 14px;
     background-color: white;
 }
@@ -333,7 +334,6 @@ input[type="date"] {
     margin-top: 15px;
 }
 .amt2 {
-    
     color: green;
     font-size: 20px;
    
@@ -381,3 +381,91 @@ color: white;
 .cmp2 h1{
     color: white;
     }
+
+    .hotel_slide{
+        display: flex;
+        max-width: 1200px;
+        position: relative;
+        margin-left: 2rem;
+      }
+      .hotel_slide i{
+        top: 50%;
+        height: 44px;
+        width: 44px;
+        color: #343F4F;
+        cursor: pointer;
+        font-size: 1.15rem;
+        position: absolute;
+        text-align: center;
+        line-height: 44px;
+        background: #fff;
+        border-radius: 50%;
+        transform: translateY(-50%);
+        transition: transform 0.1s linear;
+      }
+      .hotel_slide i:active{
+        transform: translateY(-50%) scale(0.9);
+      }
+      .hotel_slide i:hover{
+        background: #f2f2f2;
+      }
+      .hotel_slide i:first-child{
+        left: -22px;
+        display: none;
+      }
+      .hotel_slide i:last-child{
+        right: -22px;
+      }
+      .hotel_slide .carousel{
+        font-size: 0px;
+        cursor: pointer;
+        overflow: hidden;
+        white-space: nowrap;
+        scroll-behavior: smooth;
+      }
+      .carousel.dragging{
+        cursor: grab;
+        scroll-behavior: auto;
+      }
+      .carousel.dragging img{
+        pointer-events: none;
+      }
+      .carousel img{
+        height: 340px;
+        object-fit: cover;
+        user-select: none;
+        margin-left: 14px;
+        width: calc(100% / 3);
+      }
+      .carousel img:first-child{
+        margin-left: 0px;
+      }
+      
+      @media screen and (max-width: 900px) {
+        .carousel img{
+          width: calc(100% / 2);
+        }
+      }
+      
+      @media screen and (max-width: 550px) {
+        .carousel img{
+          width: 100%;
+        }
+      }
+      .hotel_images{
+        display: flex;
+        flex-direction: column;
+        padding: 0 35px;
+        min-height: 90vh;
+    
+        align-items: center;
+        justify-content: center;
+        background:rgb(241, 241, 255);
+        margin: 2rem 0rem;
+      }
+
+      .hotel_images h2{
+        padding-top: 10px;
+        padding-bottom: 10px;
+    
+      }

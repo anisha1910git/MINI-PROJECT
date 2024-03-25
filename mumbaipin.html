@@ -3,90 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-m0ymAf8Ok+5d67ClBVCK4fK2DXmKDb4XszFDS78WnC2jw5IVJLQHyorD5ZbhJfJp" crossorigin="anonymous">
 
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.js">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="headfoot.css">
   <title>Bollywood ki boli ft. Mumbai</title>
   <style>
-    /* Fonts */
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
-
-    /* Colors */
-    :root {
-      --primary-color: rgb(66, 66, 255);
-      --background-color: #f2f2f2;
-      --text-color: #333333;
-      --conversation-bg: #f0f0f0;
-      --conversation-border: #ddd;
-      --main-color: white; /* Added main-color variable */
-      --light-white: rgba(255, 255, 255, 0.7); /* Added light-white variable */
-    }
-
-    /* Reset CSS */
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: 'Montserrat', sans-serif;
-      background-color: var(--background-color);
-      color: var(--text-color);
-      line-height: 1.6;
-    }
-
-    .header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 1001;
-      background-color: white;
-      display: flex;
-      padding-top: 0.5rem;
-      padding-bottom: 0.5rem;
-      box-shadow: var(--box-shadow);
-      padding-left: 10px;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .header .logo img {
-      height: 45px;
-      padding: 0;
-    }
-
-    .header .navbar {
-      margin-left: auto;
-    }
-
-    .header .navbar a {
-      font-size: 1rem;
-      margin-left: 2rem;
-      color: black;
-      text-decoration: none;
-    }
-
-    .header .navbar a:hover {
-      text-decoration: underline;
-    }
-
-    nav {
-      background-color: var(--w);
-      text-align: center;
-      padding: 10px 0;
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      padding: 10px 20px;
-      transition: background-color 0.3s ease;
-    }
-
-    nav a:hover {
-      background-color: rgba(255, 255, 255, 0.1);
-    }
 
     .timeline {
       display: flex;
@@ -205,64 +130,6 @@
       }
     }
 
-    .footer {
-      background-size: auto;
-      background-color: #333;
-      background-position: center;
-      padding-top: 0;
-      padding-bottom: 0;
-      margin-top: 3rem;
-      z-index: 999; /* Set a lower z-index value */
-      color: white;
-    }
-
-    .footer .box-container {
-      display: grid;
-      grid-template-columns: repeat(4, 0.5fr); /* Adjust columns for four boxes */
-      gap: 3rem;
-      padding: 2rem;
-      padding-top: 2rem;
-      margin-bottom: 0;
-      padding-bottom: 0;
-    }
-
-    .footer .box-container .box h3 {
-      color: white;
-      font-size: 1.5rem;
-      padding-bottom: 1rem;
-    }
-
-    .footer .box-container .box a {
-      color: white;
-      font-size: 1rem;
-      padding-bottom: 1rem;
-      display: block;
-      text-decoration: none;
-    }
-
-    .footer .box-container .box a i {
-      color: var(--primary-color)!important;
-      padding-right: .5rem;
-      transition: .2s linear;
-    }
-
-    .footer .box-container .box a:hover i {
-      padding-right: 2rem;
-    }
-
-    .footer .credit {
-      text-align: center;
-      padding-top: 1rem;
-      margin-top: 1rem;
-      padding-bottom: 1rem;
-      border-top: .1rem solid var(--light-white);
-      font-size: 1rem;
-      color: var(--light-white);
-    }
-
-    .footer .credit span {
-      color: var(--main-color);
-    }
   </style>
 </head>
 <body>
@@ -272,7 +139,7 @@
     <nav class="navbar">
         <a href="index.html">Home</a>
         <a href="aboutUs.html">About</a>
-        <a href="packages.html">Packages</a>
+        <a href="/packages/city_package/packages.html">Packages</a>
         <a href="gallery.html">Gallery</a>
         <a href="contactUs.html"> Contact</a>
     </nav>
@@ -325,6 +192,7 @@
     </div>
 
     <div id="slideshow-container">
+
       <img class="slideshow-image" src="mumbolly1.png" alt="Slideshow Image 1">
       <img class="slideshow-image" src="mumbolly2.png" alt="Slideshow Image 2">
       <img class="slideshow-image" src="mumbolly3.png" alt="Slideshow Image 3">
@@ -336,35 +204,38 @@
     <div class="box-container">
         <div class="box">
             <h3>Quick Links</h3>
-            <a href="index.html"><i class="fas fa-angle-right"></i>Home</a>
-            <a href="aboutUs.html"><i class="fas fa-angle-right"></i>About</a>
-            <a href="packages.html"><i class="fas fa-angle-right"></i>Packages</a>
-            <a href="gallery.html"><i class="fas fa-angle-right"></i>Gallery</a>
-            <a href="contactUs.html"><i class="fas fa-angle-right"></i>Contact</a>
+            <a href="index.html"><i class="fa fa-angle-right"></i>Home</a>
+            <a href="aboutUs.html"><i class="fa fa-angle-right"></i>About</a>
+            <a href="/packages/city_package/packages.html"><i class="fa fa-angle-right"></i>Packages</a>
+            <a href="gallery.html"><i class="fa fa-angle-right"></i>Gallery</a>
+            <a href="contactUs.html"><i class="fa fa-angle-right"></i>Contact</a>
         </div>
 
         <div class="box">
             <h3>Extra Links</h3>
-            <a href="#"><i class="fas fa-angle-right"></i>ask questions</a>
-            <a href="faq.html"><i class="fas fa-angle-right"></i>faq</a>
-            <a href="#"><i class="fas fa-angle-right"></i>privacy policy</a>
-            <a href="t&c.html"><i class="fas fa-angle-right"></i>terms of use</a>
+            <a href="#"><i class="fa fa-angle-right"></i>ask questions</a>
+            <a href="faq.html"><i class="fa fa-angle-right"></i>faq</a>
+            <a href="privacy.html"><i class="fa fa-angle-right"></i>privacy policy</a>
+            <a href="t&c.html"><i class="fa fa-angle-right"></i>terms of use</a>
+
         </div>
 
         <div class="box">
             <h3>Contact info</h3>
-            <a href="#"><i class="fas fa-phone"></i>428416212</a>
-            <a href="#"><i class="fas fa-phone"></i>483481292</a>
-            <a href="#"><i class="fas fa-envelope"></i>travelhub@ves.ac.in</a>
-            <a href="#"><i class="fas fa-map"></i>mumbai,India - 400094</a>
+
+            <a href="#"><i class="fa fa-phone"></i>428416212</a>
+            <a href="#"><i class="fa fa-phone"></i>483481292</a>
+            <a href="#"><i class="fa fa-envelope"></i>travelhub@ves.ac.in</a>
+            <a href="#"><i class="fa fa-map"></i>mumbai,India - 400094</a>
+
         </div>
 
         <div class="box">
             <h3>Follow Us</h3>
-            <a href="#"><i class="fab fa-facebook-f"></i>facebook</a>
-            <a href="#"><i class="fab fa-twitter"></i>twitter</a>
-            <a href="#"><i class="fab fa-instagram"></i>instagram</a>
-            <a href="#"><i class="fab fa-linkedin"></i>linkedin</a>
+            <a href="#"><i class="fa fa-facebook-f"></i>facebook</a>
+            <a href="#"><i class="fa fa-twitter"></i>twitter</a>
+            <a href="#"><i class="fa fa-instagram"></i>instagram</a>
+            <a href="#"><i class="fa fa-linkedin"></i>linkedin</a>
         </div>
     </div>
 

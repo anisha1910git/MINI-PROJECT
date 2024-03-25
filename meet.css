@@ -69,7 +69,7 @@ section{
 .header .navbar a{
     font-size: 1rem;
     margin-left: 2rem;
-    color: var(--white);
+    color: var(--black);
     text-decoration: none;
 }
 .header .navbar a:hover{
@@ -343,19 +343,6 @@ section{
     }
 }
 
-.navbar {
-    width: 100%;
-    background: #333;}
-
-.navbar a {
-    color: white;
-    text-decoration: none;
-}
-
-.navbar a:hover {
-    text-decoration: underline;
-    color: white;
-}
 
 .meet-text h1
 {   font-size: 36px;

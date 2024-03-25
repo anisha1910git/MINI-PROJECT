@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="payg.css">
+    <title>Travel Website Payment</title>
+    <main>
+        <form action="#" method="post" id="payment-form">
+            <p>One Time Passcode sent to +91********</p>
+            <!-- Payment Form Fields -->
+            <label for="otp">Enter OTP:</label>
+            <input type="number" id="otp" name="otp" required>
+            <button type="submit" class="primary-btn">Submit</button>
+    <script>
+        // Simulated function to generate a random OTP (for demonstration purposes)
+        function generateOTP() {
+            return Math.floor(1000 + Math.random() * 9000).toString();
+        }
+
+            // Simulating successful payment initiation
+            var otp = generateOTP();
+            var userEnteredOTP = prompt('Please enter the OTP sent to your mobile/email:', '');
+
+            if (userEnteredOTP === otp) {
+                handlePaymentSuccess();
+                return true;
+            } else {
+                alert('Invalid OTP. Please try again.');
+                return false;
+            }
+        
+
+        function handlePaymentSuccess() {
+            // Your actual payment processing logic would go here.
+            // This is just a simulated success message.
+            console.log('Payment successful! Thank you for your booking.');
+
+            // You can redirect the user to a confirmation page or perform other actions.
+            // For example:
+            // window.location.href = 'confirmation.html';
+        }
+    </script>

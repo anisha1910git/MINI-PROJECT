@@ -42,6 +42,7 @@ section{
         opacity: 0;
     }
 }
+
 .header {
     position: fixed;
     top: 0;
@@ -75,6 +76,170 @@ section{
 .header .navbar a:hover{
   text-decoration: underline;
 }
+
+#LOGIN{
+   
+    font-weight: 500;
+    color: white;
+    background-color: black;
+    text-decoration: none;
+padding: 10px 20px;
+border-radius: 2rem;
+}
+#LOGIN :hover{
+    background-color:rgba(0, 0, 0, 0.304);
+}
+.user-profile {
+    position: relative;
+    display: inline-block;
+    margin-left: 2rem;
+}
+#userProfileLink{
+    border-radius: 2rem;
+    padding: 10px;
+    background-color: #eaeaea;
+}
+#userProfileLink:hover{
+   
+    background-color: #e3e3e367;
+}
+
+.profile-circle {
+    margin-top: 0.2rem;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 10px;
+    position: relative;
+    display: inline;
+    top:3px;
+}
+
+.profile-circle img {
+    width: 19px;
+    height: 19px;
+    object-fit: contain;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 120px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.user-greeting {
+    vertical-align: middle;
+}
+
+.contenttag {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px;
+}
+
+.left-section, .right-section {
+    flex: 1;
+}
+
+.left-section {
+    text-align: center; /* Center text horizontally */
+}
+
+.left-section h1 {
+    font-size: 48px;
+    font-weight: bold;
+    position: relative;
+    display: inline-block;
+}
+.right-section img{
+    width: 30rem;
+}
+.strike {
+    /* background-image: url('suffer.png'); Replace 'path/to/your/image.jpg' with the path to your background image */
+    background-size: cover;
+    position: relative;
+}
+
+.strike::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    height: 4px;
+    background-color: black;
+    transform-origin: bottom left;
+    transform: translateY(-50%) scaleX(0);
+    animation: strikethroughAnimation 1s forwards;
+}
+
+@keyframes strikethroughAnimation {
+    0% {
+        transform: translateY(-50%) scaleX(0);
+    }
+    100% {
+        transform: translateY(-50%) scaleX(1);
+    }
+}
+
+
+
+/* Typing animation styles */
+.typing-animation {
+    text-align: center;
+    padding: 20px 0; /* Adjust the padding as needed */
+}
+
+.typing-animation h2 {
+    font-size: 46px; 
+    font-weight: bold;
+    font-family:fantasy;
+    color: #333; /* Adjust the color as needed */
+}
+/* Arrow animation styles */
+.arrow {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.arrow-down {
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-top: 30px solid black;
+    position: relative;
+    margin: auto;
+    animation: arrowAnimation 1s infinite;
+}
+
+@keyframes arrowAnimation {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
 #menu-btn{
     font-size: 2.5rem;
     cursor: pointer;
@@ -89,7 +254,7 @@ section{
 
 .services {
     margin-bottom:0;
-    padding-bottom: 30px; /* Adjust the margin as needed */
+    padding-bottom: 0px; /* Adjust the margin as needed */
 }
 .services .box-container{
     display: grid;
@@ -157,6 +322,11 @@ section{
         font-size: 50%;
     }
 
+}
+#maha{
+    color: rgba(255, 255, 255, 0.669);
+    font-size: 8rem;
+    text-transform: capitalize ;
 }
 
 
@@ -310,7 +480,7 @@ animation: fadeIn .3s linear backwards .4s;
 
 /* Bolly text */
 .bolly
-{
+{ 
     width: 100%;
     padding: 78px 0px;
 }
@@ -321,6 +491,7 @@ animation: fadeIn .3s linear backwards .4s;
 }
 .bolly-text
 {
+    text-align: justify;
     width: 550px;
 }
 .main
@@ -527,6 +698,7 @@ justify-content: flex-end;
 }
 .about-text
 {
+    text-align: justify;
     width: 550px;
 }
 .main
@@ -622,3 +794,31 @@ justify-content: flex-end;
     border-radius: 50%;
     margin-top: 1rem;
 }
+.featureBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0px; /* Adjust margin as needed */
+}
+
+.boxf {
+    width: 150px; /* Adjust width as needed */
+    height: 150px; /* Adjust height as needed */
+    background-color: #ffffff; /* Adjust background color as needed */
+    margin-right: 10px; /* Adjust margin as needed */
+    border-radius: 10px; /* Adjust border radius as needed */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: box-shadow 0.3s ease; /* Adding transition for smooth effect */
+}
+
+.boxf:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Adding box shadow on hover */
+}
+
+.boxf img {
+    max-width: 100%;
+    max-height: 100%;
+}
+

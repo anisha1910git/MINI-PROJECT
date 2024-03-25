@@ -1,3 +1,7 @@
 {
-    "liveServer.settings.port": 5502
+    "liveServer.settings.port": 5502,
+    "files.associations": {
+        "*.embeddedhtml": "html",
+        "N_QUEEN.C": "cpp"
+    }
 }
