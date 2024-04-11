@@ -15,26 +15,60 @@
 <body>
     <header>
         <section class="header" >
-            <a href="homepg.html" class="logo"><img src="/logoabout.png"></a>
+            <a href="/homepg.html" class="logo"><img src="/Homepage/logoabout.png"></a>
     
             <nav class="navbar">
-                <a href="index.html">Home</a>
-                <a href="aboutUs.html">About</a>
-                <a href="../city_package/packages.html">Packages</a>
-                <a href="gallery.html">Gallery</a>
-                <a href="contactUs.html"> Contact</a>
+                <a href="/Homepage/index.html">Home</a>
+                <a href="/aboutUS/aboutUs.html">About</a>
+                <a href="/packages/city_package/packages.html">Packages</a>
+                <a href="/gallery/gallery.html">Gallery</a>
+                <a href="/Other/contactUs.html">Contact</a>
+                <div class="user-profile">
+                    <div  id="userProfileLink">
+                        <div class="profile-circle">
+                            <img src="/Homepage/profiletemp.png" alt="User Profile">
+                        </div>
+                        <span class="user-greeting">Hi User</span>
+                        <i class="fas fa-chevron-down"></i>
+    
+                    </div>
+                    <div class="dropdown-content" id="dropdownContent">
+                        <a href="/user/profile.html">Dashboard</a>
+                    </div>
+                </div>
             </nav>
+            
             <!-- <div id="menu-btn" style="padding: 0; align-items: flex-end;"><i class="fa fa-bars" style="color: white;"></i></div> -->
         </section>
    </header>
    <main>
-    <div class="city">
+    <div class="search-container">
+        <input type="text" id="searchInput" onkeyup="filterPackages()" placeholder="Search for packages...">
+        <i class="fas fa-search"></i> <!-- Search icon -->
+    </div>
+    <div class="filters">
+        <p class="filter_title">Filter:</p>
+        <button class="filter_btn active" onclick="filterSelection('all')">All</button>
+            <button class="filter_btn" onclick="filterSelection('adventure')">Adventure</button>
+            <button class="filter_btn" onclick="filterSelection('culture')">Culture</button>
+            <!-- Add more filter buttons as needed -->
+            <select id="sortBy" onchange="sortPackages()">
+                <option value="priceLowToHigh">Price: Low to High</option>
+                <option value="priceHighToLow">Price: High to Low</option>
+                <option value="durationShortToLong">Duration: Short to Long</option>
+                <option value="durationLongToShort">Duration: Long to Short</option>
+                <option value="ratingHighToLow">Rating: High to Low</option>
+
+            </select>
+    </div>
+    <div class="packages">
+    <div class="city" data-category="culture">
         <div class="photo"><img src="nagpur2.jpg" alt="info1">
             </div>
     
         <div class="info1">
          <b>Budget-friendly Nagpur Package with Arya Travels</b>
-         <p>5 days 4 nights</p>
+         <p class="duration">5 days 4 nights</p>
          <p>Deekshabhoomi | Futala Lake | Sitabuldi Fort | Swaminarayan Temple </p>
          <div class="thin-line"></div>
          <div class="book">
@@ -44,19 +78,20 @@
              </div>
            <div class="book_btn"><a href="../iternary/nagpur/arya_it.html">View Details</a></div>
          </div>
+         <div class="rating">
+            <span>&#x2605;</span><span>&#x2605;</span><span>&#x2605;</span><span>&#x2605;</span><span >&#x00BD;</span><span class="pkg_rating"> 4.5</span>
+        </div>
         </div>
         </div>
    
-    <div class="city">
+    <div class="city" data-category="culture">
         <div class="photo"><img src="nagpur3.jpg" alt="info1">
             </div>
     
         <div class="info1">
          <b>Explore Nagpur along with Pachmarhi with Safar Tours and Travels</b>
-         <p>4 days 3 nights</p>
-         <p>
-            Ramtek Temple | Sevagram | Pachmarhi  | Jungle Safari
-         </p>
+         <p class="duration">4 days 3 nights</p>
+         <p>Ramtek Temple | Sevagram | Pachmarhi  | Jungle Safari</p>
          <div class="thin-line"></div>
          <div class="book">
              <div class="price">
@@ -65,17 +100,20 @@
              </div>
            <div class="book_btn"><a href="../iternary/nagpur/safar_it.html">View Details</a></div>
          </div>
+         <div class="rating">
+            <span>&#x2605;</span><span>&#x2605;</span><span>&#x2605;</span><span class="pkg_rating"> 3</span>
+        </div>
         </div>
         </div>
    
   
-    <div class="city">
+    <div class="city" data-category="culture">
         <div class="photo"><img src="nagpur1.jpg" alt="info1">
             </div>
     
         <div class="info1">
          <b>Ajanta ,Vidarbha and Nagpur Discovery Tour</b>
-         <p>6 days 5 nights</p>
+         <p class="duration">6 days 5 nights</p>
          <p>Ajanta | Sitabuldi fort | Vidarbha | Wildlife </p>
          <div class="thin-line"></div>
          <div class="book">
@@ -86,8 +124,85 @@
              </div>
            <div class="book_btn"><a href="../iternary/nagpur/pravasi_it.html">View Details</a></div>
          </div>
+         <div class="rating">
+            <span>&#x2605;</span><span>&#x2605;</span><span>&#x2605;</span><span>&#x2605;</span><span >&#x00BD;</span><span class="pkg_rating"> 4.5</span>
         </div>
         </div>
+        </div>
+    <div class="city" data-category="adventure">
+        <div class="photo"><img src="ramtek.webp" alt="info1">
+            </div>
+    
+        <div class="info1">
+         <b>Discover adventure at Ramtek hills and Khekranala waters.</b>
+         <p class="duration">5 days 4 nights</p>
+         <p>Camping|Bird watching|Jet skiing|Fishing</p>
+         <div class="thin-line"></div>
+         <div class="book">
+             <div class="price">
+             <b>&#8377 23,900</b>
+             <p>per person</p>
+             </div>
+           <div class="book_btn"><a href="../iternary/nagpur/arya_it.html">View Details</a></div>
+         </div>
+         <div class="rating">
+            <span>&#x2605;</span><span>&#x2605;</span><span>&#x2605;</span><span>&#x2605;</span><span class="pkg_rating">4</span>
+        </div>
+        </div>
+        </div>
+   
+    <div class="city" data-category="adventure">
+        <div class="photo"><img src="khekranala.jpg" alt="info1">
+            </div>
+    
+        <div class="info1">
+         <b>Explore excitement at Khekranala's waters and Umred's wilds</b>
+         <p class="duration">4 days 3 nights</p>
+         <p>Photography expeditions|Night safaris|Swimming|Water zorbing</p>
+         <div class="thin-line"></div>
+         <div class="book">
+             <div class="price">
+             <b>&#8377 27,500</b>
+             <p>per person</p>
+             </div>
+           <div class="book_btn"><a href="../iternary/nagpur/safar_it.html">View Details</a></div>
+         </div>
+         <div class="rating">
+            <span>&#x2605;</span><span>&#x2605;</span><span>&#x2605;</span><span>&#x2605;</span><span class="pkg_rating"> 4</span>
+        </div>
+        </div>
+        </div>
+   
+  
+    <div class="city" data-category="adventure">
+        <div class="photo"><img src="umred.jpg" alt="info1">
+            </div>
+    
+        <div class="info1">
+         <b>Embrace adventure amidst Umred's sanctuary and Ramtek's hills</b>
+         <p class="duration">6 days 5 nights</p>
+         <p>Bird watching|Nature walks|Photography expeditions|Mountain biking</p>
+         <div class="thin-line"></div>
+         <div class="book">
+             <div class="price">
+             <b>&#8377 45,300</b>
+             <p>per person</p>
+             
+             </div>
+           <div class="book_btn"><a href="../iternary/nagpur/pravasi_it.html">View Details</a></div>
+         </div>
+         <div class="rating">
+            <span>&#x2605;</span><span>&#x2605;</span><span>&#x2605;</span><span >&#x00BD;</span><span class="pkg_rating"> 3.5</span>
+        </div>
+        </div>
+        </div>
+        <div class="popup" id="loginPopup" style="display:none;">
+            <h2>Looking to explore more?</h2>
+            <p>Join the fun! Tap that login button and let's level up your experience together!</p>
+            <button onclick="closePopup()">Close</button>
+            <button onclick="redirectToLogin()">Login</button>
+          </div>
+          </div>
    </main>
 
    
@@ -96,19 +211,20 @@
             <div class="box-container">
                 <div class="box">
                     <h3>Quick Links</h3>
-                    <a href="index.html"><i class="fa fa-angle-right"></i>Home</a>
-                    <a href="aboutUs.html"><i class="fa fa-angle-right"></i>About</a>
-                    <a href="packages.html"><i class="fa fa-angle-right"></i>Packages</a>
-                    <a href="gallery.html"><i class="fa fa-angle-right"></i>Gallery</a>
-                    <a href="contactUs.html"><i class="fa fa-angle-right"></i>Contact</a>
+                    <a href="/index.html"><i class="fa fa-angle-right"></i>Home</a>
+                    <a href="/aboutUs.html"><i class="fa fa-angle-right"></i>About</a>
+                    <a href="/packages/city_package/packages.html"><i class="fa fa-angle-right"></i>Packages</a>
+                    <a href="/gallery.html"><i class="fa fa-angle-right"></i>Gallery</a>
+                    <a href="/contactUs.html"><i class="fa fa-angle-right"></i>Contact</a>
                 </div>
         
                 <div class="box">
                     <h3>Extra Links</h3>
                     <a href="#"><i class="fa fa-angle-right"></i>ask questions</a>
-                    <a href="faq.html"><i class="fa fa-angle-right"></i>faq</a>
-                    <a href="#"><i class="fa fa-angle-right"></i>privacy policy</a>
-                    <a href="t&c.html"><i class="fa fa-angle-right"></i>terms of use</a>
+                    <a href="../../faq.html"><i class="fa fa-angle-right"></i>faq</a>
+                    <a href="../../privacy.html"><i class="fa fa-angle-right"></i>privacy policy</a>
+                    <a href="../../t&c.html"><i class="fa fa-angle-right"></i>terms of use</a>
+
                 </div>
         
                 <div class="box">
@@ -134,5 +250,87 @@
 
        
     </footer>
+    <script src="popup.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const filterBtns = document.querySelectorAll('.filter_btn');
+            const cities = document.querySelectorAll('.city');
+        
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const category = btn.textContent.toLowerCase();
+                    filterSelection(category);
+                    setActiveButton(btn);
+                });
+            });
+        
+            function filterSelection(category) {
+                cities.forEach(city => {
+                    if (category === 'all' || city.dataset.category === category) {
+                        city.style.display = 'flex';
+                    } else {
+                        city.style.display = 'none';
+                    }
+                });
+            }
+        
+            function setActiveButton(clickedBtn) {
+                filterBtns.forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                clickedBtn.classList.add('active');
+            }
+        
+            // Add event listener for the select element
+            const sortBySelect = document.getElementById('sortBy');
+            sortBySelect.addEventListener('change', () => {
+                sortPackages(sortBySelect.value);
+            });
+        
+            function sortPackages(sortBy) {
+                const packagesContainer = document.querySelector('.packages');
+                const packages = Array.from(packagesContainer.querySelectorAll('.city'));
+        
+                packages.forEach(package => {
+                    const aValue = getDataAttribute(package, sortBy);
+                    package.dataset.sortValue = aValue;
+                });
+        
+                packages.sort((a, b) => {
+                    const aValue = parseFloat(a.dataset.sortValue);
+                    const bValue = parseFloat(b.dataset.sortValue);
+        
+                    if (sortBy === 'priceLowToHigh') {
+                        return aValue - bValue;
+                    } else if (sortBy === 'priceHighToLow') {
+                        return bValue - aValue;
+                    } else if (sortBy === 'durationShortToLong') {
+                        return aValue - bValue;
+                    } else if (sortBy === 'durationLongToShort') {
+                        return aValue - bValue; // Inverted the logic here
+                    } else if (sortBy === 'ratingHighToLow') {
+                        return bValue - aValue; // Sort by rating in descending order
+                    }
+                });
+        
+                packages.forEach(city => packagesContainer.appendChild(city));
+            }
+        
+            function getDataAttribute(packageElement, sortBy) {
+                if (sortBy === 'priceLowToHigh' || sortBy === 'priceHighToLow') {
+                    const priceText = packageElement.querySelector('.price b').textContent.replace(',', '').replace('₹', '');
+                    return parseFloat(priceText);
+                } else if (sortBy === 'durationShortToLong' || sortBy === 'durationLongToShort') {
+                    const durationText = packageElement.querySelector('.duration').textContent.trim();
+                    const firstNumber = parseInt(durationText.match(/\d+/)[0]); // Extract the first number from the duration
+                    return sortBy === 'durationShortToLong' ? firstNumber : -firstNumber; // Inverted the logic here
+                }else if (sortBy === 'ratingHighToLow') {
+                    const ratingText = packageElement.querySelector('.pkg_rating').textContent.trim();
+                    return parseFloat(ratingText);
+                }
+            }
+        });
+        
+    </script>
 </body>
 </html>

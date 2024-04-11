@@ -50,4 +50,27 @@ var reviewSlider = new Swiper(".review-slider", {
       },
     },
   });
-  
+
+  // Typing animation
+const text = "Embark on an unforgettable journey through Maharashtra with our handpicked travel itineraries."; // Text to display
+let index = 0;
+
+function typeWriter() {
+    if (index < text.length) {
+        document.getElementById("typing-text").innerHTML += text.charAt(index);
+        index++;
+        setTimeout(typeWriter, 100); // Speed of typing animation (milliseconds)
+    }
+}
+
+typeWriter();
+
+document.addEventListener('DOMContentLoaded', function() {
+  const userProfileLink = document.getElementById('userProfileLink');
+  const dropdownContent = document.getElementById('dropdownContent');
+
+  userProfileLink.addEventListener('click', function(e) {
+      e.preventDefault();
+      dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
+  });
+});

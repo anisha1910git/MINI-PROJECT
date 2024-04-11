@@ -37,9 +37,16 @@
     <div class="book">
       <div class="date">
       <div class="val">
-      <form >
+        <form action="javascript:void(0);" onsubmit="submitForm();" id="payment-form" method="post"> 
+        <label for="userName">Enter your name</label>
+        <input type="text" id="userName" name="userName">
       <label for="userDate">Select a Date:</label>
       <input type="date" id="userDate" name="userDate">
+      <label for="userRoomType">Room Type:</label>
+      <select id="userRoomType" name="userRoomType">
+        <option value="ac">AC Room</option>
+        <option value="non-ac">Non-AC Room</option>
+      </select>
       <label for="userRoom">Number of rooms:</label>
       <input type="number" id="userRoom" name="userRoom">
       <label for="travellerno">Number of travellers:</label>
@@ -292,26 +299,43 @@
          
       </div>
     </div>
-  
+    <section class="hotel_images">
+      <h2>Wondering About Your Stay?</h2>
+      <p id="cap">Get a Glimpse with Our Hotel Image Gallery</p>
+      <div class="hotel_slide">
+       
+          <i id="left" class="fa-solid fa-angle-left"></i>
+          <div class="carousel">
+            <img src="../hotel/himalaya.jpg" alt="img" draggable="false">
+            <img src="../hotel/centre-point.avif" alt="img" draggable="false">
+            <img src="../hotel/centre-point_1.webp" alt="img" draggable="false">
+            <img src="../hotel/centre-point_2.jpeg" alt="img" draggable="false">
+
+          </div>
+          <i id="right" class="fa-solid fa-angle-right"></i>
+        
+      </div>
+         
+    </section>
     
     <footer>
       <section class="footer">
         <div class="box-container">
             <div class="box">
                 <h3>Quick Links</h3>
-                <a href="index.html"><i class="fa fa-angle-right"></i>Home</a>
-                <a href="aboutUs.html"><i class="fa fa-angle-right"></i>About</a>
-                <a href="packages.html"><i class="fa fa-angle-right"></i>Packages</a>
-                <a href="gallery.html"><i class="fa fa-angle-right"></i>Gallery</a>
-                <a href="contactUs.html"><i class="fa fa-angle-right"></i>Contact</a>
+                <a href="/index.html"><i class="fa fa-angle-right"></i>Home</a>
+                <a href="/aboutUs.html"><i class="fa fa-angle-right"></i>About</a>
+                <a href="/packages/city_package/packages.html"><i class="fa fa-angle-right"></i>Packages</a>
+                <a href="/gallery.html"><i class="fa fa-angle-right"></i>Gallery</a>
+                <a href="/contactUs.html"><i class="fa fa-angle-right"></i>Contact</a>
             </div>
     
             <div class="box">
                 <h3>Extra Links</h3>
                 <a href="#"><i class="fa fa-angle-right"></i>ask questions</a>
-                <a href="faq.html"><i class="fa fa-angle-right"></i>faq</a>
-                <a href="#"><i class="fa fa-angle-right"></i>privacy policy</a>
-                <a href="t&c.html"><i class="fa fa-angle-right"></i>terms of use</a>
+                <a href="/faq.html"><i class="fa fa-angle-right"></i>faq</a>
+                <a href="/privacy.html"><i class="fa fa-angle-right"></i>privacy policy</a>
+                <a href="/t&c.html"><i class="fa fa-angle-right"></i>terms of use</a>
             </div>
     
             <div class="box">
@@ -335,5 +359,14 @@
     </section>
     
   </footer>
+  <script src="../slider.js"></script>
+  <script>
+    function submitForm() {
+      // Handle form submission here
+      
+      // Redirect to paynow.html
+      window.location.href = "../payment.html";
+  }
+  </script>
 </body>
 </html>
