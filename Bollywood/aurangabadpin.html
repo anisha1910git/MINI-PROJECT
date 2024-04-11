@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Bollywood ki boli ft.Aurangabad</title>
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.js">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <style>
+   @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&family=Montserrat:wght@400;700&family=Poppins:wght@100;200;300;400;500;600&family=Whisper&display=swap');
+
+* {
+    margin: 0;
+    margin-bottom: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    --main-color: rgb(66, 66, 255);
+    --black: #222;
+    --white: #fff;
+    --light-black: #777;
+    --light-white: #fff9;
+    --dark-bg: rgba(0, 0, 0, .7);
+    --light-bg: #eee;
+    --border: .1rem solid var(--black);
+    --box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+    --text-shadow: 0 .5rem 1rem rgba(0, 0, 0, .3);
+    --light-bg-hover: #f4f4f4; /* Adjust as needed for hover effect */
+    --dark-text: #333; /* Adjust as needed for better contrast */
+}
+
+html::-webkit-scrollbar {
+    width: 1rem;
+}
+html::-webkit-scrollbar-track{
+    background-color:var(--white);
+}
+html::-webkit-scrollbar-thumb{
+    background-color:var(--light-black);
+}
+
+section{
+    padding: 5rem 10%;
+}
+
+@keyframes fadeIn {
+    0% { transform: scale(0);
+        opacity: 0;
+    }
+}
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1001;
+    background-color: var(--white);
+    display: flex;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    box-shadow: var(--box-shadow);
+    padding-left: 10px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header .logo img
+{
+    height: 45px;
+    padding: 0;
+}
+.header .navbar{
+    margin-left:auto;
+}
+.header .navbar a{
+    font-size: 1rem;
+    margin-left: 2rem;
+    color: var(--black);
+    text-decoration: none;
+}
+.header .navbar a:hover{
+  text-decoration: underline;
+}
+/* media queires*/
+@media (max-width:1200px){
+    section{
+        padding: 3rem 5%;
+}
+}
+
+@media (max-width:991px){
+
+    html{
+        font-size: 55%;
+    }
+    section{
+        padding: 3rem 2rem;
+}
+}
+
+@media (max-width: 760px) {
+    .header .navbar {
+      position: absolute;
+      top: 99%;
+      left: 0;
+      right: 0;
+      background-color: var(--white);
+      border-top: var(--border);
+      padding: 2rem;
+      z-index: 1001;
+      clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    }
+  
+    .header .navbar.active {
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    }
+  
+    .header .navbar a {
+      display: block;
+      margin: 2rem;
+      text-align: center;
+    }
+  }
+@media (max-width:450px){
+
+    html{
+        font-size: 50%;
+    }
+
+}
+.footer {
+    /* background: url(footer.jpg) no-repeat; */
+    background-size: auto;
+    background-color: #333;
+    background-position: center;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: 3rem;
+    z-index: 999; /* Set a lower z-index value */
+}
+
+.footer .box-container {
+    display: grid;
+    grid-template-columns: repeat(4, 0.5fr); /* Adjust columns for four boxes */
+    gap: 3rem;
+    padding: 2rem;
+    padding-top: 2rem;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.footer .box-container .box h3 {
+    color: white;
+    font-size: 1.5rem;
+    padding-bottom: 1rem;
+}
+
+.footer .box-container .box a {
+    color: var(--light-white);
+    font-size: 1rem;
+    padding-bottom: 1rem;
+    display: block;
+    text-decoration: none;
+}
+
+.footer .box-container .box a i {
+    color: var(--main-color);
+    padding-right: .5rem;
+    transition: .2s linear;
+}
+
+.footer .box-container .box a:hover i {
+    padding-right: 2rem;
+}
+.footer .credit{
+    text-align: center;
+    padding-top: 1rem;
+    margin-top: 1rem;
+    padding-bottom: 1rem;
+    border-top: .1rem solid var(--light-white);
+    font-size: 1rem;
+    color: var(--light-white);
+}
+.footer .credit span{
+    color: var(--main-color);
+}
+
+#LOGIN{
+   
+    font-weight: 500;
+    color: white;
+    background-color: black;
+    text-decoration: none;
+padding: 10px 20px;
+border-radius: 2rem;
+}
+#LOGIN :hover{
+    background-color:rgba(0, 0, 0, 0.304);
+}
+.user-profile {
+    position: relative;
+    display: inline-block;
+    margin-left: 2rem;
+}
+#userProfileLink{
+    border-radius: 2rem;
+    padding: 10px;
+    background-color: #eaeaea;
+}
+#userProfileLink:hover{
+   
+    background-color: #e3e3e367;
+}
+
+.profile-circle {
+    margin-top: 0.2rem;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 10px;
+    position: relative;
+    display: inline;
+    top:3px;
+}
+
+.profile-circle img {
+    width: 19px;
+    height: 19px;
+    object-fit: contain;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 120px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.user-greeting {
+    vertical-align: middle;
+}
+    #content-container {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    #about {
+      width: 50%;
+      text-align: center; /* Center align text */
+      padding: 40px;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+      margin: 20px;
+      max-width: 400px;
+    }
+
+    #about h2 {
+      color: var(--primary-color);
+      margin-bottom: 20px;
+    }
+
+    #about p {
+      color: var(--text-color);
+    }
+
+    #slideshow-container {
+      width: 50%;
+      margin: 20px;
+      overflow: hidden;
+    }
+
+    .slideshow-image {
+      display: none;
+      width: 100%;
+      height: auto;
+    }
+
+    /* Meme styling */
+    .meme-container {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .meme-image {
+      width: 100%; /* Adjust the width as needed */
+      max-width: 300px; /* Limit the maximum width */
+      display: block;
+      margin: 0 auto; /* Center align image */
+    }
+
+    .meme-text {
+      font-size: 24px; /* Adjust the font size as needed */
+      margin-top: 20px;
+      margin-bottom: 20px;
+      font: 1.5em sans-serif;
+    }
+
+    /* Typing animation styles */
+    .typing-animation {
+      text-align: center;
+      padding: 20px 0; /* Adjust the padding as needed */
+    }
+
+    .typing-animation h2 {
+      font-size: 46px; 
+      font-weight: bold;
+      font-family: fantasy;
+      color: #333; /* Adjust the color as needed */
+    }
+
+    @keyframes typing {
+      0% {
+        width: 0;
+      }
+      50% {
+        width: 50%;
+      }
+      100% {
+        width: 100%;
+      }
+    }
+
+  </style>
+</head>
+<body>
+  <section class="header" >
+    <a href="/homepg.html" class="logo"><img src="/Homepage/logoabout.png"></a>
+
+    <nav class="navbar">
+        <a href="/Homepage/index.html">Home</a>
+        <a href="/aboutUS/aboutUs.html">About</a>
+        <a href="/packages/city_package/packages.html">Packages</a>
+        <a href="/gallery/gallery.html">Gallery</a>
+        <a href="/Other/contactUs.html">Contact</a>
+        <div class="user-profile">
+            <div  id="userProfileLink">
+                <div class="profile-circle">
+                    <img src="/Homepage/profiletemp.png" alt="User Profile">
+                </div>
+                <span class="user-greeting">Hi User</span>
+                <i class="fas fa-chevron-down"></i>
+
+            </div>
+            <div class="dropdown-content" id="dropdownContent">
+                <a href="/user/profile.html">Dashboard</a>
+            </div>
+        </div>
+    </nav>
+    
+</section>
+ 
+  <section class="typing-animation" style="font-size: 40px;margin-right: 20px;margin-left: 20px;">
+    <p id="typing-text"></p>
+  </section>
+
+  <div id="content-container">
+    <div id="about">
+      <h2>About</h2>
+      <p>Aurangabad of Maharashtra has now become a shooting hub. Aurangabad is becoming the choice of both directors and actors for shooting.Aurangabad district has become a shooting hub for Hindi Marathi films, serials, web series and advertisements. Not only Jawan but many Hindi and Marathi film web series like "Ray", Aashiqana, Laadla, Dispatch, Gulkand and Mukkam Post Kolshewadi have been shot in Aurangabad.</p>
+    </div>
+
+    <div id="slideshow-container">
+      <img class="slideshow-image" src="https://pbs.twimg.com/media/C_8cCwXU0AAYwKZ.jpg" alt="Slideshow Image 1">
+      <img class="slideshow-image" src="https://www.91-cdn.com/hub/wp-content/uploads/2023/10/Jawan.png">
+      <img class="slideshow-image" src="https://upperstall.com/wp-content/uploads/2021/06/Ray-header.jpg" alt="Slideshow Image 3">
+      <img class="slideshow-image" src="https://assets.gadgets360cdn.com/pricee/assets/product/202204/gulkanda_tales_story_1651234461.jpeg?downsize=680:*" alt="Slideshow Image 4">
+    </div>
+  </div>
+
+  <div class="meme-container">
+    <h2 class="meme-text">Aurangabad ka page banakar movie na honaa bol dena:</h2>
+    <img class="meme-image" src="https://d33wubrfki0l68.cloudfront.net/345156dd10fee0460c12319b9629f43b70b2987d/72ef2/img/templates/welcome-seh-lenge-thoda.jpg" alt="Meme Image">
+  </div>
+
+  <section class="footer">
+    <div class="box-container">
+        <div class="box">
+            <h3>Quick Links</h3>
+            <a href="/Homepage/index.html"><i class="fa fa-angle-right"></i>Home</a>
+            <a href="/aboutUS/aboutUs.html"><i class="fa fa-angle-right"></i>About</a>
+            <a href="/packages/city_package/packages.html"><i class="fa fa-angle-right"></i>Packages</a>
+            <a href="/gallery/gallery.html"><i class="fa fa-angle-right"></i>Gallery</a>
+            <a href="/Other/contactUs.html"><i class="fa fa-angle-right"></i>Contact</a>
+        </div>
+
+        <div class="box">
+            <h3>Extra Links</h3>
+            <a href="#"><i class="fa fa-angle-right"></i>ask questions</a>
+            <a href="/Other/faq.html"><i class="fa fa-angle-right"></i>faq</a>
+            <a href="privacy.html"><i class="fa fa-angle-right"></i>privacy policy</a>
+            <a href="/Other/t&c.html"><i class="fa fa-angle-right"></i>terms of use</a>
+        </div>
+
+        <div class="box">
+            <h3>Contact info</h3>
+            <a href="#"><i class="fa fa-phone"></i>428416212</a>
+            <a href="#"><i class="fa fa-phone"></i>483481292</a>
+            <a href="#"><i class="fa fa-envelope"></i>travelhub@ves.ac.in</a>
+            <a href="#"><i class="fa fa-map"></i>mumbai,India - 400094</a>
+        </div>
+
+        <div class="box">
+            <h3>Follow Us</h3>
+            <a href="#"><i class="fa fa-facebook-f"></i>facebook</a>
+            <a href="#"><i class="fa fa-twitter"></i>X</a>
+            <a href="#"><i class="fa fa-instagram"></i>instagram</a>
+            <a href="#"><i class="fa fa-linkedin"></i>linkedin</a>
+        </div>
+    </div>
+
+    <div class="credit">Created by <span> Team TravelHub</span> | all rights reserved</div>
+</section>
+
+  <script>
+    // JavaScript code for slideshow
+    let slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+      let i;
+      const slides = document.getElementsByClassName("slideshow-image");
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) {
+        slideIndex = 1;
+      }
+      slides[slideIndex - 1].style.display = "block";
+      setTimeout(showSlides, 2000); // Change image every 2 seconds
+    }
+
+    // JavaScript code for typing animation
+    const text = "Yeh He Aurangabad!"; // Text to display
+    let index = 0;
+
+    function typeWriter() {
+      if (index < text.length) {
+        document.getElementById("typing-text").innerHTML += text.charAt(index);
+        index++;
+        setTimeout(typeWriter, 100); // Speed of typing animation (milliseconds)
+      }
+    }
+
+    typeWriter();
+  </script>
+
+</body>
+</html>
