@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fortune Wheel</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f8f9fa;
+    }
+
+    #wheel-container {
+        width: 400px;
+        height: 400px;
+        position: relative;
+        background-color: #f39c12;
+        border-radius: 50%;
+        overflow: hidden;
+        margin-bottom: 20px;
+    }
+
+    #pin {
+        position: absolute;
+        top: calc(50% - 20px);
+        left: calc(50% - 2px);
+        width: 4px;
+        height: 40px;
+        background-color: red;
+        border-radius: 2px;
+        transform-origin: 50% 100%;
+        transition: transform 3s ease;
+    }
+
+    .place {
+        position: absolute;
+        top: calc(50% - 100px);
+        left: calc(50% - 100px);
+        width: 200px;
+        height: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        color: white;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        pointer-events: none;
+        transform-origin: 50% 50%;
+    }
+
+    .place:nth-child(1) {
+        transform: rotate(0deg) translateY(-180px);
+    }
+
+    .place:nth-child(2) {
+        transform: rotate(90deg) translateY(-180px);
+    }
+
+    .place:nth-child(3) {
+        transform: rotate(180deg) translateY(-180px);
+    }
+
+    .place:nth-child(4) {
+        transform: rotate(270deg) translateY(-180px);
+    }
+
+    button {
+        padding: 10px 20px;
+        font-size: 18px;
+        background-color: #3498db;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+        background-color: #2980b9;
+    }
+</style>
+</head>
+<body>
+
+<div id="wheel-container">
+    <div class="place">Mumbai</div>
+    <div class="place">Pune</div>
+    <div class="place">Nagpur</div>
+    <div class="place">Aurangabad</div>
+    <div id="pin"></div>
+</div>
+
+<button onclick="spinWheel()">Spin the Wheel</button>
+
+<script>
+    function spinWheel() {
+        const pin = document.getElementById('pin');
+        const places = document.querySelectorAll('.place');
+        const randomIndex = Math.floor(Math.random() * places.length);
+        const selectedPlace = places[randomIndex];
+        const rotationAngle = 360 * 5 + randomIndex * (360 / places.length);
+        pin.style.transform = `rotate(${rotationAngle}deg)`;
+        setTimeout(() => {
+            alert(`Your fortune: ${selectedPlace.textContent}`);
+        }, 3000);
+    }
+</script>
+
+</body>
+</html>
