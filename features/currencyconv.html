@@ -10,6 +10,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="/headfoot.css">
     <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Lobster&family=Pacifico&display=swap" rel="stylesheet">
     <!-- linking style.css file-->
     <link rel="stylesheet" href="currency.css">
@@ -26,14 +28,24 @@
 
     <header>
         <section class="header">
-            <a href="homepg.html" class="logo"><img src="logoabout.png"></a>
+            <a href="homepg.html" class="logo"><img src="/Homepage/logoabout.png"></a>
     
             <nav class="navbar">
-                <a href="index.html">Home</a>
-                <a href="aboutUs.html">About</a>
-                <a href="packages/city_package/packages.html">Packages</a>
-                <a href="gallery.html">Gallery</a>
-                <a href="contactUs.html">Contact</a>
+                <a href="/Homepage/index.html">Home</a>
+                <a href="/aboutUS/aboutUs.html">About</a>
+                <a href="/packages/city_package/packages.html">Packages</a>
+                <a href="/gallery/gallery.html">Gallery</a>
+                <a href="/Other/contactUs.html">Contact</a>
+                <div class="dropdown">
+                    <a href="#" id="profile-button">
+                        <img src="/Homepage/profiletemp.png" alt="User Profile" class="profile-circle">
+                        <span>Hi User</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <ul class="dropdown-content">
+                        <li><a href="/user/profile.html">Dashboard</a></li>
+                    </ul>
+                </div>
             </nav>
         </section>
     </header>
