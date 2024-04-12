@@ -64,7 +64,7 @@ function typeWriter() {
 }
 
 typeWriter();
-
+//profile dropdown logic 
 document.addEventListener('DOMContentLoaded', function() {
   const userProfileLink = document.getElementById('userProfileLink');
   const dropdownContent = document.getElementById('dropdownContent');
