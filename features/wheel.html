@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+       <head>
+              <title>spin the wheel game</title>
+              <style>
+              .wheel{
+                     position:relative;
+                     height: 500px;
+                     width: 500px;
+              }
+              .spin{
+                     position:relative;
+                     height: 100%;
+                     width: 100%; 
+                     border-radius: 50%;
+                     border: 10px solid rgb(3, 49, 7);
+                     overflow: hidden;
+                     transition: all ease 5s;
+              }
+              body{
+                     display: flex;
+                     align-items: center;
+                     justify-content: center;
+                     background-color: rgb(0, 153, 255);
+              }
+              span{
+                     height: 50%;
+                     width:  50%;
+                     display: inline-block;
+                     position: absolute;
+              }
+              .spopt{
+                     clip-path: polygon( 0% 92%, 100% 50%, 0% 8%);
+                     background-color: orangered;
+                     top: 120px;
+                     left: 0;
+              }
+              .spopt1{
+                     clip-path: polygon(100% 92%, 0 50%, 100% 8%);
+                     background-color: yellow;
+                     top: 120px;
+                     right: 0;
+              }
+              .spopt2{
+                     clip-path: polygon(50% 0%, 8% 100%, 92% 100%);
+                     background-color:  red;
+                     left: 120px;
+                     bottom: 0;
+              }
+              .spopt3{
+                     clip-path: polygon(50% 100%, 92% 0%, 8% 0%);                          
+                     background-color:  blue;
+                     left: 120px;
+                     top: 0px;
+              }
+              .opt2{
+                     height: 100%;
+                     width: 100%;
+                     transform: rotate(-136deg);
+              }
+              .spopt4{
+                     clip-path: polygon( 0% 92%, 100% 50%, 0% 8%);
+                     background-color: green;
+                     top: 120px;
+                     left: 0;
+              }
+              .spopt5{
+                     clip-path: polygon(100% 92%, 0 50%, 100% 8%);
+                     background-color: orange ;
+                     top: 120px;
+                     right: 0;
+              }
+              .spopt6{
+                     clip-path: polygon(50% 0%, 8% 100%, 92% 100%);
+                     background-color:  purple;
+                     left: 120px;
+                     bottom: 0;
+              }
+              .spopt7{
+                     clip-path: polygon(50% 100%, 92% 0%, 8% 0%);  
+                     background-color:  rgb(231, 149, 163);
+                     left: 120px;
+                     top: 0px;
+              }
+              span strong{
+                     height: 65px;
+                     width: 65px;
+                     line-height: 65px;
+                     border-radius: 50%;
+                     font-size: 24px;
+                     text-align: center;
+                     background-color: rgb(112, 245, 35);
+                     position: absolute;
+                     top:50%;
+                     left:50%;
+                     transform: translate(-50%,-50%);
+              }
+              .rotate{
+                     position: absolute;
+                     top:41%;
+                     left:49%;
+                     transform: translate(-50%,-50%);
+                     width: 80px;
+                     height: 80px;
+                     border-radius: 50%;
+                     border: 4px solid rgb(115, 255, 0);
+                     background-color: rgb(0, 180, 165);
+                     color: black;
+                     font-weight: bold;
+                     cursor: pointer;
+              }
+              .rotate:active{
+                     height: 95px;
+                     width:95px;
+                     font-size: 25px;
+              }
+              #head{ 
+                     color: White;
+              }
+              </style>
+              <script>
+              function wheel_spin(){
+                     var a = 1234567890;
+                     var b = 1234567890;
+                     var m = Math.floor(Math.random()*(a-b))+b;
+                     document.getElementById("spin").style.transform="rotate("+m+"deg)";
+              }
+              </script>
+              <link rel="shortcut icon" type="image/png" href="pictures/logo.png">
+              <script src="https://kit.fontawesome.com/b8ac024939.js" crossorigin="anonymous"></script>
+       </head>
+       <body>
+              <div class="wheel">
+                     <div class="spin" id="spin">
+                            <div class="opt">
+                                   <span class="spopt">
+                                          <strong>100</strong>
+                                   </span>
+                                   <span class="spopt1">
+                                          <strong>90</strong>
+                                   </span>
+                                   <span class="spopt2">
+                                          <strong>80</strong>
+                                   </span>
+                                   <span class="spopt3">
+                                          <strong>70</strong>
+                                   </span>
+                            </div>
+                            <div class="opt2">
+                                   <span class="spopt4">
+                                          <strong>60</strong>
+                                   </span>
+                                   <span class="spopt5">
+                                          <strong>50</strong>
+                                   </span>
+                                   <span class="spopt6">
+                                          <strong>40</strong>
+                                   </span>
+                                   <span class="spopt7">
+                                          <strong>30</strong>
+                                   </span>
+                            </div>
+                     </div>
+              </div>
+              <button class="rotate" onclick="wheel_spin()">spin</button>
+              <i class="fas fa-arrow-circle-left fa-4x"></i>
+       </body>
+</html>
