@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="t&c.css">
+    <link rel="stylesheet" href="../headfoot.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.js">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
-
 
     <title>t&c</title>
 </head>
@@ -18,14 +19,24 @@
 <!-- header section -->
 
 <section class="header">
-    <a href="homepg.html" class="logo"><img src="logoabout.png"></a>
+    <a href="homepg.html" class="logo"><img src="../Homepage/logoabout.png"></a>
 
     <nav class="navbar">
-        <a href="index.html">Home</a>
-        <a href="aboutUs.html">About</a>
+        <a href="/Homepage/index.html">Home</a>
+        <a href="/aboutUS/aboutUs.html">About</a>
         <a href="/packages/city_package/packages.html">Packages</a>
-        <a href="gallery.html">Gallery</a>
-        <a href="contactUs.html"> Contact</a>
+        <a href="/gallery/gallery.html">Gallery</a>
+        <a href="/Other/contactUs.html">Contact</a>
+        <div class="dropdown">
+            <a href="#" id="profile-button">
+                <img src="/Homepage/profiletemp.png" alt="User Profile" class="profile-circle">
+                <span>Hi User</span>
+                <i class="fas fa-chevron-down"></i>
+            </a>
+            <ul class="dropdown-content">
+                <li><a href="/user/profile.html">Dashboard</a></li>
+            </ul>
+        </div>
     </nav>
     <!-- <div id="menu-btn" style="padding: 0; align-items: flex-end;"><i class="fa fa-bars" style="color: white;"></i></div> -->
 </section>

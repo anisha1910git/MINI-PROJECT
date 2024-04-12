@@ -85,5 +85,7 @@
     margin-top: 75px; /* Remove default margin */
     margin-bottom: 20px; /* Add space below heading */
 }
-
+#profile-button img{
+vertical-align:baseline !important
+}
 /* Your conversion field styles here */
