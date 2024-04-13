@@ -3,6 +3,12 @@
        <head>
               <title>spin the wheel game</title>
               <style>
+              .container {
+                     display: flex;
+                     align-items: flex-start; /* Align items to the top */
+                     justify-content: center;
+                     padding: 20px;
+              }
               .wheel{
                      position:relative;
                      height: 500px;
@@ -21,7 +27,7 @@
                      display: flex;
                      align-items: center;
                      justify-content: center;
-                     background-color: rgb(0, 153, 255);
+                   
               }
               span{
                      height: 50%;
@@ -30,7 +36,7 @@
                      position: absolute;
               }
               .spopt{
-                     clip-path: polygon( 0% 92%, 100% 50%, 0% 8%);
+                     clip-path: polygon( 0% 92% , 100% 50%, 0% 8%);
                      background-color: orangered;
                      top: 120px;
                      left: 0;
@@ -85,11 +91,11 @@
               span strong{
                      height: 65px;
                      width: 65px;
-                     line-height: 65px;
+                     line-height: 27px;
                      border-radius: 50%;
-                     font-size: 24px;
+                     font-size: 18px;
                      text-align: center;
-                     background-color: rgb(112, 245, 35);
+                     /* background-color: rgb(112, 245, 35); */
                      position: absolute;
                      top:50%;
                      left:50%;
@@ -97,8 +103,8 @@
               }
               .rotate{
                      position: absolute;
-                     top:41%;
-                     left:49%;
+                     top:50%;
+                     left:50%;
                      transform: translate(-50%,-50%);
                      width: 80px;
                      height: 80px;
@@ -113,6 +119,14 @@
                      height: 95px;
                      width:95px;
                      font-size: 25px;
+              }
+              .list-box {
+                     width: 300px;
+                     padding: 20px;
+                     background-color: #fff;
+                     border-radius: 10px;
+                     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Neat box shadow */
+                     margin-left: 50px; /* Adjust margin */
               }
               #head{ 
                      color: White;
@@ -130,39 +144,49 @@
               <script src="https://kit.fontawesome.com/b8ac024939.js" crossorigin="anonymous"></script>
        </head>
        <body>
-              <div class="wheel">
-                     <div class="spin" id="spin">
-                            <div class="opt">
-                                   <span class="spopt">
-                                          <strong>100</strong>
-                                   </span>
-                                   <span class="spopt1">
-                                          <strong>90</strong>
-                                   </span>
-                                   <span class="spopt2">
-                                          <strong>80</strong>
-                                   </span>
-                                   <span class="spopt3">
-                                          <strong>70</strong>
-                                   </span>
+              
+              <div class="container">
+                     <div class="wheel">
+                            <div class="spin" id="spin">
+                                   <div class="opt">
+                                          <span class="spopt">
+                                                 <strong>Mumbai with Preeti tours</strong>
+                                          </span>
+                                          <span class="spopt1">
+                                                 <strong>Pune with Parvati tours</strong>
+                                          </span>
+                                          <span class="spopt2">
+                                                 <strong>Nagpur with Safar tours</strong>
+                                          </span>
+                                          <span class="spopt3">
+                                                 <strong>Cultural tour of Aurangabad</strong>
+                                          </span>
+                                   </div>
+                                   <div class="opt2">
+                                          <span class="spopt4">
+                                                 <strong>Aurangabad tour</strong>
+                                          </span>
+                                          <span class="spopt5">
+                                                 <strong>Ajanta, Nagpur Discovery</strong>
+                                          </span>
+                                          <span class="spopt6">
+                                                 <strong>Pune with Hilton Tours</strong>
+                                          </span>
+                                          <span class="spopt7">
+                                                 <strong>Mumbai with Geeta Tours</strong>
+                                          </span>
+                                   </div>
                             </div>
-                            <div class="opt2">
-                                   <span class="spopt4">
-                                          <strong>60</strong>
-                                   </span>
-                                   <span class="spopt5">
-                                          <strong>50</strong>
-                                   </span>
-                                   <span class="spopt6">
-                                          <strong>40</strong>
-                                   </span>
-                                   <span class="spopt7">
-                                          <strong>30</strong>
-                                   </span>
-                            </div>
+                            <button class="rotate" onclick="wheel_spin()">spin</button>
+                     </div>
+                     <div class="list-box">
+                            <h2>Why not add some fun elements to your travel?</h2>
+                            <ul>
+                                   <li>Press the spin button to get a random package assigned to you.</li>
+                                   <li>Have fun exploring the exciting travel options!</li>
+                                   <li>Remember, every spin is an adventure waiting to happen!</li>
+                            </ul>
                      </div>
               </div>
-              <button class="rotate" onclick="wheel_spin()">spin</button>
-              <i class="fas fa-arrow-circle-left fa-4x"></i>
        </body>
 </html>
